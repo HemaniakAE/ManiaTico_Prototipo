@@ -1,18 +1,22 @@
 :root {
+  --bg-main: #0e1521;
+  --header-bg: #1c1a21;
+  --accent: #b61a2e;
+  --text: rgba(255, 255, 255, 0.87);
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(145deg,#1c1a21 20%, #13263a 100%);
-
+  color: var(--text);
+  background-color: var(--bg-main);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 a {
   font-weight: 500;

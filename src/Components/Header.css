@@ -1,26 +1,28 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
-    background-color: transparent;
-    border-bottom: 2px solid #ccc;
-    box-shadow: #1c1a21;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: linear-gradient(145deg, #13263a, #1c1a21);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 12px rgba(84, 57, 133, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 10;
 }
+
 .header-left .logo-refresh {
-    height: 90px;
-    cursor: pointer;
-    transition: transform .2s ease;
+  height: 90px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .header-left .logo-refresh:hover {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
 .header-center {
@@ -29,26 +31,72 @@
   justify-content: center;
 }
 
-.search-bar {
+.search-wrapper {
+  display: flex;
+  align-items: center;
   width: 400px;
-  height: 20px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+}
+
+.search-bar {
+  flex: 1;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #444;
   background: #1a1a1a65;
   color: white;
   font-size: 14px;
-  transition: border .2s;
-  transition: transform .2s ease;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
-.search-bar:hover {
-    border-color: #b61a2e;
-    transform: scale(1.05);
-}
-
+.search-bar:hover,
 .search-bar:focus {
-    border-color: #b61a2e;
-    outline: none;
+  border-color: #b61a2e;
+  outline: none;
 }
 
+.search-button {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 0 8px 8px 0;
+  border: 1px solid #b61a2e;
+  border-left: none; /* Se une visualmente con el input */
+  background: #b61a2e;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s ease;
+}
+
+.search-button:hover {
+  border-color: transparent;
+}
+
+/* Aquí se elimina el efecto al presionar */
+.search-button:focus,
+.search-button:focus-visible,
+.search-button:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #b61a2e !important;
+}
+
+.search-button .search-icon {
+  font-size: 18px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+/* Hover → ícono ligeramente más grande */
+.search-button:hover .search-icon {
+  transform: scale(1.12);
+  opacity: 0.9;
+}
+
+/* Active (cuando lo presionas) → ícono un poco más pequeño */
+.search-button:active .search-icon {
+  transform: scale(0.88);
+  opacity: 0.8;
+}
