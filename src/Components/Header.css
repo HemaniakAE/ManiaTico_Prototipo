@@ -3,9 +3,52 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
-    background-color: #1c1a21;
-    border: 3px solid #b8aab2;
-    position: sticky;
+    background-color: transparent;
+    border-bottom: 2px solid #ccc;
+    box-shadow: #1c1a21;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
     z-index: 10;
 }
+.header-left .logo-refresh {
+    height: 90px;
+    cursor: pointer;
+    transition: transform .2s ease;
+}
+
+.header-left .logo-refresh:hover {
+    transform: scale(1.08);
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 400px;
+  height: 20px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #1a1a1a65;
+  color: white;
+  font-size: 14px;
+  transition: border .2s;
+  transition: transform .2s ease;
+}
+
+.search-bar:hover {
+    border-color: #b61a2e;
+    transform: scale(1.05);
+}
+
+.search-bar:focus {
+    border-color: #b61a2e;
+    outline: none;
+}
+
