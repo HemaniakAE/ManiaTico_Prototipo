@@ -25,6 +25,10 @@
   transform: scale(1.08);
 }
 
+.header-left .logo-refresh:active {
+    transform: scale(0.9);
+}
+
 .header-center {
   flex: 1;
   display: flex;
@@ -99,4 +103,41 @@
 .search-button:active .search-icon {
   transform: scale(0.88);
   opacity: 0.8;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 150px; /* ← clave */
+  padding-right: 50px;
+}
+
+.auth-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #b61a2e;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .25s ease, transform .25s ease;
+}
+
+.auth-button:hover {
+  background: #d2263d;
+  transform: scale(1.05);
+  color: white;
+}
+
+.auth-button:active {
+  transform: scale(0.95);
+  background-color: #ed4958;
+}
+
+.auth-icon {
+  font-size: 18px;
 }

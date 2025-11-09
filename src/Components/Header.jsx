@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import RefreshButton from "./RefreshButton";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaRegUserCircle } from "react-icons/fa";
 
 function Header() {
   return (
@@ -24,7 +24,12 @@ function Header() {
         </div>
       </div>
 
-      <div className="header-right"></div>
+      <div className="header-right">
+        <Link to="/auth" className="auth-button">
+          <FaRegUserCircle className="auth-icon" />
+          <span>Ingresar</span>
+        </Link>
+      </div>
     </header>
   );
 }
