@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.home-layout {
+  display: flex;
+  margin-top: 70px;
+}
+
+.home-content {
+  margin-left: 220px;
+  padding: 20px;
+  width: 100%;
+}
+
+

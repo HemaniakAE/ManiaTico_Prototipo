@@ -1,0 +1,87 @@
+.sidebar {
+  width: 140px;
+  background: rgba(19, 38, 58, 0.85);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  height: calc(100vh - 70px);
+  position: fixed;
+  top: 70px;
+  left: 0;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  /*Para Firefox*/
+  scrollbar-width: thin;
+  scrollbar-color: #b61a2e rgba(255, 255, 255, 0.08);
+}
+
+/* Estilo del scrollbar (para navegadores WebKit como Chrome, Edge, Opera) */
+.sidebar::-webkit-scrollbar {
+  width: 8px; /* ancho del scroll */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #b61a2e;
+  border-radius: 10px;
+  border: 2px solid rgba(19, 38, 58, 0.85);
+  transition: background-color 0.3s ease;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #d2263d; /* un tono más claro al pasar el mouse */
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #b61a2e;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.sidebar li:hover {
+  color: #d2263d;
+  transform: translateX(2px);
+}
+
+/* Categorías principales */
+.category {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+/* Subcategorías con indentación */
+.subcategory {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 14px;
+  margin-bottom: 4px;
+  color: #ddd;
+}
+
+/* Hover distinto para subcategorías */
+.subcategory:hover {
+  color: #ff4c5b;
+}
+
+/* Espacio inferior */
+.sidebar::after {
+  content: "";
+  display: block;
+  height: 40px;
+}
