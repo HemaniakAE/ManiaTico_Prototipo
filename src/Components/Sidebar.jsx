@@ -45,6 +45,7 @@ function Sidebar() {
         <li className="category">Plataformas</li>
         <li className="category">Música</li>
         <li className="category">Puzles</li>
+        <li className="category">DLC´s</li>
       </ul>
     </aside>
   );
