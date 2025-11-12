@@ -1,0 +1,86 @@
+.catalog-container {
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.catalog-title {
+  position: sticky;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0.5em;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #b61a2e;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+.game-card {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.image-wrapper {
+  height: 180px;
+  overflow: hidden;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 1rem;
+}
+
+.game-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.developer {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: #e63946;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.categories {
+  margin-bottom: 0.7rem;
+}
+
+.category-tag {
+  background: #f1f1f1;
+  border-radius: 20px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  margin-right: 0.4rem;
+  color: #333;
+}
+
+.description {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}

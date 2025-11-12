@@ -1,6 +1,7 @@
 import './Home.css'
 import Header from '../../Components/Header'
 import Sidebar from '../../Components/Sidebar'
+import Catalog from '../../Components/Catalog'
 
 function Home() {
   return (
@@ -9,7 +10,7 @@ function Home() {
       <div className='home-layout'>
         <Sidebar />
         <div className="home-content">
-          <img src="/Logo_ManiaTico.png" alt="Logo ManiaTico" className="logo" />
+         <Catalog />
         </div>
       </div>  
     </>
