@@ -20,6 +20,7 @@ const Catalog = () => {
             </div>
             <div className="game-info">
               <h3>{game.name}</h3>
+              <p className="name">{game.name}</p>
               <p className="developer">{game.developer}</p>
               <p className="price">₡{game.price.toLocaleString()}</p>
               <div className="categories">
