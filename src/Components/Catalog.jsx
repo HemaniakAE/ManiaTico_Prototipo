@@ -3,8 +3,8 @@ import gamesData from "../data/games.json";
 import "./Catalog.css";
 
 const Catalog = () => {
-  const featured = gamesData.find((g) => g.name === "Don Memo");
-  const popular = gamesData.filter((g) => g.name !== "Don Memo" && g.id <= 5);
+  const featured = gamesData.find((g) => g.name === "Spirits of Irazú");
+  const popular = gamesData.filter((g) => g.name !== "Spirits of Irazú" && g.id <= 5);
   const rest = gamesData.filter((g) => g.id > 5);
 
   return (
