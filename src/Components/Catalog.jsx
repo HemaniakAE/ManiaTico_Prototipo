@@ -81,6 +81,18 @@ const Catalog = () => {
           ))}
         </div>
       </section>
+      {/* ---------- COMING SOON ---------- */}
+      <section className="coming-soon-section">
+        <div className="coming-soon-card">
+          <div className="coming-soon-content">
+            <h3>¡Próximamente más juegos...!</h3>
+            <p>
+              Mantente atento a nuestro catálogo, ¡se vienen nuevos títulos
+              increíbles!
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
