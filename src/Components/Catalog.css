@@ -3,43 +3,151 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  box-sizing: border-box;
 }
 
+/* ---------- TÍTULO PRINCIPAL ---------- */
 .catalog-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-top: 0.5em;
-  margin-bottom: 2rem;
+  font-size: 2.8rem; 
+  font-weight: 900; 
   text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase; 
+  letter-spacing: 5px; 
+  background: transparent;
   color: #b61a2e; 
+  
+  transition: transform 0.3s ease;
 }
 
+/* efecto hover opcional para darle dinamismo */
+.catalog-title:hover {
+  transform: scale(1.05);
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- SECCIÓN DESTACADA (INTERACTIVA) ---------- */
+.featured-section {
+  position: relative;
+  margin-bottom: 4rem;
+  cursor: pointer;
+}
+
+.featured-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #b61a2e;
+}
+
+.featured-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.4s ease;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* 🧠 Animaciones de hover para igualar a las gamecards */
+.featured-section:hover .featured-image {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.featured-section:hover img {
+  filter: brightness(85%);
+  transform: scale(1.05);
+}
+
+.featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: #fff;
+  width: 100%;
+}
+
+.featured-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.featured-overlay p {
+  font-size: 1rem;
+  max-width: 700px;
+  line-height: 1.4;
+  color: #ddd;
+}
+
+.featured-price {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #b61a2e;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
+
+/* ---------- SECCIÓN POPULARES ---------- */
+.popular-section {
+  margin-bottom: 4rem;
+}
+
+.popular-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #b61a2e;
+}
+
+.popular-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+
+/* ---------- SECCIÓN TODOS ---------- */
+.all-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #b61a2e;
+}
+
+/* ---------- GRID GENERAL ---------- */
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  column-gap: 10rem;
-  row-gap: 4em;
-  justify-items: center; 
-  align-items: start; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 3rem;
+  justify-items: center;
 }
 
+/* ---------- TARJETAS ---------- */
 .game-card {
-  background: rgb(0, 0, 0);
+  background: #fff;
   border-radius: 0.8rem;
   overflow: hidden;
   width: 100%;
-  max-width: 360px;
+  max-width: 480px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
-  color: #282828;
 }
 
 .game-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
+/* IMAGEN panorámica */
 .image-wrapper {
   position: relative;
   width: 100%;
@@ -59,6 +167,7 @@
   transform: scale(1.05);
 }
 
+/* PRECIO */
 .price-tag {
   position: absolute;
   bottom: 8px;
@@ -71,21 +180,26 @@
   border-radius: 6px;
 }
 
+/* INFO */
 .game-info {
-  padding: 0.9rem;
+  padding: 1rem;
   text-align: center;
 }
 
 .game-info h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #b61a2e;
-  white-space: nowrap;         
-  overflow: hidden;            
-  text-overflow: ellipsis;   
+  margin-bottom: 0.3rem;
 }
 
+.developer {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* CATEGORÍAS */
 .categories {
   display: flex;
   flex-wrap: wrap;
@@ -94,9 +208,20 @@
 }
 
 .category-tag {
-  background: rgb(73, 73, 73);
+  background: #f1f1f1;
   border-radius: 12px;
   padding: 0.25rem 0.6rem;
   font-size: 0.75rem;
-  color: #ffffff;
+  color: #393939;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1000px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-overlay p {
+    max-width: 100%;
+  }
 }
