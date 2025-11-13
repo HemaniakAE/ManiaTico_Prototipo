@@ -17,12 +17,10 @@ const Catalog = () => {
                 alt={game.name}
                 className="game-image"
               />
+              <span className="price-tag">₡{game.price.toLocaleString()}</span>
             </div>
             <div className="game-info">
               <h3>{game.name}</h3>
-              <p className="name">{game.name}</p>
-              <p className="developer">{game.developer}</p>
-              <p className="price">₡{game.price.toLocaleString()}</p>
               <div className="categories">
                 {game.categories.map((cat, i) => (
                   <span key={i} className="category-tag">
@@ -30,7 +28,6 @@ const Catalog = () => {
                   </span>
                 ))}
               </div>
-              <p className="description">{game.description}</p>
             </div>
           </div>
         ))}
