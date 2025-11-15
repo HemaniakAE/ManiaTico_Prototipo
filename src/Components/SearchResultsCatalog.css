@@ -1,22 +1,19 @@
 /* CONTENEDOR PRINCIPAL */
 .search-results-catalog-container {
   width: 100%;
-  max-width: 1200px; /* 👈 más compacto = mejor centrado */
+  max-width: 1400px; /* 👈 más compacto = mejor centrado */
   margin: 0 auto;
   padding: 4rem 1.5rem 2rem; /* 👈 baja el contenido */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 0;
 }
 
 /* TÍTULO */
 .search-results-catalog-title {
   font-size: 1.3rem;
   font-weight: 900;
-  width: 600px;
   text-align: center;
-  margin-top: 0.2rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 4px;

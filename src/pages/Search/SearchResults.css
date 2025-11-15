@@ -45,22 +45,15 @@
 .search-layout {
   display: flex;
   width: 100%;
-  padding-top: 90px; /* espacio por el header */
+  margin-top: 0px;
 }
 
-/* Sidebar se queda con ancho fijo */
-.search-layout .sidebar {
-  width: 240px; /* ajustalo al tamaño real */
-  flex-shrink: 0;
-}
 
 /* El contenido del catálogo toma el resto del ancho */
 .search-content {
-  margin-left: 220px; /* ⬅️ ancho del sidebar */
-  margin-top: 80px; /* ⬆️ altura del header */
-  width: calc(100% - 220px);
+  margin-left: 120px;
   padding: 20px;
-  overflow-x: visible; /* ⬅️ evitar cortes */
+  width: 100%;
 }
 
 
