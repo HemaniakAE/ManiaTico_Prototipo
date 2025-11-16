@@ -7,8 +7,21 @@ import "./SearchBar.css";
 
 export default function SearchBar() {
   const navigate = useNavigate();
-  const { searchTerm, setSearchTerm, setFinalSearch } = useContext(SearchContext);
+  const { searchTerm, setSearchTerm, setFinalSearch } =
+    useContext(SearchContext);
   const [suggestions, setSuggestions] = useState([]);
+  const normalize = (str) =>
+    str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+
+  const matchesWordStart = (name, term) => {
+    const nName = normalize(name);
+    const nTerm = normalize(term);
+
+    return nName.split(" ").some((word) => word.startsWith(nTerm));
+  };
 
   const updateSuggestions = (value) => {
     if (!value.trim()) {
@@ -16,9 +29,7 @@ export default function SearchBar() {
       return;
     }
 
-    const results = gamesData.filter(g =>
-      g.name.toLowerCase().includes(value.toLowerCase())
-    );
+    const results = gamesData.filter((g) => matchesWordStart(g.name, value));
 
     setSuggestions(results.slice(0, 5));
   };
@@ -66,7 +77,7 @@ export default function SearchBar() {
 
       {suggestions.length > 0 && (
         <ul className="search-suggestions">
-          {suggestions.map(s => (
+          {suggestions.map((s) => (
             <li key={s.id} onClick={() => handleSelectSuggestion(s.name)}>
               {s.name}
             </li>
