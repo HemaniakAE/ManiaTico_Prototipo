@@ -33,10 +33,18 @@
   height: 90px;
   background: transparent;
   cursor: default;
+  outline: none;
 }
 
 .header-left .logo-button:hover {
   border: 1px solid transparent;
+}
+
+.logo-button:focus,
+.logo-button:active,
+.logo-button:focus-visible {
+  outline: none;
+  border: none;
 }
 
 .header-center {
