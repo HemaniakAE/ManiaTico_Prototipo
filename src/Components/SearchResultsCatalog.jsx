@@ -5,21 +5,26 @@ import { SearchContext } from "../Context/SearchContext";
 
 const SearchResultsCatalog = () => {
   const { finalSearch } = useContext(SearchContext);
-  const normalize = (str) =>
-    str
+  const normalize = (str = "") =>
+    String(str)
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
+      .toLowerCase()
+      .trim();
 
-  const matchesWordStart = (name, term) => {
+  const matchesByTokens = (name, term) => {
     const nName = normalize(name);
     const nTerm = normalize(term);
-
-    return nName.split(" ").some((word) => word.startsWith(nTerm));
+    if (!nTerm) return false;
+    const nameWords = nName.split(/\s+/);
+    const tokens = nTerm.split(/\s+/);
+    return tokens.every((token) =>
+      nameWords.some((word) => word.startsWith(token))
+    );
   };
 
   const filteredGames = gamesData.filter((g) =>
-    matchesWordStart(g.name, finalSearch)
+    matchesByTokens(g.name, finalSearch)
   );
 
   return (

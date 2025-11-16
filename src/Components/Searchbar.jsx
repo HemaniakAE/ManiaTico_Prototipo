@@ -10,27 +10,38 @@ export default function SearchBar() {
   const { searchTerm, setSearchTerm, setFinalSearch } =
     useContext(SearchContext);
   const [suggestions, setSuggestions] = useState([]);
-  const normalize = (str) =>
-    str
+  const normalize = (str = "") =>
+    String(str)
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
+      .toLowerCase()
+      .trim();
 
-  const matchesWordStart = (name, term) => {
+  const matchesByTokens = (name, term) => {
     const nName = normalize(name);
     const nTerm = normalize(term);
+    if (!nTerm) return false;
 
-    return nName.split(" ").some((word) => word.startsWith(nTerm));
+    // palabras del nombre
+    const nameWords = nName.split(/\s+/);
+
+    // tokens de la búsqueda (por ejemplo: "selva eterna" -> ["selva","eterna"])
+    const tokens = nTerm.split(/\s+/);
+
+    // para cada token necesitamos al menos una palabra del nameWords que empiece con el token
+    return tokens.every((token) =>
+      nameWords.some((word) => word.startsWith(token))
+    );
   };
 
   const updateSuggestions = (value) => {
-    if (!value.trim()) {
+    const v = normalize(value);
+    if (!v) {
       setSuggestions([]);
       return;
     }
 
-    const results = gamesData.filter((g) => matchesWordStart(g.name, value));
-
+    const results = gamesData.filter((g) => matchesByTokens(g.name, v));
     setSuggestions(results.slice(0, 5));
   };
 
@@ -41,8 +52,9 @@ export default function SearchBar() {
   };
 
   const confirmSearch = (value) => {
-    if (!value.trim()) return;
-    setFinalSearch(value);
+    const cleaned = normalize(value);
+    if (!cleaned) return;
+    setFinalSearch(cleaned); // guardamos la versión normalizada; también funciona usar raw, pero normalizar evita problemas
     navigate("/search");
     setSuggestions([]);
   };
