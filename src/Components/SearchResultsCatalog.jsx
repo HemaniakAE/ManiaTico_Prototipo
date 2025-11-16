@@ -1,10 +1,13 @@
+// src/Components/SearchResultsCatalog.jsx
 import React, { useContext } from "react";
 import gamesData from "../data/games.json";
+import GameCard from "./GameCard";
 import "./SearchResultsCatalog.css";
 import { SearchContext } from "../Context/SearchContext";
 
 const SearchResultsCatalog = () => {
   const { finalSearch } = useContext(SearchContext);
+
   const normalize = (str = "") =>
     String(str)
       .normalize("NFD")
@@ -41,29 +44,7 @@ const SearchResultsCatalog = () => {
         <section className="all-section">
           <div className="search-results-catalog-grid">
             {filteredGames.map((game) => (
-              <div key={game.id} className="game-card">
-                <div className="image-wrapper">
-                  <img
-                    src={`/src/assets/games/${game.image}`}
-                    alt={game.name}
-                    className="game-image"
-                  />
-                  <div className="price-tag">
-                    ₡{game.price.toLocaleString()}
-                  </div>
-                </div>
-                <div className="game-info">
-                  <h3>{game.name}</h3>
-                  <p className="developer">{game.developer}</p>
-                  <div className="categories">
-                    {game.categories.map((cat, i) => (
-                      <span key={i} className="category-tag">
-                        {cat}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <GameCard key={game.id} game={game} />
             ))}
           </div>
         </section>
