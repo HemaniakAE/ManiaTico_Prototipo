@@ -39,7 +39,7 @@
   color: #b61a2e;
   text-align: center;
 }
-
+/*
 .featured-image {
   position: relative;
   width: 100%;
@@ -58,7 +58,7 @@
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* Animaciones de hover para igualar a las gamecards */
+
 .featured-section:hover .featured-image {
   transform: translateY(-5px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
@@ -106,7 +106,7 @@
   border-radius: 0.5rem;
   font-weight: 700;
 }
-
+*/
 /* ---------- SECCIÓN POPULARES ---------- */
 .popular-section {
   margin-bottom: 4rem;
@@ -135,6 +135,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem 3rem;
+  column-gap: 7em;
   justify-items: center;
 }
 
