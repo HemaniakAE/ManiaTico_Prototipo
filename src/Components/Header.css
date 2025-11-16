@@ -29,6 +29,16 @@
     transform: scale(0.9);
 }
 
+.header-left .logo-button {
+  height: 90px;
+  background: transparent;
+  cursor: default;
+}
+
+.header-left .logo-button:hover {
+  border: 1px solid transparent;
+}
+
 .header-center {
   flex: 1;
   display: flex;

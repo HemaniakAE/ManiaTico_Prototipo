@@ -1,11 +1,21 @@
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { SearchContext } from "../Context/SearchContext";
 
 function RefreshButton() {
+  const navigate = useNavigate();
+  const { setSearchTerm, setFinalSearch } = useContext(SearchContext);
+
+  const resetApp = () => {
+    setSearchTerm("");
+    setFinalSearch("");
+    navigate("/"); // volver al home
+  };
+
   return (
-    <Link to="/" className="logo-button">
+    <button onClick={resetApp} className="logo-button">
       <img src="/Logo_ManiaTico.png" alt="Reset" className="logo-refresh" />
-    </Link>
+    </button>
   );
 }
 
