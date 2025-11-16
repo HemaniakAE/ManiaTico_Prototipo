@@ -46,6 +46,13 @@ const Catalog = () => {
               <div className="game-info">
                 <h3>{game.name}</h3>
                 <p className="developer">{game.developer}</p>
+                <div className="categories">
+                  {game.categories.map((cat, i) => (
+                    <span key={i} className="category-tag">
+                      {cat}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
