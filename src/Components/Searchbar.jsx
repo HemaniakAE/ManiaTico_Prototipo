@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import gamesData from "../data/games.json";
 import { SearchContext } from "../Context/SearchContext";
-import "./SearchBar.css";
+import "./Searchbar.css";
 
 export default function SearchBar() {
   const navigate = useNavigate();
