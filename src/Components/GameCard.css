@@ -1,0 +1,142 @@
+/* Variante destacada */
+.featured-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card .image-wrapper img {
+  height: 520px;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.featured-card:hover .image-wrapper img {
+  filter: brightness(85%);
+  transform: scale(1.05);
+}
+
+.featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  width: 100%;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.featured-description {
+  max-width: 700px;
+  margin: auto;
+  color: #ddd;
+  font-size: 1rem;
+}
+
+.featured-price {
+  margin-top: 1rem;
+  background: #b61a2e;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.6rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* ---------- TARJETAS ---------- */
+.game-card {
+  background: #1c1a21;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1080px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* IMAGEN panorámica */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  background: #000;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-image {
+  transform: scale(1.05);
+}
+
+/* PRECIO */
+.price-tag {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 48, 135, 0.9);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+/* INFO */
+.game-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.game-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #b61a2e;
+  margin-bottom: 0.3rem;
+}
+
+.developer {
+  font-size: 0.9rem;
+  color: #c5c3c3;
+  margin-bottom: 0.5rem;
+}
+
+/* CATEGORÍAS */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.category-tag {
+  background: #f1f1f1;
+  border-radius: 12px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  color: #393939;
+}

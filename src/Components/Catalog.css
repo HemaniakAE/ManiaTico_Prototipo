@@ -1,0 +1,186 @@
+.catalog-container {
+  padding: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ---------- TÍTULO PRINCIPAL ---------- */
+.catalog-title {
+  font-size: 2.8rem; 
+  font-weight: 900; 
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase; 
+  letter-spacing: 5px; 
+  background: transparent;
+  color: #b61a2e; 
+  margin-bottom: 1em;
+  transition: transform 0.3s ease;
+}
+
+/* efecto hover opcional para darle dinamismo */
+.catalog-title:hover {
+  transform: scale(1.05);
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- SECCIÓN DESTACADA (INTERACTIVA) ---------- */
+.featured-section {
+  position: relative;
+  margin-bottom: 4rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.featured-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #b61a2e;
+  text-align: center;
+}
+/*
+.featured-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.4s ease;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  filter: brightness(70%);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+
+.featured-section:hover .featured-image {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.featured-section:hover img {
+  filter: brightness(85%);
+  transform: scale(1.05);
+}
+
+.featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  left: 50%;           
+  transform: translateX(-50%); 
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.featured-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.featured-overlay p {
+  font-size: 1rem;
+  max-width: 700px;
+  line-height: 1.4;
+  color: #ddd;
+}
+
+.featured-price {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #b61a2e;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
+*/
+/* ---------- SECCIÓN POPULARES ---------- */
+.popular-section {
+  margin-bottom: 4rem;
+}
+
+.popular-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #b61a2e;
+}
+
+.popular-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+
+/* ---------- SECCIÓN TODOS ---------- */
+.all-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #b61a2e;
+}
+
+/* ---------- GRID GENERAL ---------- */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 3rem;
+  column-gap: 7em;
+  justify-items: center;
+}
+
+.coming-soon-section {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
+}
+
+.coming-soon-card {
+  background: transparent;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.coming-soon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.coming-soon-content h3 {
+  font-size: 1.5rem;
+  color: #b61a2e;
+  margin-bottom: 1rem;
+}
+
+.coming-soon-content p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1000px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-overlay p {
+    max-width: 100%;
+  }
+}
+

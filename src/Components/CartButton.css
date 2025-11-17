@@ -1,0 +1,37 @@
+.cart-button {
+  margin-top: 8px;
+  margin-right: 40px;
+  height: 90px;
+  background: transparent;
+  cursor: default;
+  outline: none;
+}
+
+.cart-button:hover {
+  border: 1px solid transparent;
+}
+
+.cart-button:focus,
+.cat-button:active,
+.cat-button:focus-visible {
+  outline: none;
+  border: none;
+}
+
+.cart-logo {
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s ease, color 0.5s ease;
+}
+
+.cart-logo:hover {
+  transform: scale(1.08);
+  color: #b61a2e;
+}
+
+.cart-logo:active {
+  transform: scale(0.9);
+}
+
+
