@@ -4,6 +4,7 @@ import "./Header.css";
 import RefreshButton from "./RefreshButton";
 import { FaSearch, FaRegUserCircle } from "react-icons/fa";
 import SearchBar from "./Searchbar";
+import CartButton from "./CartButton";
 
 function Header() {
   return (
@@ -17,6 +18,7 @@ function Header() {
       </div>
 
       <div className="header-right">
+        <CartButton />
         <Link to="/auth" className="auth-button">
           <FaRegUserCircle className="auth-icon" />
           <span>Ingresar</span>

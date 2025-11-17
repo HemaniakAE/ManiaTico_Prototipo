@@ -4,6 +4,7 @@ import Auth from "./pages/Auth/Auth";
 import { SearchProvider } from "./Context/SearchContext";
 import SearchResults from "./pages/Search/SearchResults";
 import GameView from "./pages/GameView/GameView";
+import ShopCenter from "./pages/ShopCenter/ShopCenter";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/search" element={<SearchResults />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/gameview" element={<GameView />} />
+        <Route path="/shopcenter" element={<ShopCenter />} />
       </Routes>
     </SearchProvider>
   );
