@@ -1,19 +1,28 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.game-details-layout {
+.game-view-layout {
+  position: fixed;
   display: flex;
-  margin-top: 70px;
-}
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  padding-top: 50px; /* Separación debajo del Header */
+  width: 100%;
+  max-height: 1280px;
+  left: 0;
+} 
 
-.game-details-content {
-  margin-left: 220px;
-  padding: 20px;
+/* Banner */
+.game-view-banner {
+  width: 100%;
+  height: 955px; /* Ajusta según necesites */
+  aspect-ratio: 2 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+} 
+
+/* Detalles del juego */
+.game-view-content {
+  margin-top: 70px; /* Espacio entre banner y contenido */
+  text-align: center;
   width: 100%;
 }
-
-

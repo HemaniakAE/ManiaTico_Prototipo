@@ -1,11 +1,14 @@
 // src/Components/GameCard.jsx
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./GameCard.css";
+import { GameSelectionContext } from "../Context/GameSelectionContext";
 
 export default function GameCard({ game, variant = "default", onClick }) {
     const navigate = useNavigate();
+    const { setSelectedGame } = useContext(GameSelectionContext);
     const gameCardClick = () => {
+        setSelectedGame(game);
         navigate("/gameview"); // Ir a gameview
     }
 

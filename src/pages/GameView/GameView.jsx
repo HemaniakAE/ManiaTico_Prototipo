@@ -1,17 +1,20 @@
 import './GameView.css'
 import Header from '../../Components/Header'
-import Sidebar from '../../Components/Sidebar'
+import GameBanner from '../../Components/GameBanner';
 
 function GameView() {
   return (
     <>
       <Header />
       <div className='game-view-layout'>
-        <Sidebar />
-        <div className="game-view-content">
-         <h2>DETALLES DE JUEGO</h2>
+        <div className='game-view-banner'>
+          <GameBanner />
         </div>
-      </div>  
+
+        <div className="game-view-content">
+          <h2>DETALLES DE JUEGO</h2>
+        </div>
+      </div>
     </>
   )
 }
