@@ -15,6 +15,11 @@
   z-index: 10;
 }
 
+.header-left {
+  display: flex;
+  justify-content: center;
+}
+
 .header-left .logo-refresh {
   height: 90px;
   cursor: pointer;
@@ -30,6 +35,7 @@
 }
 
 .header-left .logo-button {
+  margin-bottom: 20px;
   height: 90px;
   background: transparent;
   cursor: default;
@@ -46,6 +52,25 @@
   outline: none;
   border: none;
 }
+
+.header-left .library-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 120px;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.5s ease;
+}
+
+.header-left .library-link:hover {
+  color: #b61a2e;
+  transform: scale(1.08)
+}
+
 
 .header-center {
   flex: 1;
@@ -189,4 +214,5 @@
   background: linear-gradient(145deg, #253d56, #222126);
   transform: scale(1.05);
 }
+
 
