@@ -7,10 +7,28 @@ export default function CartSummary({ itemsWithData, onClear }){
   const [showToast, setShowToast] = useState(false)
   const subtotal = itemsWithData.reduce((s,i)=>s + (i.price||0) * i.qty, 0)
 
-  // Mostrar toast y vaciar carrito. El toast permanecerá hasta que el
-  // usuario cambie de página (el componente se desmonta) o recargue.
+  
   const handleCheckout = () => {
     setShowToast(true)
+    try {
+      // Guardar en biblioteca local: mt_library
+      const raw = localStorage.getItem('mt_library')
+      const existing = raw ? JSON.parse(raw) : []
+
+      
+      const merged = [...existing]
+      itemsWithData.forEach((it) => {
+        const found = merged.find((m) => m.id === it.id)
+        if (found) found.qty = (found.qty || 0) + (it.qty || 1)
+        else merged.push({ id: it.id, qty: it.qty || 1 })
+      })
+
+      localStorage.setItem('mt_library', JSON.stringify(merged))
+      try{ window.dispatchEvent(new CustomEvent('mt_library_updated', { detail: merged })) }catch(e){}
+    } catch (err) {
+      console.warn('No se pudo guardar la biblioteca:', err)
+    }
+
     // vaciar carrito inmediatamente después de la compra
     if (onClear) onClear()
   }

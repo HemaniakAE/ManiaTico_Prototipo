@@ -5,6 +5,7 @@ import { SearchProvider } from "./Context/SearchContext";
 import SearchResults from "./pages/Search/SearchResults";
 import GameView from "./pages/GameView/GameView";
 import ShopCenter from "./pages/ShopCenter/ShopCenter";
+import Library from "./pages/Library/Library";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchResults />} />
-        <Route path="/auth" element={<Auth />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/library" element={<Library />} />
         <Route path="/gameview" element={<GameView />} />
         <Route path="/shopcenter" element={<ShopCenter />} />
       </Routes>
