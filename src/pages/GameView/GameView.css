@@ -22,7 +22,12 @@
 
 /* Detalles del juego */
 .game-view-content {
-  margin-top: 70px; /* Espacio entre banner y contenido */
-  text-align: center;
-  width: 100%;
+  position: absolute;
+  bottom: 8%;
+  left: 6%;
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* 👈 Espacio constante entre card y botón */
+  z-index: 20;
 }

@@ -4,6 +4,7 @@ import Header from '../../Components/Header'
 import GameBanner from '../../Components/GameBanner';
 import GameDetails from '../../Components/GameDetails';
 import { GameSelectionContext } from "../../Context/GameSelectionContext";
+import AddToCartButton from "../../Components/AddToCartButton";
 
 function GameView() {
   const { selectedGame } = useContext(GameSelectionContext);
@@ -31,6 +32,7 @@ function GameView() {
 
         <div className="game-view-content">
           <GameDetails />
+          <AddToCartButton />
         </div>
       </div>
     </>
