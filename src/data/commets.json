@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "user": "Carlos R.",
+    "avatar": "https://i.pravatar.cc/100?img=3",
+    "comment": "Excelente juego, la historia es increíble y la jugabilidad muy fluida.",
+    "gameId": 1,
+    "date": "2024-08-10"
+  },
+  {
+    "id": 2,
+    "user": "Mariana G.",
+    "avatar": "https://i.pravatar.cc/100?img=15",
+    "comment": "Visualmente hermoso, aunque le falta optimización en algunas zonas.",
+    "gameId": 1,
+    "date": "2024-09-01"
+  },
+  {
+    "id": 3,
+    "user": "Luis F.",
+    "avatar": "https://i.pravatar.cc/100?img=22",
+    "comment": "Muy divertido, perfecto para jugar con amigos.",
+    "gameId": 2,
+    "date": "2024-10-12"
+  }
+]

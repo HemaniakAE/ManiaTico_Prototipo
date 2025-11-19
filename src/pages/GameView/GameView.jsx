@@ -6,6 +6,8 @@ import GameDetails from "../../Components/GameDetails";
 import { GameSelectionContext } from "../../Context/GameSelectionContext";
 import AddToCartButton from "../../Components/AddToCartButton";
 import StarRating from "../../Components/StarRating";
+import Comments from "../../Components/Comments";
+
 
 function GameView() {
   const { selectedGame } = useContext(GameSelectionContext);
@@ -26,21 +28,28 @@ function GameView() {
     <>
       <Header />
       <div ref={contentRef} className="game-view-layout">
-        <div className="game-view-banner">
-          <GameBanner />
+        <div className="game-view-banner-wrapper">
+          <div className="game-view-banner">
+            <GameBanner />
+          </div>
+
+          <div className="game-view-left">
+            <GameDetails />
+            <AddToCartButton />
+          </div>
+
+          <div className="game-view-right">
+            {selectedGame && (
+              <StarRating
+                gameId={selectedGame.id}
+                initialRating={selectedGame.rating}
+              />
+            )}
+          </div>
         </div>
 
-        <div className="game-view-left">
-          <GameDetails />
-          <AddToCartButton />
-        </div>
-        <div className="game-view-right">
-          {selectedGame && (
-            <StarRating
-              gameId={selectedGame.id}
-              initialRating={selectedGame.rating}
-            />
-          )}
+        <div className="game-view-below">
+          {selectedGame && <Comments gameId={selectedGame.id} />}
         </div>
       </div>
     </>

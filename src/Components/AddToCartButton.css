@@ -16,7 +16,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.5s ease, background 0.18s ease;
-  z-index: 500;
+  z-index: 20;
 }
 
 .add-cart-btn:hover {

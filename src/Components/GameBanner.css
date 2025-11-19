@@ -2,7 +2,6 @@
   position: relative;
   width: 100%;
   aspect-ratio: 2 / 1; /* Mantiene proporción para tu imagen 2:1 */
-  border-radius: 12px;
   overflow: hidden;
   background: #000; /* por si la imagen no carga */
   z-index: 1;
