@@ -1,5 +1,5 @@
 .game-info-card {
-  width: 650px;
+  width: 65vh;
   background: transparent;
   backdrop-filter: blur(6px);
   border-radius: 16px;
@@ -8,10 +8,11 @@
   z-index: 10;
   box-shadow: 0 0 0 1px transparent;
   margin-bottom: 5px;
+  bottom: 1vh;
 }
 
 .game-title {
-  font-size: 48px;
+  font-size: 4.2vh;
   font-weight: bold;
   margin-bottom: 15px;
   margin-top: 0;
@@ -27,18 +28,18 @@
 }
 
 .tag {
-  font-size: 18px;
+  font-size: 1.6vh;
   padding: 5px 10px;
   background: rgba(255,255,255,0.15);
   border-radius: 12px;
 }
 
 .description {
-  font-size: 20px;
+  font-size: 1.8vh;
   margin-bottom: 14px;
 }
 
 .game-meta {
-  font-size: 16px;
+  font-size: 1.4vh;
   opacity: 0.85;
 }
