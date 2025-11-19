@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "welcome": "Welcome",
+    "create_account": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "login_button": "Login",
+    "register_button": "Register",
+    "google_login": "Sign in with Google"
+  },
+  "home": {
+    "subtitle": "The Costa Rican video game store.",
+    "description": "Log in as a customer or publish your games as a developer."
+  },
+  "settings": {
+    "language": "Language",
+    "spanish": "Spanish",
+    "english": "English"
+  }
+}

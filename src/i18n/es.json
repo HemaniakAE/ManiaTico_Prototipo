@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "welcome": "Bienvenido",
+    "create_account": "Crear Cuenta",
+    "email": "Correo",
+    "password": "Contraseña",
+    "confirm_password": "Confirmar Contraseña",
+    "login_button": "Entrar",
+    "register_button": "Registrarse",
+    "google_login": "Iniciar con Google"
+  },
+  "home": {
+    "subtitle": "La tienda costarricense de videojuegos.",
+    "description": "Accede como cliente o publica tus juegos como desarrollador."
+  },
+  "settings": {
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "Inglés"
+  }
+}
