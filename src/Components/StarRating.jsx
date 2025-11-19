@@ -1,48 +1,37 @@
 import React, { useEffect, useState } from "react";
 import "./StarRating.css";
 import { BsStar, BsStarFill } from "react-icons/bs";
+import games from "../data/games.json";
 
-export default function StarRating({ gameId, initialRating = 0 }) {
-  const [rating, setRating] = useState(initialRating);
+export default function StarRating({ gameId }) {
+  const game = games.find((g) => g.id === gameId);
+  const rate = game ? game.rate : 0;
+
+  const [rating, setRating] = useState(rate); // ← Falta esto
   const [hover, setHover] = useState(null);
   const [canRate, setCanRate] = useState(false);
 
-  // Verificar si el usuario posee el juego
   useEffect(() => {
     try {
       const raw = localStorage.getItem("mt_library");
       const library = raw ? JSON.parse(raw) : [];
-
       const owns = library.some((g) => g.id === gameId);
       setCanRate(owns);
-
-      // Cargar rating previo del usuario
-      const rawRatings = localStorage.getItem("mt_ratings");
-      const userRatings = rawRatings ? JSON.parse(rawRatings) : {};
-
-      if (userRatings[gameId]) {
-        setRating(userRatings[gameId]);
-      }
     } catch (e) {
-      console.warn(e);
+      setCanRate(false);
     }
   }, [gameId]);
 
-  // Guardar rating
   const updateRating = (value) => {
     if (!canRate) return;
-
     setRating(value);
 
     try {
       const raw = localStorage.getItem("mt_ratings");
       const ratings = raw ? JSON.parse(raw) : {};
-
       ratings[gameId] = value;
       localStorage.setItem("mt_ratings", JSON.stringify(ratings));
-    } catch (e) {
-      console.warn(e);
-    }
+    } catch (e) {}
   };
 
   return (
@@ -50,12 +39,12 @@ export default function StarRating({ gameId, initialRating = 0 }) {
       <h2 className="rating-title">Calificaciones</h2>
 
       <p className="rating-value">
-        Calificación del juego: <span>{rating.toFixed(1)}</span>/5
+        Calificación del juego: <span>{rate.toFixed(1)}</span>/5
       </p>
 
       <div
         className={`star-rating ${canRate ? "enabled" : "disabled"}`}
-        onMouseLeave={() => canRate && setHover(null)} // ← limpieza suave
+        onMouseLeave={() => canRate && setHover(null)}
       >
         {[1, 2, 3, 4, 5].map((value) => {
           const filled = hover ? value <= hover : value <= rating;
@@ -64,8 +53,8 @@ export default function StarRating({ gameId, initialRating = 0 }) {
             <span
               key={value}
               className="star"
-              onMouseEnter={() => canRate && setHover(value)} // ← solo esto
-              onClick={() => updateRating(value)}
+              onMouseEnter={() => canRate && setHover(value)}
+              onClick={() => canRate && updateRating(value)}
             >
               {filled ? <BsStarFill /> : <BsStar />}
             </span>
