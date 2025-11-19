@@ -192,8 +192,8 @@
 
 .library-link {
   position: relative;
-  left: -290px;   /* mueve en el eje X → izquierda(-) / derecha(+) */
-  top: 0px;      /* mueve en el eje Y → arriba(-) / abajo(+) */
+  left: -290px;  
+  top: 0px;  
 
   display: flex;
   align-items: center;

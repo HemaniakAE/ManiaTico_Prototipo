@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import gamesData from "../data/games.json";
 import { SearchContext } from "../Context/SearchContext";
-import useTranslate from "../Context/useTranslate";  // <--- IMPORTANTE
+import useTranslate from "../Context/useTranslate"; 
 import "./Searchbar.css";
 
 export default function SearchBar() {
@@ -11,7 +11,7 @@ export default function SearchBar() {
   const { searchTerm, setSearchTerm, setFinalSearch } =
     useContext(SearchContext);
 
-  const { t } = useTranslate();   // <--- AQUI SE USA
+  const { t } = useTranslate(); 
 
   const [suggestions, setSuggestions] = useState([]);
 
@@ -78,7 +78,7 @@ export default function SearchBar() {
     <div className="search-wrapper">
       <input
         type="text"
-        placeholder={t("search.placeholder")}   // <--- AQUI SE TRADUCE
+        placeholder={t("search.placeholder")}
         className="search-bar"
         value={searchTerm}
         onChange={handleChange}

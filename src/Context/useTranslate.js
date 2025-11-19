@@ -4,7 +4,6 @@ import en from "../i18n/en.json";
 
 const dictionaries = { es, en };
 
-// ⬇⬇⬇ Aquí se añade soporte para claves anidadas ⬇⬇⬇
 function getNestedValue(obj, path) {
   return path.split(".").reduce((acc, key) => {
     return acc && acc[key] !== undefined ? acc[key] : null;
@@ -18,7 +17,7 @@ export default function useTranslate() {
   function t(key) {
     if (!key) return "";
     const value = getNestedValue(dict, key);
-    return value !== null ? value : key; // si no existe, retorna la key
+    return value !== null ? value : key; 
   }
 
   return { t, language };

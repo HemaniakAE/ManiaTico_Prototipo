@@ -19,7 +19,6 @@ function Header() {
 
       <div className="header-center">
 
-        {/* BOTÓN BIBLIOTECA – REGRESADO A SU LUGAR ORIGINAL */}
         <Link to="/library" className="library-link">
           <FaBook className="library-icon" />
           <span>{t("library")}</span>
