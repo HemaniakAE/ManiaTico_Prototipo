@@ -6,7 +6,8 @@
     "categories": ["Acción", "Plataformas", "Aventura"],
     "price": 7500,
     "description": "Don Memo es un valiente toro que emprende un último viaje a través de Costa Rica para rescatar a su nieta y enfrentar al Pisuicas. Lucha contra leyendas y sombras del pasado en este pixel platformer 2D lleno de folclore tico y acción intensa.",
-    "image": "DonMemo.jpg"
+    "image": "DonMemo.png",
+    "rate": 4.7
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "categories": ["Deportes", "Fútbol"],
     "price": 7500,
     "description": "FutboTico te pone en los estadios más emblemáticos de Costa Rica, donde cada partido se vive con pura pasión. Crea tu propio equipo, entrena a tus jugadores y compite en torneos nacionales e internacionales. Con un estilo arcade y comentarios llenos de sabor tico, ¡demostrale al mundo cómo se juega a lo tico!",
-    "image": "FutboTico.png"
+    "image": "FutboTico.png",
+    "rate": 4.1
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "categories": ["RPG", "Acción RPG", "Fantasía"],
     "price": 10300,
     "description": "Despertás en la cima de un volcán activo donde el fuego otorga poder. Explorá un mundo dividido por tribus elementales y enfrentate a criaturas míticas para dominar los cuatro elementos. Un RPG tico de fuego y leyendas.",
-    "image": "Volcania.png"
+    "image": "Volcania.png",
+    "rate": 4.6
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "categories": ["Aventura", "Supervivencia"],
     "price": 8900,
     "description": "Explorá los misterios del bosque tropical costarricense, donde la selva está viva... literalmente. Sobreviví recolectando recursos, resolviendo acertijos naturales y descubriendo los secretos de una civilización oculta en la profundidad verde.",
-    "image": "SelvaEterna.png"
+    "image": "SelvaEterna.png",
+    "rate": 4.4
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "categories": ["Aventura", "Misterio", "Fantasía"],
     "price": 8700,
     "description": "Despertá como un espíritu ancestral del volcán Irazú. Recorre templos, controla elementos y protege el equilibrio natural del valle central en una historia mística llena de simbolismo costarricense.",
-    "image": "SpiritsOfIrazu.png"
+    "image": "SpiritsOfIrazu.png",
+    "rate": 4.5
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "categories": ["Acción", "Shooter", "Ciencia Ficción"],
     "price": 12000,
     "description": "En un San José futurista dominado por corporaciones tecnológicas, un hacker conocido como 'El Mae' lucha por liberar la red tica. Disparos, drones y pura adrenalina en este shooter cyberpunk lleno de referencias locales.",
-    "image": "SanJose2088.png"
+    "image": "SanJose2088.png",
+    "rate": 4.3
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "categories": ["Carreras", "Arcade"],
     "price": 6800,
     "description": "Desde San José hasta Liberia, conducí por la legendaria Ruta 506 en este juego de carreras con paisajes costarricenses, tráfico loco y música tropical. ¡Acelerá a fondo y sentí la pura vida a toda velocidad!",
-    "image": "Ruta506.png"
+    "image": "Ruta506.png",
+    "rate": 4.2
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "categories": ["Estrategia", "Negocios", "Simulación"],
     "price": 9100,
     "description": "Construí tu propio paraíso turístico en la costa pacífica. Administrá hoteles, surf camps y sodas mientras tratás de mantener felices a los turistas y contentos a los locales. ¿Podrás lograr la verdadera ‘pura vida’?",
-    "image": "MonteVerdeTycoon.png"
+    "image": "MonteVerdeTycoon.png",
+    "rate": 4.0
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "categories": ["Arcade", "Carreras", "Simulación"],
     "price": 5600,
     "description": "Corre contra el tiempo para entregar el mejor café de las montañas de Tarrazú a San José. Esquiva vacas, huecos y buses mientras mejoras tu motoneta y desbloqueás rutas legendarias. ¡Solo los más rápidos logran mantener el café caliente!",
-    "image": "CoffeeRunner.png"
+    "image": "CoffeeRunner.png",
+    "rate": 3.9
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "categories": ["Deportes", "Carreras", "Arcade"],
     "price": 7900,
     "description": "Competí con personajes inspirados en la cultura costarricense: el vendedor de copos, la abuela, el surfista de Jacó y más. Luchá con power-ups de gallo pinto y bombas de chiverre en pistas llenas de humor local.",
-    "image": "ChepeKart.png"
+    "image": "ChepeKart.png",
+    "rate": 3.3
   },
   {
     "id": 11,
@@ -96,6 +106,7 @@
     "categories": ["Cartas", "Turnos", "Estrategia RPG"],
     "price": 4500,
     "description": "Adentráte en Backdoor’s, un juego de cartas donde la irreverencia y el caos se mezclan con lo sobrenatural. Reclutá personajes excéntricos, lanzá hechizos imposibles y enfrentá criaturas extrañas mientras desvelás secretos oscuros de tu ciudad. Estrategia, humor negro y un toque de terror se combinan en partidas impredecibles que te harán reír y temblar al mismo tiempo.",
-    "image": "Backdoors.png"
+    "image": "Backdoors.png",
+    "rate": 4.1
   }
 ]

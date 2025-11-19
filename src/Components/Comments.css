@@ -1,0 +1,148 @@
+.comments-container {
+  width: 100%;
+  padding: 50px;
+  margin: 0 auto 40px auto;
+  background: #000; /* un poco transparente, no sólido */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  height: 100%; /* ocupa todo el espacio asignado por el padre */
+  height: 60vh; /* crece con el contenido */
+  backdrop-filter: blur(6px);
+  padding-top: 0;
+  z-index: 20;
+}
+
+.comment-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.comment-textarea {
+  width: 100%;
+  min-height: 90px;
+  font-size: 1.5vh;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #111;
+  color: #fff;
+  resize: vertical;
+}
+
+.comment-button {
+  width: 130px;
+  padding: 10px;
+  background: #b61a2e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: 0.2s;
+}
+
+.comment-button:hover {
+  background: #b61a2e;
+}
+
+.comments-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.no-comments {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comment-card {
+  display: flex;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 18px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.comment-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-user {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.comment-date {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.comment-text {
+  margin-top: 6px;
+  font-size: 17px;
+  opacity: 0.9;
+}
+
+.delete-comment-btn {
+  font-size: 28px;
+  color: #ff4d4d;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-comment-btn:hover {
+  color: #ff6b6b;
+  transform: scale(1.1);
+}
+
+/* Botón durante carga */
+.comment-button.loading {
+  cursor: not-allowed;
+  opacity: 0.7;
+  position: relative;
+}
+
+/* Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ffffff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

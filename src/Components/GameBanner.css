@@ -1,0 +1,39 @@
+.game-banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1; /* Mantiene proporción para tu imagen 2:1 */
+  overflow: hidden;
+  background: #000; /* por si la imagen no carga */
+  z-index: 1;
+}
+
+/* La imagen se oscurece ligeramente */
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que llene el banner sin bordes */
+  filter: brightness(40%); /* Oscurecer para dar enfoque al texto */
+  z-index: 1;
+}
+
+/* Capa de degradado inferior */
+.game-banner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 2;
+  background: linear-gradient(to bottom, transparent, rgb(0, 0, 0));
+}
+
+/* Contenido encima del banner (título, boton, etc) */
+.game-banner-content {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  color: #fff;
+  z-index: 3; /* Ahora sí encima del degradado */
+  text-align: left;
+}

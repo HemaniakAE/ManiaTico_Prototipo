@@ -1,19 +1,72 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.game-details-layout {
+.game-view-layout {
+  position: absolute;
   display: flex;
-  margin-top: 70px;
-}
-
-.game-details-content {
-  margin-left: 220px;
-  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vh; /* 70px ≈ 9.7vh en pantalla de 720px */
   width: 100%;
+  max-height: 1280px;
+  left: 0;
 }
 
+.game-view-banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 63vh;
+  min-height: 69.4vh; /* 500px ≈ 69.4vh */
+  max-height: 125vh; /* 900px ≈ 125vh */
+  margin-top: 13vh;
+}
 
+/* Banner */
+.game-view-banner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 63vh;
+  min-height: 69.4vh; /* 500px ≈ 69.4vh */
+  max-height: 125vh; /* 900px ≈ 125vh */
+  aspect-ratio: 2 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Detalles del juego */
+.game-view-left {
+  position: absolute;
+  bottom: 1vh;
+  left: 6%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 20;
+}
+
+.game-view-left,
+.game-view-right {
+  width: clamp(320px, 40vw, 650px);
+}
+
+.game-view-right {
+  position: absolute;
+  bottom: 1vh;
+  right: 6%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 20;
+}
+
+/* Este elemento ahora fluye naturalmente después del banner */
+.game-view-below {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  padding: 8vh 6%;
+  margin-top: 3.6vh; 
+  z-index: 10;
+}
