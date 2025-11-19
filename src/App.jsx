@@ -10,6 +10,8 @@ import ShopCenter from "./pages/ShopCenter/ShopCenter";
 import Library from "./pages/Library/Library";
 
 function App() {
+
+  //Limpian los datos persisten para una mejor simulación del sistema
   useEffect(() => {
     localStorage.removeItem("mt_ratings");
   }, []);

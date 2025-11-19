@@ -9,17 +9,28 @@ export default function AddToCartButton() {
   const { items, addItem } = useContext(CartContext);
 
   const [pulse, setPulse] = useState(false);
+  const [owned, setOwned] = useState(false); // ✅ Aquí está bien
+
+  // Verificar si el juego ya fue comprado
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("mt_library");
+      const library = raw ? JSON.parse(raw) : [];
+      const hasGame = library.some((g) => g.id === selectedGame.id);
+      setOwned(hasGame);
+    } catch {
+      setOwned(false);
+    }
+  }, [selectedGame]);
 
   if (!selectedGame) return null;
 
-  // Buscar si el juego ya está en el carrito
   const cartEntry = items.find((it) => it.id === selectedGame.id);
   const qty = cartEntry ? cartEntry.qty : 0;
   const isInCart = qty > 0;
 
   const handleAdd = () => {
     addItem(selectedGame, 1);
-    // Feedback visual breve
     setPulse(true);
     setTimeout(() => setPulse(false), 400);
   };
@@ -29,15 +40,27 @@ export default function AddToCartButton() {
       className={`add-cart-btn ${pulse ? "pulse" : ""}`}
       onClick={handleAdd}
       aria-pressed={isInCart}
-      title={isInCart ? `Agregar otra unidad (${qty} en carrito)` : "Añadir al carrito"}
+      title={
+        owned
+          ? isInCart
+            ? `Agregar otra copia (${qty} en carrito)`
+            : "Ya lo compraste — agregar copia adicional"
+          : isInCart
+          ? `Agregar otra unidad (${qty} en carrito)`
+          : "Añadir al carrito"
+      }
     >
-      {isInCart ? (
+      {owned ? (
+        <TbShoppingCartCheck className="cart-icon" />
+      ) : isInCart ? (
         <TbShoppingCartCheck className="cart-icon" />
       ) : (
         <TbShoppingCartHeart className="cart-icon" />
       )}
 
-      <span className="btn-text">{isInCart ? "Añadir" : "Añadir al carrito"}</span>
+      <span className="btn-text">
+        {owned ? (isInCart ? "Añadir copia" : "Comprado") : isInCart ? "Añadir" : "Añadir al carrito"}
+      </span>
 
       {isInCart && <span className="qty-pill">{qty}</span>}
     </button>
