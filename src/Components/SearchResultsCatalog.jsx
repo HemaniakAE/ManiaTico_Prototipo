@@ -26,9 +26,18 @@ const SearchResultsCatalog = () => {
     );
   };
 
-  const filteredGames = gamesData.filter((g) =>
-    matchesByTokens(g.name, finalSearch)
-  );
+  // 🔥 Ahora busca por nombre Y por categorías
+  const filteredGames = gamesData.filter((g) => {
+    const search = normalize(finalSearch);
+
+    const matchName = matchesByTokens(g.name, search);
+
+    const matchCategory = g.categories.some((cat) =>
+      normalize(cat).includes(search)
+    );
+
+    return matchName || matchCategory;
+  });
 
   return (
     <div className="search-results-catalog-container">

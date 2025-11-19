@@ -18,7 +18,7 @@ export default function GameBanner() {
   return (
     <div className="game-banner">
       <img
-        src={`/src/assets/games/${selectedGame.image}`}
+        src={`/assets/games/${selectedGame.image}`}
         alt={selectedGame.name}
         className="banner-image"
       />
