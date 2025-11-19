@@ -16,8 +16,14 @@ function App() {
     localStorage.removeItem("mt_ratings");
   }, []);
 
+  /*mt_comments */
+
   useEffect(() => {
   localStorage.removeItem("mt_library");
+  }, []);
+
+  useEffect(() => {
+  localStorage.removeItem("mt_comments");
   }, []);
 
   return (

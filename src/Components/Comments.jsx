@@ -1,18 +1,133 @@
+import { useEffect, useState } from "react";
 import "./Comments.css";
-import commentsData from '../data/commets.json'
+import { MdDelete } from "react-icons/md";
+import commentsData from "../data/commets.json";
 
 export default function Comments({ gameId }) {
-  const comments = commentsData.filter(c => c.gameId === gameId);
+  const initial = commentsData.filter((c) => c.gameId === gameId);
+
+  const [localComments, setLocalComments] = useState([]);
+  const [text, setText] = useState("");
+  const [canComment, setCanComment] = useState(false);
+  const [isPosting, setIsPosting] = useState(false);
+
+  // Ver si el usuario ya comentó
+  const userComment = localComments.find((c) => c.user === "Tú");
+
+  // Cargar comentarios persistentes
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("mt_comments");
+      const saved = raw ? JSON.parse(raw) : {};
+
+      if (saved[gameId]) {
+        setLocalComments(saved[gameId]);
+      } else {
+        setLocalComments([]);
+      }
+    } catch {
+      setLocalComments([]);
+    }
+  }, [gameId]);
+
+  // Verificar si el juego está en la biblioteca
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("mt_library");
+      const library = raw ? JSON.parse(raw) : [];
+      const owns = library.some((g) => g.id === gameId);
+      setCanComment(owns);
+    } catch {
+      setCanComment(false);
+    }
+  }, [gameId]);
+
+  const comments = [...initial, ...localComments];
+
+  function handleAddComment() {
+    if (text.trim() === "" || userComment) return;
+
+    setIsPosting(true); // iniciar animación
+
+    setTimeout(() => {
+      const newComment = {
+        id: Date.now(),
+        gameId,
+        user: "Tú",
+        avatar: "/public/Avatar Usuario.png",
+        comment: text,
+        date: new Date().toISOString(),
+      };
+
+      const updated = [...localComments, newComment];
+      setLocalComments(updated);
+      setText("");
+
+      try {
+        const raw = localStorage.getItem("mt_comments");
+        const all = raw ? JSON.parse(raw) : {};
+        all[gameId] = updated;
+        localStorage.setItem("mt_comments", JSON.stringify(all));
+      } catch {}
+
+      setIsPosting(false); // finalizar animación
+    }, 1000); // duración de “carga”
+  }
+
+  // 🔥 Eliminar comentario del usuario
+  function handleDeleteComment(id) {
+    const updated = localComments.filter((c) => c.id !== id);
+    setLocalComments(updated);
+
+    try {
+      const raw = localStorage.getItem("mt_comments");
+      const all = raw ? JSON.parse(raw) : {};
+      all[gameId] = updated;
+      localStorage.setItem("mt_comments", JSON.stringify(all));
+    } catch {}
+  }
 
   return (
     <div className="comments-container">
       <h2 className="comments-title">Comentarios</h2>
 
-      {comments.length === 0 && (
-        <p className="no-comments">Sé el primero en comentar este juego.</p>
+      {!canComment && (
+        <p className="no-comments">
+          Compra el juego para poder dejar un comentario.
+        </p>
+      )}
+
+      {canComment && !userComment && (
+        <div className="comment-input-box">
+          <textarea
+            className="comment-textarea"
+            placeholder="Escribe un comentario..."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          ></textarea>
+
+          <button
+            className={`comment-button ${isPosting ? "loading" : ""}`}
+            onClick={handleAddComment}
+            disabled={isPosting}
+          >
+            {isPosting ? <div className="spinner"></div> : "Publicar"}
+          </button>
+        </div>
+      )}
+
+      {canComment && userComment && (
+        <p className="no-comments">
+          Ya has comentado este juego. Puedes eliminar tu comentario si deseas
+          escribir otro.
+        </p>
       )}
 
       <div className="comments-list">
+        {comments.length === 0 && (
+          <p className="no-comments">Sé el primero en comentar este juego.</p>
+        )}
+
         {comments.map((c) => (
           <div key={c.id} className="comment-card">
             <img src={c.avatar} className="comment-avatar" />
@@ -23,7 +138,16 @@ export default function Comments({ gameId }) {
                 <span className="comment-date">
                   {new Date(c.date).toLocaleDateString()}
                 </span>
+
+                {/* 🔥 Botón de borrar SOLO para el usuario */}
+                {c.user === "Tú" && (
+                  <MdDelete
+                    className="delete-comment-btn"
+                    onClick={() => handleDeleteComment(c.id)}
+                  />
+                )}
               </div>
+
               <p className="comment-text">{c.comment}</p>
             </div>
           </div>
