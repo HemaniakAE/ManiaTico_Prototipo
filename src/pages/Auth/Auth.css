@@ -160,7 +160,7 @@ form input:focus {
   background: var(--merlot);
 }
 
-/* ---------------- RESPONSIVE -------------- */
+/* ---------------- RESPONSIVE/VISTA POR OTROS DISPOSITIVOS -------------- */
 @media (max-width: 900px) {
   .auth-container {
     flex-direction: column;
