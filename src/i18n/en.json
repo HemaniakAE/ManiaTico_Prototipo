@@ -1,4 +1,4 @@
-{
+{  
   "welcome_title": "The Costa Rican videogame store.",
   "welcome_sub": "Log in as a client or publish your games as a developer.",
   "login": "Login",
@@ -16,5 +16,45 @@
   "role_client": "Client",
   "role_dev": "Developer",
   "google_login": "Sign in with Google",
-  "google_loading": "Connecting to Google..."
+  "google_loading": "Connecting to Google...",
+
+
+  "categories": "Categories",
+  "cat_action": "Action",
+  "sub_shooter": "Shooter",
+  "sub_beat": "Beat 'em up",
+  "sub_survival": "Survival",
+  "sub_hackslash": "Hack and Slash",
+  "cat_adventure": "Adventure",
+  "sub_graphic": "Graphic",
+  "sub_openworld": "Open World",
+  "sub_interactive": "Interactive",
+  "cat_sports": "Sports",
+  "sub_soccer": "Soccer",
+  "sub_basket": "Basketball",
+  "sub_racing": "Racing",
+  "sub_skate": "Skate",
+  "cat_rpg": "RPG",
+  "sub_actionrpg": "Action RPG",
+  "sub_jrpg": "JRPG",
+  "sub_mmorpg": "MMORPG",
+  "sub_strategyrpg": "Strategy RPG",
+  "cat_simulation": "Simulation",
+  "sub_life": "Life",
+  "sub_business": "Business",
+  "sub_flight": "Flight",
+  "sub_building": "Building",
+  "cat_strategy": "Strategy",
+  "sub_rts": "RTS",
+  "sub_turns": "Turn-based",
+  "sub_cards": "Cards",
+  "sub_tactical": "Tactical",
+  "cat_arcade": "Arcade",
+  "cat_platform": "Platformer",
+  "cat_music": "Music",
+  "cat_puzzle": "Puzzle",
+  "cat_dlc": "DLC´s",
+
+  "library": "Library",
+  "login_btn": "Login"
 }

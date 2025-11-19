@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
-import useTranslate from "../../i18n/useTranslate";
 import { FcGoogle } from "react-icons/fc";
+import useTranslate from "../Context/useTranslate";
 
 
 export default function Auth() {

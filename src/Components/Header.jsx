@@ -1,31 +1,40 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import RefreshButton from "./RefreshButton";
-import { FaSearch, FaRegUserCircle, FaBook } from "react-icons/fa";
+import { FaRegUserCircle, FaBook } from "react-icons/fa";
 import SearchBar from "./Searchbar";
 import CartButton from "./CartButton";
+import useTranslate from "../Context/useTranslate";
 
 function Header() {
+  const { t } = useTranslate();
+
   return (
     <header className="header">
+      {/* IZQUIERDA — LOGO */}
       <div className="header-left">
         <RefreshButton />
       </div>
 
-      <div className="header-center"><div/>
+      {/* CENTRO — SEARCHBAR */}
+      <div className="header-center">
         <SearchBar />
       </div>
 
+      {/* DERECHA — BOTONES */}
       <div className="header-right">
+
         <Link to="/library" className="library-link">
           <FaBook className="library-icon" />
-          <span>Biblioteca</span>
+          <span>{t("library")}</span>
         </Link>
+
         <CartButton />
+
         <Link to="/auth" className="auth-button">
           <FaRegUserCircle className="auth-icon" />
-          <span>Ingresar</span>
+          <span>{t("login_btn")}</span>
         </Link>
       </div>
     </header>

@@ -1,14 +1,11 @@
-import es from "./es.json";
-import en from "./en.json";
-import { useLanguage } from "../Context/LanguageContext";
+import { useLanguage } from "./LanguageContext";
+import es from "../i18n/es.json";
+import en from "../i18n/en.json";
+
+const translations = { es, en };
 
 export default function useTranslate() {
   const { language } = useLanguage();
-
-  const translations = {
-    es,
-    en,
-  };
 
   function t(key) {
     return translations[language][key] || key;

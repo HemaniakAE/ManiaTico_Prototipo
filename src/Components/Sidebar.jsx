@@ -1,51 +1,62 @@
 import React from "react";
 import "./Sidebar.css";
+import useTranslate from "../Context/useTranslate";
 
 function Sidebar() {
+  const { t } = useTranslate();
+
   return (
     <aside className="sidebar">
-      <h2>Categorías</h2>
+      <h2>{t("categories")}</h2>
+
       <ul>
-        <li className="category">Acción</li>
-        <li className="subcategory">Shooter</li>
-        <li className="subcategory">Beat 'em up</li>
-        <li className="subcategory">Supervivencia</li>
-        <li className="subcategory">Hack and Slash</li>
+        {/* ACCIÓN */}
+        <li className="category">{t("cat_action")}</li>
+        <li className="subcategory">{t("sub_shooter")}</li>
+        <li className="subcategory">{t("sub_beat")}</li>
+        <li className="subcategory">{t("sub_survival")}</li>
+        <li className="subcategory">{t("sub_hackslash")}</li>
 
-        <li className="category">Aventura</li>
-        <li className="subcategory">Gráfica</li>
-        <li className="subcategory">Mundo abierto</li>
-        <li className="subcategory">Interactiva</li>
+        {/* AVENTURA */}
+        <li className="category">{t("cat_adventure")}</li>
+        <li className="subcategory">{t("sub_graphic")}</li>
+        <li className="subcategory">{t("sub_openworld")}</li>
+        <li className="subcategory">{t("sub_interactive")}</li>
 
-        <li className="category">Deportes</li>
-        <li className="subcategory">Fútbol</li>
-        <li className="subcategory">Baloncesto</li>
-        <li className="subcategory">Carreras</li>
-        <li className="subcategory">Skate</li>
+        {/* DEPORTES */}
+        <li className="category">{t("cat_sports")}</li>
+        <li className="subcategory">{t("sub_soccer")}</li>
+        <li className="subcategory">{t("sub_basket")}</li>
+        <li className="subcategory">{t("sub_racing")}</li>
+        <li className="subcategory">{t("sub_skate")}</li>
 
-        <li className="category">RPG</li>
-        <li className="subcategory">Acción RPG</li>
-        <li className="subcategory">JRPG</li>
-        <li className="subcategory">MMORPG</li>
-        <li className="subcategory">Estrategia RPG</li>
+        {/* RPG */}
+        <li className="category">{t("cat_rpg")}</li>
+        <li className="subcategory">{t("sub_actionrpg")}</li>
+        <li className="subcategory">{t("sub_jrpg")}</li>
+        <li className="subcategory">{t("sub_mmorpg")}</li>
+        <li className="subcategory">{t("sub_strategyrpg")}</li>
 
-        <li className="category">Simulación</li>
-        <li className="subcategory">Vida</li>
-        <li className="subcategory">Negocios</li>
-        <li className="subcategory">Vuelo</li>
-        <li className="subcategory">Construcción</li>
+        {/* SIMULACIÓN */}
+        <li className="category">{t("cat_simulation")}</li>
+        <li className="subcategory">{t("sub_life")}</li>
+        <li className="subcategory">{t("sub_business")}</li>
+        <li className="subcategory">{t("sub_flight")}</li>
+        <li className="subcategory">{t("sub_building")}</li>
 
-        <li className="category">Estrategia</li>
-        <li className="subcategory">RTS</li>
-        <li className="subcategory">Turnos</li>
-        <li className="subcategory">Cartas</li>
-        <li className="subcategory">Táctico</li>
+        {/* ESTRATEGIA */}
+        <li className="category">{t("cat_strategy")}</li>
+        <li className="subcategory">{t("sub_rts")}</li>
+        <li className="subcategory">{t("sub_turns")}</li>
+        <li className="subcategory">{t("sub_cards")}</li>
+        <li className="subcategory">{t("sub_tactical")}</li>
 
-        <li className="category">Arcade</li>
-        <li className="category">Plataformas</li>
-        <li className="category">Música</li>
-        <li className="category">Puzles</li>
-        <li className="category">DLC´s</li>
+        {/* OTRAS */}
+        <li className="category">{t("cat_arcade")}</li>
+        <li className="category">{t("cat_platform")}</li>
+        <li className="category">{t("cat_music")}</li>
+        <li className="category">{t("cat_puzzle")}</li>
+        <li className="category">{t("cat_dlc")}</li>
       </ul>
     </aside>
   );
