@@ -28,7 +28,15 @@
   box-shadow: 0 16px 40px rgba(0,0,0,0.6);
 }
 
+.empty-secondary-btn {
+  background: #b61a2e;
+  transition: transform 1.2s ease;
+}
 
+.empty-secondary-btn:hover {
+  transform: scale(1.05);
+  border: 1px solid transparent;
+}
 
 .hero-empty-main {
   max-width: 480px;
@@ -81,7 +89,7 @@
 
 
 .library-container{margin-top:90px;padding:28px;color:#fff}
-.library-header{display:flex;align-items:center;gap:32px;margin-bottom:60px}
+.library-header{display:flex;align-items:center;gap:32px;margin-bottom:60px; color: #b61a2e;}
 
 .library-controls{display:flex;gap:12px;align-items:center;margin-left:auto}
 

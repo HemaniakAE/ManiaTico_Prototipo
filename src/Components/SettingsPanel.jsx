@@ -12,7 +12,7 @@ export default function SettingsPanel() {
   const buttonsRef = useRef(null);   // ← referencia a los botones de settings/help
 
   const easterEggs = [
-    "Desarrollado por Team Maniatico y Bubblesort",
+    "Desarrollado por Team ManiaTico y Bubblesort",
   ];
 
   function handleHelp() {
