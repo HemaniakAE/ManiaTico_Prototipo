@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import "./Auth.css";
+import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+
+
 
 
 export default function Auth() {
+  const navigate = useNavigate();
   const [mode, setMode] = useState("login");
   const [role, setRole] = useState("cliente");
+  const [googleLoading, setGoogleLoading] = useState(false);
+
 
   const [form, setForm] = useState({
     name: "",
@@ -37,6 +44,7 @@ export default function Auth() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     const v = validate();
     if (Object.keys(v).length) return setErrors(v);
 
@@ -46,6 +54,19 @@ export default function Auth() {
       ...form,
     });
 
+    navigate("/");
+  }
+
+  function handleGoogleLogin() {
+    setGoogleLoading(true);
+
+    // Simulación de 2 segundos
+    setTimeout(() => {
+      console.log("Usuario autenticado con Google (EMULACIÓN)");
+
+      // Aquí podrían guardar datos en context, etc.
+      navigate("/");
+    }, 2000);
   }
 
   return (
@@ -53,8 +74,9 @@ export default function Auth() {
 
       <aside className="auth-left">
         <aside className="auth-left">
-        {/* AQUI TIENE QUE IR EL PUTO BOTON PARA REGRESAR DE INICIO DE SESION DE MIERDA */}
-
+          <button className="auth-back-btn" onClick={() => navigate("/")}>
+            <img src="/Logo_ManiaTico.png" alt="Home" className="auth-back-img" />
+          </button>
         </aside>
 
         <h1 className="left-title">La tienda costarricens de videojuegos.  
@@ -174,6 +196,22 @@ export default function Auth() {
             <button className="submit-btn">
               {mode === "login" ? "Entrar" : "Crear Cuenta"}
             </button>
+            {mode === "login" && (
+              <button
+                type="button"
+                className="google-btn"
+                onClick={handleGoogleLogin}
+                disabled={googleLoading}
+              >
+                {googleLoading ? (
+                  "Conectando con Google..."
+                ) : (
+                  <>
+                    <FcGoogle size={22} style={{ marginRight: "20px" }} />
+                    Iniciar con Google
+                  </>
+                )}
+              </button>)}
           </form>
         </div>
       </main>
