@@ -1,0 +1,64 @@
+{
+  "categories": "Categories",
+  "action": "Action",
+  "shooter": "Shooter",
+  "beat": "Beat 'em up",
+  "survival": "Survival",
+  "hack": "Hack and Slash",
+
+  "adventure": "Adventure",
+  "graphic": "Graphic",
+  "openworld": "Open World",
+  "interactive": "Interactive",
+
+  "sports": "Sports",
+  "football": "Football",
+  "basketball": "Basketball",
+  "racing": "Racing",
+  "skate": "Skate",
+
+  "rpg": "RPG",
+  "actionrpg": "Action RPG",
+  "jrpg": "JRPG",
+  "mmorpg": "MMORPG",
+  "strategyrpg": "Strategy RPG",
+
+  "simulation": "Simulation",
+  "life": "Life",
+  "business": "Business",
+  "flight": "Flight",
+  "builder": "Building",
+
+  "strategy": "Strategy",
+  "rts": "RTS",
+  "turns": "Turn-based",
+  "cards": "Cards",
+  "tactical": "Tactical",
+
+  "arcade": "Arcade",
+  "platforms": "Platforms",
+  "music": "Music",
+  "puzzles": "Puzzles",
+  "dlc": "DLC's",
+
+  "search": {
+    "text": "Search...",
+    "placeholder": "Search in ManiaTico"
+  },
+
+  "library": "Library",
+  "login": "Sign In",
+
+  "welcome": "Welcome",
+  "register": "Create Account",
+  "fullName": "Full Name",
+  "email": "Email",
+  "password": "Password",
+  "confirm": "Confirm Password",
+  "studio": "Studio Name",
+  "client": "Client",
+  "developer": "Developer",
+  "enter": "Enter",
+  "create": "Create Account",
+  "googleLogin": "Continue with Google"
+}

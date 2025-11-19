@@ -1,51 +1,54 @@
 import React from "react";
 import "./Sidebar.css";
+import useTranslate from "../Context/useTranslate";
 
 function Sidebar() {
+  const { t } = useTranslate();
+
   return (
     <aside className="sidebar">
-      <h2>Categorías</h2>
+      <h2>{t("categories")}</h2>
       <ul>
-        <li className="category">Acción</li>
-        <li className="subcategory">Shooter</li>
-        <li className="subcategory">Beat 'em up</li>
-        <li className="subcategory">Supervivencia</li>
-        <li className="subcategory">Hack and Slash</li>
+        <li className="category">{t("action")}</li>
+        <li className="subcategory">{t("shooter")}</li>
+        <li className="subcategory">{t("beat")}</li>
+        <li className="subcategory">{t("survival")}</li>
+        <li className="subcategory">{t("hack")}</li>
 
-        <li className="category">Aventura</li>
-        <li className="subcategory">Gráfica</li>
-        <li className="subcategory">Mundo abierto</li>
-        <li className="subcategory">Interactiva</li>
+        <li className="category">{t("adventure")}</li>
+        <li className="subcategory">{t("graphic")}</li>
+        <li className="subcategory">{t("openworld")}</li>
+        <li className="subcategory">{t("interactive")}</li>
 
-        <li className="category">Deportes</li>
-        <li className="subcategory">Fútbol</li>
-        <li className="subcategory">Baloncesto</li>
-        <li className="subcategory">Carreras</li>
-        <li className="subcategory">Skate</li>
+        <li className="category">{t("sports")}</li>
+        <li className="subcategory">{t("football")}</li>
+        <li className="subcategory">{t("basketball")}</li>
+        <li className="subcategory">{t("racing")}</li>
+        <li className="subcategory">{t("skate")}</li>
 
-        <li className="category">RPG</li>
-        <li className="subcategory">Acción RPG</li>
-        <li className="subcategory">JRPG</li>
-        <li className="subcategory">MMORPG</li>
-        <li className="subcategory">Estrategia RPG</li>
+        <li className="category">{t("rpg")}</li>
+        <li className="subcategory">{t("actionrpg")}</li>
+        <li className="subcategory">{t("jrpg")}</li>
+        <li className="subcategory">{t("mmorpg")}</li>
+        <li className="subcategory">{t("strategyrpg")}</li>
 
-        <li className="category">Simulación</li>
-        <li className="subcategory">Vida</li>
-        <li className="subcategory">Negocios</li>
-        <li className="subcategory">Vuelo</li>
-        <li className="subcategory">Construcción</li>
+        <li className="category">{t("simulation")}</li>
+        <li className="subcategory">{t("life")}</li>
+        <li className="subcategory">{t("business")}</li>
+        <li className="subcategory">{t("flight")}</li>
+        <li className="subcategory">{t("builder")}</li>
 
-        <li className="category">Estrategia</li>
-        <li className="subcategory">RTS</li>
-        <li className="subcategory">Turnos</li>
-        <li className="subcategory">Cartas</li>
-        <li className="subcategory">Táctico</li>
+        <li className="category">{t("strategy")}</li>
+        <li className="subcategory">{t("rts")}</li>
+        <li className="subcategory">{t("turns")}</li>
+        <li className="subcategory">{t("cards")}</li>
+        <li className="subcategory">{t("tactical")}</li>
 
-        <li className="category">Arcade</li>
-        <li className="category">Plataformas</li>
-        <li className="category">Música</li>
-        <li className="category">Puzles</li>
-        <li className="category">DLC´s</li>
+        <li className="category">{t("arcade")}</li>
+        <li className="category">{t("platforms")}</li>
+        <li className="category">{t("music")}</li>
+        <li className="category">{t("puzzles")}</li>
+        <li className="category">{t("dlc")}</li>
       </ul>
     </aside>
   );
