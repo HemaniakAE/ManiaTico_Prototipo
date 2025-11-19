@@ -181,6 +181,22 @@
   background-color: #ed4958;
 }
 
+/* Botón cuando el usuario está logueado */
+.auth-button.logged-in {
+  cursor: default;
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  pointer-events: none;
+}
+
+.auth-button.logged-in:hover {
+  transform: none;
+  background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.auth-button.logged-in .auth-icon {
+  color: #fff;
+}
+
 .auth-icon {
   font-size: 18px;
 }
@@ -214,5 +230,3 @@
   background: linear-gradient(145deg, #253d56, #222126);
   transform: scale(1.05);
 }
-
-

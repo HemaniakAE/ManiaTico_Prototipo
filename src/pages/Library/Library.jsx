@@ -140,7 +140,7 @@ useEffect(() => {
             <div
               key={g.id}
               className="hero-card"
-              style={{ backgroundImage: `url(/src/assets/games/${g.image})` }}
+              style={{ backgroundImage: `url(/assets/games/${g.image})` }}
             >
               <div className="hero-name">{g.name}</div>
             </div>
@@ -161,7 +161,7 @@ useEffect(() => {
             <div key={g.id} className="library-card">
               <div
                 className="library-art"
-                style={{ backgroundImage: `url(/src/assets/games/${g.image})` }}
+                style={{ backgroundImage: `url(/assets/games/${g.image})` }}
               />
               <div className="library-meta">
                 <div className="library-title">{g.name}</div>

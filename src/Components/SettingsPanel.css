@@ -3,17 +3,15 @@
   left: 0px;
   bottom: 0px;
 
-  width: 240px;   
+  width: 250px;   
   height: 85px;  
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 
-  background: rgba(28, 17, 46, 0.426);
+  background: transparent;
   backdrop-filter: blur(8px);
-  border-radius: 2px;
-
-  border: 5px solid rgba(21, 17, 39, 0.722);
+  border-radius: 2px;;
   z-index: 999999;
 }
 
@@ -21,7 +19,7 @@
   width: 48px;
   height: 48px;
 
-  background: rgba(255, 255, 255, 0.18);
+  background: #b61a2e;
   border: none;
   border-radius: 12px;
 
@@ -33,8 +31,15 @@
   transition: 0.2s ease;
 }
 
+.settings-btn:focus,
+.settings-btn:active,
+.settings-btn:focus-visible {
+  outline: none;
+  border: none;
+}
+
 .settings-btn:hover {
-  background: rgba(255, 255, 255, 0.32);
+  background: #ba5260;
   transform: scale(1.07);
 }
 
@@ -49,13 +54,16 @@
   bottom: 95px;
   left: 0px;
 
-  width: 240px;
-  background: rgba(28, 17, 46, 0.8);
+  width: 225px;
+  background: rgba(19, 38, 58, 0.85);
   backdrop-filter: blur(10px);
 
   padding: 14px;
   border-radius: 6px;
-  border: 3px solid rgba(21, 17, 39, 0.8);
+  border-top: 3px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.08);
+  border-left: none;
+  border-right: none;;
 
   display: flex;
   flex-direction: column;
@@ -71,20 +79,21 @@
   border-radius: 8px;
   color: white;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .lang-option:hover {
+  transform: scale(1.05);
   background: rgba(255, 255, 255, 0.32);
 }
 
 .lang-option.active {
-  background: #2ca6c6;
+  background: #b61a2e;
 }
 
 .help-toast {
   position: fixed;
-  left: 50%;
+  left: 55%;
   bottom: 40px;
 
   transform: translateX(-50%);

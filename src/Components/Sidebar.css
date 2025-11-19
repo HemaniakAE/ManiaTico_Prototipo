@@ -9,10 +9,6 @@
   left: 0;
   color: white;
   padding: 20px;
-  overflow-y: auto;
-  /*Para Firefox*/
-  scrollbar-width: thin;
-  scrollbar-color: #b61a2e rgba(255, 255, 255, 0.08);
   z-index: 10;
 }
 

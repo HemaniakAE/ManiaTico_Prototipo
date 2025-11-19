@@ -23,7 +23,7 @@ function ShopCenter() {
               <div className="suggestions">
                 {games.slice(0,6).map(g => (
                   <div key={g.id} className="suggestion-card">
-                    <img src={`/src/assets/games/${g.image}`} alt="" />
+                    <img src={`/assets/games/${g.image}`} alt="" />
                     <div className="s-meta">
                       <div className="s-name">{g.name}</div>
                       <div className="s-dev">{g.developer}</div>
@@ -53,7 +53,7 @@ function ShopCenter() {
                 <div className="suggestions">
                   {games.slice(0,6).map(g => (
                     <div key={'s-'+g.id} className="suggestion-card">
-                      <img src={`/src/assets/games/${g.image}`} alt="" />
+                      <img src={`/assets/games/${g.image}`} alt="" />
                       <div className="s-meta">
                         <div className="s-name">{g.name}</div>
                         <div className="s-dev">{g.developer}</div>

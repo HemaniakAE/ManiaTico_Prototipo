@@ -55,7 +55,7 @@ export default function CartSummary({ itemsWithData, onClear }){
         <h4>Resumen</h4>
         {itemsWithData.slice(0,2).map(i=> (
           <div key={i.id} className="cart-mini">
-            <img src={i.image ? `/src/assets/games/${i.image}` : ''} alt='' />
+            <img src={i.image ? `/assets/games/${i.image}` : ''} alt='' />
             <div>
               <div className="mini-name">{i.name}</div>
               <div className="mini-price">{fmt(i.price)}</div>

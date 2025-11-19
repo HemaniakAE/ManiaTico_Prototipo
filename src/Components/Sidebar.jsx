@@ -2,25 +2,28 @@ import React, { useState, useContext } from "react";
 import "./Sidebar.css";
 import { SearchContext } from "../Context/SearchContext";
 import { useNavigate } from "react-router-dom";
-
-const categories = {
-  "Acción": ["Acción", "Shooter", "Beat 'em up", "Supervivencia", "Hack and Slash"],
-  "Aventura": ["Aventura", "Gráfica", "Mundo abierto", "Interactiva"],
-  "Deportes": ["Deportes", "Fútbol", "Baloncesto", "Carreras", "Skate"],
-  "RPG": ["RPG", "Acción RPG", "JRPG", "MMORPG", "Estrategia RPG"],
-  "Simulación": ["Simulación", "Vida", "Negocios", "Vuelo", "Construcción"],
-  "Estrategia": ["Estrategia", "RTS", "Turnos", "Cartas", "Táctico"],
-  "Arcade": [],
-  "Plataformas": [],
-  "Música": [],
-  "Puzles": [],
-  "DLC´s": [],
-};
+import useTranslate from "../Context/useTranslate";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(null);
   const { setFinalSearch } = useContext(SearchContext);
   const navigate = useNavigate();
+  const { t } = useTranslate();
+
+  // Definir categorías usando las keys de traducción
+  const categories = {
+    action: ["action", "shooter", "beat", "survival", "hack"],
+    adventure: ["adventure", "graphic", "openworld", "interactive"],
+    sports: ["sports", "football", "basketball", "racing", "skate"],
+    rpg: ["rpg", "actionrpg", "jrpg", "mmorpg", "strategyrpg"],
+    simulation: ["simulation", "life", "business", "flight", "builder"],
+    strategy: ["strategy", "rts", "turns", "cards", "tactical"],
+    arcade: [],
+    platforms: [],
+    music: [],
+    puzzles: [],
+    dlc: [],
+  };
 
   const normalize = (str = "") =>
     String(str)
@@ -29,38 +32,40 @@ export default function Sidebar() {
       .toLowerCase()
       .trim();
 
-  const handleSelectCategory = (value) => {
-    const cleaned = normalize(value);
+  const handleSelectCategory = (translationKey) => {
+    // Obtener el texto traducido y normalizarlo
+    const translatedText = t(translationKey);
+    const cleaned = normalize(translatedText);
     setFinalSearch(cleaned);
     navigate("/search");
   };
 
   return (
     <aside className="sidebar">
-      <h2>Categorías</h2>
+      <h2>{t("categories")}</h2>
 
       <ul>
-        {Object.keys(categories).map((cat) => (
-          <li key={cat}>
+        {Object.keys(categories).map((catKey) => (
+          <li key={catKey}>
             <div
               className="category"
               onClick={() => {
-                setOpen(open === cat ? null : cat);
-                handleSelectCategory(cat); // ← buscar por categoría
+                setOpen(open === catKey ? null : catKey);
+                handleSelectCategory(catKey);
               }}
             >
-              {cat}
+              {t(catKey)}
             </div>
 
-            {open === cat && (
+            {open === catKey && categories[catKey].length > 0 && (
               <ul>
-                {categories[cat].map((sub) => (
+                {categories[catKey].map((subKey) => (
                   <li
                     className="subcategory"
-                    key={sub}
-                    onClick={() => handleSelectCategory(sub)} // ← buscar por subcategoría
+                    key={subKey}
+                    onClick={() => handleSelectCategory(subKey)}
                   >
-                    {sub}
+                    {t(subKey)}
                   </li>
                 ))}
               </ul>

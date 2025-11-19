@@ -9,7 +9,7 @@ export default function CartItem({ index, product, qty, onRemove, onChangeQty })
       <div className="cart-item-index">{index}</div>
       <img
         className="cart-item-thumb"
-        src={product?.image ? `/src/assets/games/${product.image}` : ''}
+        src={product?.image ? `/assets/games/${product.image}` : ''}
         alt={product?.name}
       />
       <div className="cart-item-main">
