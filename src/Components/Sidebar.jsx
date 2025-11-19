@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
+import useTranslate from "../Context/useTranslate";
 
 const categories = {
   "Acción": ["Acción","Shooter", "Beat 'em up", "Supervivencia", "Hack and Slash"],

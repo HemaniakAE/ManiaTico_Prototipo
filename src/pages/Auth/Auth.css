@@ -1,13 +1,228 @@
+/* ----------- PALETA COLORES -------- */
+:root {
+  --cardinal: #b61a2e;
+  --curious-blue: #2ca6c6;
+  --baltic-sea: #1c1a21;
+  --gigas: #543985;
+  --azure: #396aa9;
+  --pink-swan: #b8aab2;
+  --merlot: #7c1c26;
+  --blumine: #1e4a7a;
+  --mandy: #d13542;
+
+  --text-light: #e8e8e8;
+}
+
+/* -------------- CONTENEDORES -------------- */
 .auth-container {
-  margin-top: 90px; /* Para que no quede debajo del header */
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, var(--baltic-sea), var(--gigas));
+  color: var(--text-light);
+}
+
+.auth-left {
+  flex: 1;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-
-  height: calc(100vh - 90px);
-  color: white;
-  font-size: 22px;
+  align-items: center;
   text-align: center;
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* ------------------ TEXTOS ---------------- */
+.auth-logo {
+  width: 220px;
+  margin-bottom: 1rem;
+}
+
+.left-title {
+  font-size: 2.8rem;
+  color: var(--curious-blue);
+}
+
+.left-sub {
+  max-width: 380px;
+  font-size: 1.1rem;
   opacity: 0.9;
+}
+
+/* -------------------- DONDE VA EL FORMULARIO DE INGRESO DE INFORMACION ---------------- */
+.auth-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.auth-modes {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.2rem;
+}
+
+.auth-modes button {
+  background: none;
+  border: none;
+  color: #ccc;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.auth-modes .active {
+  color: white;
+  border-bottom: 3px solid var(--curious-blue);
+}
+
+.form-title {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: white;
+}
+
+/* ------------------ FORMULARIO DE INICIO/REGISTRO ------------ */
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+form input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-top: 0.2rem;
+  margin-bottom: 0.3rem;
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+}
+
+form input:focus {
+  border-color: var(--curious-blue);
+  outline: none;
+}
+
+.error {
+  color: var(--mandy);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------ ROLES DE CUENTAS ----------------- */
+.role-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.role {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.role.active {
+  background: var(--azure);
+}
+
+/* --------------- BOTÓN DE INGRESO CON INFORMACION INGRESADA ------------- */
+.submit-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--cardinal);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.8rem;
+}
+
+.submit-btn:hover {
+  background: var(--merlot);
+}
+
+/* ---------------- RESPONSIVE/VISTA POR OTROS DISPOSITIVOS -------------- */
+@media (max-width: 900px) {
+  .auth-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .auth-left {
+    padding: 2rem 1rem;
+  }
+
+  .auth-right {
+    padding: 1rem;
+  }
+}
+
+/* --------- BOTÓN DE REGRESO A HOME ----------- */
+.auth-back-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 14px;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-back-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--curious-blue);
+}
+
+.auth-back-img {
+  width: 300px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* ------------- BOTÓN DE INICIO CON GOOGLE ---------------- */
+.google-btn {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 0.8rem;
+  background: white;
+  color: #444;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  transition: 0.2s;
+}
+
+.google-btn:hover {
+  background: #e9e9e9;
+}
+
+.google-btn:disabled {
+  background: #cccccc;
+  cursor: default;
 }

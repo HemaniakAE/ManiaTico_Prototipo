@@ -19,7 +19,7 @@ export default function GameCard({ game, variant = "default", onClick }) {
     >
       <div className="image-wrapper">
         <img
-          src={`/src/assets/games/${game.image}`}
+          src={`/assets/games/${game.image}`}
           alt={game.name}
           className="game-image"
         />

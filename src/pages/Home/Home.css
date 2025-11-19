@@ -52,4 +52,50 @@
   width: 100%;
 }
 
+/* --------------------------------------------- */
+/* -------- PANEL DE CONFIGURACIÓN (BOTTOM-LEFT) */
+/* --------------------------------------------- */
+
+.settings-panel {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+
+  padding: 12px 15px;
+  border-radius: 12px;
+  width: 170px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  z-index: 999; /* por encima de todo */
+}
+
+.settings-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  padding: 5px 0;
+}
+
+.settings-btn:hover {
+  color: #2ca6c6; /* curious-blue */
+}
+
+.settings-msg {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #ed4958; /* mandy */
+}
 
