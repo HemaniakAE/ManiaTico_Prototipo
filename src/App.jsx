@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Auth from "./pages/Auth/Auth";
@@ -8,21 +9,28 @@ import GameView from "./pages/GameView/GameView";
 import ShopCenter from "./pages/ShopCenter/ShopCenter";
 import Library from "./pages/Library/Library";
 
-
 function App() {
+  useEffect(() => {
+    localStorage.removeItem("mt_ratings");
+  }, []);
+
+  useEffect(() => {
+  localStorage.removeItem("mt_library");
+  }, []);
+
   return (
     <GameSelectionProvider>
       <SearchProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchResults />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/library" element={<Library />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/library" element={<Library />} />
           <Route path="/gameview" element={<GameView />} />
           <Route path="/shopcenter" element={<ShopCenter />} />
         </Routes>
       </SearchProvider>
-    </GameSelectionProvider>  
+    </GameSelectionProvider>
   );
 }
 

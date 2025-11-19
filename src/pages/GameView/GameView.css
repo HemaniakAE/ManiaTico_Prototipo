@@ -21,10 +21,22 @@
 } 
 
 /* Detalles del juego */
-.game-view-content {
+.game-view-left {
   position: absolute;
   bottom: 8%;
   left: 6%;
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* 👈 Espacio constante entre card y botón */
+  z-index: 20;
+}
+
+
+.game-view-right {
+  position: absolute;
+  bottom: 8%;
+  right: 6%;
   width: 650px;
   display: flex;
   flex-direction: column;
