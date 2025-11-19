@@ -7,11 +7,13 @@
   right: 1%;
   max-width: 340px;
   backdrop-filter: blur(6px);
-  background: rgba(184, 170, 178, 0.126);
+  background: transparent;
+  backdrop-filter: blur(6px);
   border-radius: 16px;
   border: 1px solid transparent;
   text-align: center;
   color: #fff;
+  
 }
 
 .rating-title {
