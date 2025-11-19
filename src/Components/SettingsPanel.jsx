@@ -12,7 +12,7 @@ export default function SettingsPanel() {
 
   // Lista de mensajes emergentes
   const easterEggs = [
-    "Segun uno de los creadores, nada le gana al bubblesort",
+    "en este formato debe estar enlisados los mensajes",
     
   ];
 

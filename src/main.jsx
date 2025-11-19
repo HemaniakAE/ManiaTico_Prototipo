@@ -8,10 +8,10 @@ import { LanguageProvider } from "./Context/LanguageContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <CartProvider>
-      <LanguageProvider>
+    <LanguageProvider>
+      <CartProvider>
         <App />
-      </LanguageProvider>
-    </CartProvider>
+      </CartProvider>
+    </LanguageProvider>
   </BrowserRouter>
 );

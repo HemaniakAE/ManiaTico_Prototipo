@@ -203,22 +203,19 @@ form input:focus {
   width: 100%;
   padding: 0.9rem;
   margin-top: 0.8rem;
-
   background: white;
   color: #444;
   font-weight: bold;
-
   border: none;
   border-radius: 10px;
-
   cursor: pointer;
-  
+
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 10px;
 
-  transition: 0.2s ease;
+  transition: 0.2s;
 }
 
 .google-btn:hover {
@@ -229,8 +226,3 @@ form input:focus {
   background: #cccccc;
   cursor: default;
 }
-
-.google-icon {
-  font-size: 24px;
-}
-

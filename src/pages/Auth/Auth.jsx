@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import useTranslate from "../Context/useTranslate";
-
+import useTranslate from "../../Context/useTranslate";
 
 export default function Auth() {
-  const navigate = useNavigate();
   const { t } = useTranslate();
+  const navigate = useNavigate();
 
   const [mode, setMode] = useState("login");
   const [role, setRole] = useState("cliente");
+
   const [googleLoading, setGoogleLoading] = useState(false);
 
   const [form, setForm] = useState({
@@ -27,38 +27,61 @@ export default function Auth() {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    navigate("/"); // Simula login para entrega
+  function validate() {
+    const error = {};
+
+    if (!form.email.includes("@")) error.email = "Correo inválido";
+    if (form.password.length < 6) error.password = "Mínimo 6 caracteres";
+
+    if (mode === "register") {
+      if (!form.name.trim()) error.name = "Nombre requerido";
+      if (form.password !== form.confirm) error.confirm = "No coinciden";
+      if (role === "dev" && !form.studio.trim())
+        error.studio = "Estudio requerido";
+    }
+
+    return error;
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const v = validate();
+    if (Object.keys(v).length) return setErrors(v);
+
+    navigate("/"); // éxito → al home
+  }
+
+  // ------------------
+  // GOOGLE LOGIN FAKE
+  // ------------------
   function handleGoogleLogin() {
     setGoogleLoading(true);
 
     setTimeout(() => {
       setGoogleLoading(false);
-      navigate("/");
-    }, 2000);
+      navigate("/"); // simula login
+    }, 1600);
   }
 
   return (
     <div className="auth-container">
-
-      {/* BOTÓN PARA VOLVER A HOME */}
+      {/* Panel izquierdo */}
       <aside className="auth-left">
         <button className="auth-back-btn" onClick={() => navigate("/")}>
-          <img src="/Logo_ManiaTico.png" className="auth-back-img" />
+          <img src="/Logo_ManiaTico.png" alt="Home" className="auth-back-img" />
         </button>
 
-        <h1 className="left-title">{t("welcome_title")}</h1>
-        <p className="left-sub">{t("welcome_sub")}</p>
+        <h1 className="left-title">
+          La tienda costarricense de videojuegos.
+          <br />
+          {t("login")} / {t("register")}
+        </h1>
       </aside>
 
-      {/* PANEL DERECHA / FORM */}
+      {/* Panel derecho */}
       <main className="auth-right">
         <div className="auth-card">
-
-          {/* SWITCH LOGIN / REGISTER */}
+          {/* Cambiar entre login y register */}
           <div className="auth-modes">
             <button
               className={mode === "login" ? "active" : ""}
@@ -76,32 +99,33 @@ export default function Auth() {
           </div>
 
           <h2 className="form-title">
-            {mode === "login" ? t("login") : t("create_account")}
+            {mode === "login" ? t("welcome") : t("register")}
           </h2>
 
+          {/* FORM */}
           <form onSubmit={handleSubmit}>
-
-            {/* CAMPOS SOLO EN REGISTRO */}
+            {/* Nombre - solo registro */}
             {mode === "register" && (
               <>
                 <label>
-                  {t("full_name")}
+                  {t("fullName")}
                   <input
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder={t("placeholder_name")}
+                    placeholder={t("fullName")}
                   />
                 </label>
+                {errors.name && <p className="error">{errors.name}</p>}
 
-                {/* ROL (cliente/dev) */}
+                {/* Roles */}
                 <div className="role-selector">
                   <button
                     type="button"
                     className={role === "cliente" ? "role active" : "role"}
                     onClick={() => setRole("cliente")}
                   >
-                    {t("role_client")}
+                    {t("client")}
                   </button>
 
                   <button
@@ -109,66 +133,75 @@ export default function Auth() {
                     className={role === "dev" ? "role active" : "role"}
                     onClick={() => setRole("dev")}
                   >
-                    {t("role_dev")}
+                    {t("developer")}
                   </button>
                 </div>
               </>
             )}
 
-            {/* CAMPOS COMUNES */}
+            {/* Correo */}
             <label>
               {t("email")}
               <input
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder={t("placeholder_email")}
-                type="email"
+                placeholder="correo@ejemplo.com"
               />
             </label>
+            {errors.email && <p className="error">{errors.email}</p>}
 
+            {/* Contraseña */}
             <label>
               {t("password")}
               <input
                 name="password"
+                type="password"
                 value={form.password}
                 onChange={handleChange}
-                type="password"
               />
             </label>
+            {errors.password && <p className="error">{errors.password}</p>}
 
+            {/* Confirmar contraseña - solo registro */}
             {mode === "register" && (
               <>
                 <label>
-                  {t("confirm_password")}
+                  {t("confirm")}
                   <input
                     name="confirm"
+                    type="password"
                     value={form.confirm}
                     onChange={handleChange}
-                    type="password"
                   />
                 </label>
+                {errors.confirm && <p className="error">{errors.confirm}</p>}
 
+                {/* Estudio si es dev */}
                 {role === "dev" && (
-                  <label>
-                    {t("studio")}
-                    <input
-                      name="studio"
-                      value={form.studio}
-                      onChange={handleChange}
-                      placeholder={t("placeholder_studio")}
-                    />
-                  </label>
+                  <>
+                    <label>
+                      {t("studio")}
+                      <input
+                        name="studio"
+                        value={form.studio}
+                        onChange={handleChange}
+                      />
+                    </label>
+                    {errors.studio && (
+                      <p className="error">{errors.studio}</p>
+                    )}
+                  </>
                 )}
               </>
             )}
 
             {/* BOTÓN PRINCIPAL */}
             <button className="submit-btn">
-              {mode === "login" ? t("enter") : t("create_account")}
+              {mode === "login" ? t("enter") : t("create")}
             </button>
 
-            {/* GOOGLE LOGIN SOLO EN LOGIN */}
+            {/* GOOGLE BUTTON (solo LOGIN) */}
             {mode === "login" && (
               <button
                 type="button"
@@ -176,17 +209,10 @@ export default function Auth() {
                 onClick={handleGoogleLogin}
                 disabled={googleLoading}
               >
-                {googleLoading ? (
-                  t("google_loading")
-                ) : (
-                  <>
-                    <FcGoogle className="google-icon" />
-                    <span>{t("google_login")}</span>
-                  </>
-                )}
+                <FcGoogle size={22} style={{ marginRight: "8px" }} />
+                {googleLoading ? "Conectando..." : t("googleLogin")}
               </button>
             )}
-
           </form>
         </div>
       </main>
