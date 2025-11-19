@@ -190,3 +190,32 @@
   transform: scale(1.05);
 }
 
+.library-link {
+  position: relative;
+  left: -290px;   /* mueve en el eje X → izquierda(-) / derecha(+) */
+  top: 0px;      /* mueve en el eje Y → arriba(-) / abajo(+) */
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #b61a2e;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+
+.library-link:hover {
+  background: #2ca6c6;
+  transform: scale(1.05);
+}
+
+.library-icon {
+  font-size: 18px;
+}
+

@@ -41,7 +41,11 @@
   "puzzles": "Puzles",
   "dlc": "DLC´s",
 
-  "search": "Buscar...",
+  "search": {
+    "text": "Buscar...",
+    "placeholder": "Buscar en ManiaTico"
+  },
+
   "library": "Biblioteca",
   "login": "Ingresar",
 

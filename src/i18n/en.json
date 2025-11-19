@@ -27,11 +27,11 @@
   "life": "Life",
   "business": "Business",
   "flight": "Flight",
-  "builder": "Builder",
+  "builder": "Building",
 
   "strategy": "Strategy",
   "rts": "RTS",
-  "turns": "Turn-Based",
+  "turns": "Turn-based",
   "cards": "Cards",
   "tactical": "Tactical",
 
@@ -39,11 +39,15 @@
   "platforms": "Platforms",
   "music": "Music",
   "puzzles": "Puzzles",
-  "dlc": "DLC´s",
+  "dlc": "DLC's",
 
-  "search": "Search...",
+  "search": {
+    "text": "Search...",
+    "placeholder": "Search in ManiaTico"
+  },
+
   "library": "Library",
-  "login": "Login",
+  "login": "Sign In",
 
   "welcome": "Welcome",
   "register": "Create Account",
