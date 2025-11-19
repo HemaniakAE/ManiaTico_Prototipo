@@ -1,21 +1,20 @@
 {
-  "auth": {
-    "welcome": "Bienvenido",
-    "create_account": "Crear Cuenta",
-    "email": "Correo",
-    "password": "Contraseña",
-    "confirm_password": "Confirmar Contraseña",
-    "login_button": "Entrar",
-    "register_button": "Registrarse",
-    "google_login": "Iniciar con Google"
-  },
-  "home": {
-    "subtitle": "La tienda costarricense de videojuegos.",
-    "description": "Accede como cliente o publica tus juegos como desarrollador."
-  },
-  "settings": {
-    "language": "Idioma",
-    "spanish": "Español",
-    "english": "Inglés"
-  }
+  "welcome_title": "La tienda costarricense de videojuegos.",
+  "welcome_sub": "Accede como cliente o publica tus juegos como desarrollador.",
+  "login": "Iniciar Sesión",
+  "register": "Registrarse",
+  "enter": "Entrar",
+  "create_account": "Crear Cuenta",
+  "full_name": "Nombre Completo",
+  "email": "Correo",
+  "password": "Contraseña",
+  "confirm_password": "Confirmar Contraseña",
+  "studio": "Nombre del Estudio",
+  "placeholder_name": "Tu nombre",
+  "placeholder_email": "correo@ejemplo.com",
+  "placeholder_studio": "Ejemplo: TicoGames",
+  "role_client": "Cliente",
+  "role_dev": "Desarrollador",
+  "google_login": "Iniciar con Google",
+  "google_loading": "Conectando con Google..."
 }

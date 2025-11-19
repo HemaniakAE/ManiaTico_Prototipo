@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
+import useTranslate from "../../i18n/useTranslate";
 import { FcGoogle } from "react-icons/fc";
-
-
 
 
 export default function Auth() {
   const navigate = useNavigate();
+  const { t } = useTranslate();
+
   const [mode, setMode] = useState("login");
   const [role, setRole] = useState("cliente");
   const [googleLoading, setGoogleLoading] = useState(false);
-
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
     confirm: "",
-    studio: "",
+    studio: ""
   });
 
   const [errors, setErrors] = useState({});
@@ -27,44 +27,16 @@ export default function Auth() {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function validate() {
-    const err = {};
-
-    if (!form.email.includes("@")) err.email = "Correo inválido";
-    if (form.password.length < 6) err.password = "Mínimo 6 caracteres";
-
-    if (mode === "register") {
-      if (!form.name.trim()) err.name = "Nombre requerido";
-      if (form.password !== form.confirm) err.confirm = "No coinciden";
-      if (role === "dev" && !form.studio.trim()) err.studio = "Estudio requerido";
-    }
-
-    return err;
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-
-    const v = validate();
-    if (Object.keys(v).length) return setErrors(v);
-
-    console.log("PAYLOAD →", {
-      mode,
-      role,
-      ...form,
-    });
-
-    navigate("/");
+    navigate("/"); // Simula login para entrega
   }
 
   function handleGoogleLogin() {
     setGoogleLoading(true);
 
-    // Simulación de 2 segundos
     setTimeout(() => {
-      console.log("Usuario autenticado con Google (EMULACIÓN)");
-
-      // Aquí podrían guardar datos en context, etc.
+      setGoogleLoading(false);
       navigate("/");
     }, 2000);
   }
@@ -72,61 +44,64 @@ export default function Auth() {
   return (
     <div className="auth-container">
 
+      {/* BOTÓN PARA VOLVER A HOME */}
       <aside className="auth-left">
-        <aside className="auth-left">
-          <button className="auth-back-btn" onClick={() => navigate("/")}>
-            <img src="/Logo_ManiaTico.png" alt="Home" className="auth-back-img" />
-          </button>
-        </aside>
+        <button className="auth-back-btn" onClick={() => navigate("/")}>
+          <img src="/Logo_ManiaTico.png" className="auth-back-img" />
+        </button>
 
-        <h1 className="left-title">La tienda costarricens de videojuegos.  
-          Accede como cliente o publica tus juegos como desarrollador.</h1>
-        </aside>
+        <h1 className="left-title">{t("welcome_title")}</h1>
+        <p className="left-sub">{t("welcome_sub")}</p>
+      </aside>
 
+      {/* PANEL DERECHA / FORM */}
       <main className="auth-right">
         <div className="auth-card">
+
+          {/* SWITCH LOGIN / REGISTER */}
           <div className="auth-modes">
             <button
               className={mode === "login" ? "active" : ""}
               onClick={() => setMode("login")}
             >
-              Iniciar Sesión
+              {t("login")}
             </button>
 
             <button
               className={mode === "register" ? "active" : ""}
               onClick={() => setMode("register")}
             >
-              Registrarse
+              {t("register")}
             </button>
           </div>
 
           <h2 className="form-title">
-            {mode === "login" ? "Bienvenido" : "Crear Cuenta"}
+            {mode === "login" ? t("login") : t("create_account")}
           </h2>
 
           <form onSubmit={handleSubmit}>
+
+            {/* CAMPOS SOLO EN REGISTRO */}
             {mode === "register" && (
               <>
                 <label>
-                  Nombre Completo
+                  {t("full_name")}
                   <input
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="Tu nombre"
+                    placeholder={t("placeholder_name")}
                   />
                 </label>
-                {errors.name && <p className="error">{errors.name}</p>}
 
-                {/* se elije el rol de la cuenta */}
+                {/* ROL (cliente/dev) */}
                 <div className="role-selector">
                   <button
                     type="button"
                     className={role === "cliente" ? "role active" : "role"}
                     onClick={() => setRole("cliente")}
                   >
-                    Cliente
+                    {t("role_client")}
                   </button>
 
                   <button
@@ -134,26 +109,26 @@ export default function Auth() {
                     className={role === "dev" ? "role active" : "role"}
                     onClick={() => setRole("dev")}
                   >
-                    Desarrollador
+                    {t("role_dev")}
                   </button>
                 </div>
               </>
             )}
 
+            {/* CAMPOS COMUNES */}
             <label>
-              Correo
+              {t("email")}
               <input
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="correo@ejemplo.com"
+                placeholder={t("placeholder_email")}
                 type="email"
               />
             </label>
-            {errors.email && <p className="error">{errors.email}</p>}
 
             <label>
-              Contraseña
+              {t("password")}
               <input
                 name="password"
                 value={form.password}
@@ -161,12 +136,11 @@ export default function Auth() {
                 type="password"
               />
             </label>
-            {errors.password && <p className="error">{errors.password}</p>}
 
             {mode === "register" && (
               <>
                 <label>
-                  Confirmar contraseña
+                  {t("confirm_password")}
                   <input
                     name="confirm"
                     value={form.confirm}
@@ -174,28 +148,27 @@ export default function Auth() {
                     type="password"
                   />
                 </label>
-                {errors.confirm && <p className="error">{errors.confirm}</p>}
 
                 {role === "dev" && (
-                  <>
-                    <label>
-                      Nombre del Estudio
-                      <input
-                        name="studio"
-                        value={form.studio}
-                        onChange={handleChange}
-                        placeholder="Ejemplo: TicoGames"
-                      />
-                    </label>
-                    {errors.studio && <p className="error">{errors.studio}</p>}
-                  </>
+                  <label>
+                    {t("studio")}
+                    <input
+                      name="studio"
+                      value={form.studio}
+                      onChange={handleChange}
+                      placeholder={t("placeholder_studio")}
+                    />
+                  </label>
                 )}
               </>
             )}
 
+            {/* BOTÓN PRINCIPAL */}
             <button className="submit-btn">
-              {mode === "login" ? "Entrar" : "Crear Cuenta"}
+              {mode === "login" ? t("enter") : t("create_account")}
             </button>
+
+            {/* GOOGLE LOGIN SOLO EN LOGIN */}
             {mode === "login" && (
               <button
                 type="button"
@@ -204,14 +177,16 @@ export default function Auth() {
                 disabled={googleLoading}
               >
                 {googleLoading ? (
-                  "Conectando con Google..."
+                  t("google_loading")
                 ) : (
                   <>
-                    <FcGoogle size={22} style={{ marginRight: "20px" }} />
-                    Iniciar con Google
+                    <FcGoogle className="google-icon" />
+                    <span>{t("google_login")}</span>
                   </>
                 )}
-              </button>)}
+              </button>
+            )}
+
           </form>
         </div>
       </main>
