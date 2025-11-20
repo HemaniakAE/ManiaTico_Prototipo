@@ -231,143 +231,102 @@
   transform: scale(1.05);
 }
 
-/* ========== RESPONSIVE - TABLETS (1024px) ========== */
-@media (max-width: 1024px) {
-  .header {
-    padding: 10px 15px;
-    height: 65px;
-  }
-
-  .header-left .logo-refresh {
-    height: 40px;
-  }
-
-  .header-left .library-link span {
-    display: none; /* Ocultar texto, solo mostrar icono */
-  }
-
-  .header-left .library-link {
-    gap: 0;
-    padding: 8px;
-  }
-
-  .search-wrapper {
-    max-width: 350px;
-  }
-
-  .auth-button span {
-    display: none; /* Solo mostrar icono en tablet */
-  }
-
-  .auth-button {
-    padding: 8px 10px;
-  }
-}
-
-/* ========== RESPONSIVE - MÓVILES GRANDES (768px) ========== */
-@media (max-width: 768px) {
-  .header {
-    padding: 8px 12px;
-    height: 60px;
-    flex-wrap: nowrap;
-  }
-
-  .header-left {
-    gap: 10px;
-    flex: 0 0 auto;
-  }
-
-  .header-left .logo-refresh {
-    height: 35px;
-  }
-
-  .header-center {
-    margin: 0 10px;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .search-wrapper {
-    max-width: none;
-  }
-
-  .search-bar {
-    font-size: 16px; /* Mejorar legibilidad en móviles */
-    height: 44px; /* Mejor área de touch */
-  }
-
-  .search-button {
-    height: 44px;
-    min-width: 44px; /* Tamaño mínimo para touch */
-  }
-
-  .header-right {
-    gap: 10px;
-    flex: 0 0 auto;
-  }
-
-  .auth-button {
-    padding: 10px;
-    min-width: 44px;
-    min-height: 44px;
-    justify-content: center;
-  }
-
-  /* Ocultar completamente el texto de biblioteca en móviles */
-  .header-left .library-link span {
-    display: none;
-  }
-}
 
 /* ========== RESPONSIVE - MÓVILES PEQUEÑOS (480px) ========== */
 @media (max-width: 480px) {
   .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     padding: 6px 8px;
     height: 55px;
+    overflow-x: auto;         /* Scroll horizontal si no caben */
+    white-space: nowrap;      /* No se rompen las líneas */
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
   }
 
+  /* Contenedores flexibles dentro del header */
   .header-left {
-    padding-top: 20px;
-    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;           /* Mantener tamaño natural */
+    margin-top: 20px; 
+  }
+
+  .header-center {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;           /* Mantener tamaño natural */
+    margin-right: 10px;       /* Separación entre bloques */
+  }
+
+  .header-right {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;           /* Mantener tamaño natural */
+    margin-left: 30px;       /* Separación entre bloques */
   }
 
   .header-left .logo-refresh {
     height: 35px;
+    flex-shrink: 0;           /* No se encoge */
+  }
+
+  .header-left .library-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 5px;
   }
 
   .header-center {
-    margin: 0 8px;
+    flex: 0 0 auto;
+    min-width: 120px;         /* Tamaño mínimo para el search */
+  }
+
+  .search-wrapper {
+    width: 100%;
+    max-width: 180px;         /* Ajusta el ancho del input */
+    display: flex;
+    flex-shrink: 0;
   }
 
   .search-bar {
-    height: 40px;
-    padding: 0 10px;
-    font-size: 14px;
+    height: 36px;
+    padding: 0 6px;
+    font-size: 13px;
   }
 
   .search-button {
-    height: 40px;
-    padding: 0 12px;
+    height: 36px;
+    padding: 0 6px;
+    min-width: 36px;
   }
 
   .header-right {
-    height: 8px;
-    gap: 8px;
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+
+  .cart-button {
+    margin: 0;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .cart-logo {
+    height: 28px;
   }
 
   .auth-button {
-    padding: 1px 2px;
-    font-size: 8px;
-    border-radius: 50%;
-  }
-
-  /* Ocultar icono de biblioteca en móviles muy pequeños si es necesario */
-  @media (max-width: 360px) {
-    .header-left .library-link {
-      display: none;
-    }
+    padding: 4px 8px;
+    font-size: 12px;
+    flex-shrink: 0;
   }
 }
+
+
+
 
 /* ========== SUGGESTIONS RESPONSIVE ========== */
 .search-suggestions {
