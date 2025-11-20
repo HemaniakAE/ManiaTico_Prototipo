@@ -191,5 +191,15 @@
       "noImage": "Upload an image with 2:1 ratio.",
       "submitError": "Error submitting request."
     }
+  },
+
+  "messaging": {
+    "messages": "Messages",
+    "conversations": "Conversations", 
+    "online": "Online",
+    "noMessages": "No messages yet. Send the first one!",
+    "selectConversation": "Select a conversation",
+    "writeMessage": "Write a message...",
+    "send": "Send"
   }
 }
