@@ -64,7 +64,7 @@
 
   "catalogTitle": "Catálogo de Juegos",
   "featured": "Destacado",
-  "popular": "Más Populares", 
+  "popular": "Más Populares",
   "allGames": "Todos los juegos",
   "comingSoon": "¡Próximamente más juegos...!",
   "newTitles": "¡Se vienen nuevos títulos increíbles!",
@@ -98,12 +98,15 @@
     "redeemCode": "Canjear Código",
     "enterCode": "Introducir código de descuento",
     "checkout": "Confirmar Compra",
-    "purchaseSuccess": "Compra simulada exitosa ✅",
+    "purchaseSuccess": "Compra exitosa",
     "summary": "Resumen",
     "clearCart": "Vaciar carrito",
-    "remove": "Quitar"
+    "remove": "Quitar",
+    "cardNumber": "Número de tarjeta",
+    "expiry": "Fecha de vencimiento",
+    "cvc": "Código de seguridad",
+    "googlePay": "Pagar con Google Pay"
   },
-
   "shopCenter": {
     "yourCart": "Tu carrito",
     "emptyCart": "Tu carrito está vacío. Explora y agrega juegos.",
@@ -146,4 +149,3 @@
     "add": "Añadir"
   }
 }
-
