@@ -15,11 +15,13 @@ export default function GameDetails() {
 
       <div className="tags">
         {selectedGame.categories?.map((cat, index) => (
-          <span key={index} className="tag">{cat}</span>
+          <span key={index} className="tag">
+            {t(cat)}
+          </span>
         ))}
       </div>
 
-      <p className="description">{selectedGame.description}</p>
+      <p className="description">{t(`gameDescriptions.${selectedGame.id}`)}</p>
 
       <div className="game-meta">
         <span>{t('gameDetails.developer')} </span>
