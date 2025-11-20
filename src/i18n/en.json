@@ -63,7 +63,7 @@
   "googleLogin": "Continue with Google",
 
   "catalogTitle": "Games Catalog",
-  "featured": "Featured", 
+  "featured": "Featured",
   "popular": "Most Popular",
   "allGames": "All Games",
   "comingSoon": "More games coming soon...!",
@@ -98,10 +98,14 @@
     "redeemCode": "Redeem Code",
     "enterCode": "Enter discount code",
     "checkout": "Confirm Purchase",
-    "purchaseSuccess": "Purchase simulated successfully ✅",
+    "purchaseSuccess": "Purchase successfully",
     "summary": "Summary",
     "clearCart": "Clear cart",
-    "remove": "Remove"
+    "remove": "Remove",
+    "cardNumber": "Card Number",
+    "expiry": "Expiry Date",
+    "cvc": "Security Code",
+    "googlePay": "Pay with Google Pay"
   },
 
   "shopCenter": {
@@ -139,7 +143,7 @@
     "addAnotherCopy": "Add another copy",
     "inCart": "in cart",
     "alreadyPurchased": "Already purchased — add additional copy",
-    "addAnotherUnit": "Add another unit", 
+    "addAnotherUnit": "Add another unit",
     "addToCart": "Add to cart",
     "addCopy": "Add copy",
     "purchased": "Purchased",
