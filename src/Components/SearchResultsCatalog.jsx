@@ -4,9 +4,11 @@ import gamesData from "../data/games.json";
 import GameCard from "./GameCard";
 import "./SearchResultsCatalog.css";
 import { SearchContext } from "../Context/SearchContext";
+import useTranslate from "../Context/useTranslate";
 
 const SearchResultsCatalog = () => {
   const { finalSearch } = useContext(SearchContext);
+  const { t } = useTranslate();
 
   const normalize = (str = "") =>
     String(str)
@@ -26,19 +28,32 @@ const SearchResultsCatalog = () => {
     );
   };
 
-  const filteredGames = gamesData.filter((g) =>
-    matchesByTokens(g.name, finalSearch)
-  );
+  // 🔥 Ahora busca por nombre Y por categorías
+  const filteredGames = gamesData.filter((g) => {
+  const search = normalize(finalSearch);
+  if (!search) return false;
+
+  // Filtrado por nombre (tokens)
+  const matchName = matchesByTokens(g.name, search);
+
+  // Filtrado por categoría (solo si el término es suficientemente largo)
+  const matchCategory =
+    search.length >= 3 &&
+    g.categories.some((cat) => normalize(cat).startsWith(search));
+
+  return matchName || matchCategory;
+});
+
 
   return (
     <div className="search-results-catalog-container">
       <h2 className="search-results-catalog-title">
-        Resultados de búsqueda: "{finalSearch}"
+        {t('searchResults.title')} "{finalSearch}"
       </h2>
 
       {filteredGames.length === 0 ? (
         <p className="no-results-message">
-          No se encontraron juegos con "{finalSearch}"
+          {t('searchResults.noResults')} "{finalSearch}"
         </p>
       ) : (
         <section className="all-section">

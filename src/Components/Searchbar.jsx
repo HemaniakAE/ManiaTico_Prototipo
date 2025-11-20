@@ -3,13 +3,18 @@ import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import gamesData from "../data/games.json";
 import { SearchContext } from "../Context/SearchContext";
+import useTranslate from "../Context/useTranslate"; 
 import "./Searchbar.css";
 
 export default function SearchBar() {
   const navigate = useNavigate();
   const { searchTerm, setSearchTerm, setFinalSearch } =
     useContext(SearchContext);
+
+  const { t } = useTranslate(); 
+
   const [suggestions, setSuggestions] = useState([]);
+
   const normalize = (str = "") =>
     String(str)
       .normalize("NFD")
@@ -22,13 +27,9 @@ export default function SearchBar() {
     const nTerm = normalize(term);
     if (!nTerm) return false;
 
-    // palabras del nombre
     const nameWords = nName.split(/\s+/);
-
-    // tokens de la búsqueda (por ejemplo: "selva eterna" -> ["selva","eterna"])
     const tokens = nTerm.split(/\s+/);
 
-    // para cada token necesitamos al menos una palabra del nameWords que empiece con el token
     return tokens.every((token) =>
       nameWords.some((word) => word.startsWith(token))
     );
@@ -54,7 +55,8 @@ export default function SearchBar() {
   const confirmSearch = (value) => {
     const cleaned = normalize(value);
     if (!cleaned) return;
-    setFinalSearch(cleaned); // guardamos la versión normalizada; también funciona usar raw, pero normalizar evita problemas
+
+    setFinalSearch(cleaned);
     navigate("/search");
     setSuggestions([]);
   };
@@ -76,7 +78,7 @@ export default function SearchBar() {
     <div className="search-wrapper">
       <input
         type="text"
-        placeholder="Buscar en ManiaTico"
+        placeholder={t("search.placeholder")}
         className="search-bar"
         value={searchTerm}
         onChange={handleChange}

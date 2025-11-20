@@ -1,0 +1,96 @@
+.rating-container {
+    position: absolute;
+  margin-top: 20px;
+  padding: 20px;
+  width: 100%;
+  bottom: 1%;
+  right: 1%;
+  max-width: 340px;
+  backdrop-filter: blur(6px);
+  background: transparent;
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  border: 1px solid transparent;
+  text-align: center;
+  color: #fff;
+  
+}
+
+.rating-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rating-value {
+  font-size: 18px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 36px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.star-rating.disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.star-rating .star {
+  transition: transform 0.5s ease, color 0.2s ease;
+}
+
+.star-rating.enabled .star:hover {
+  transform: scale(1.2);
+}
+
+.rating-lock-msg {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+
+  .rating-container {
+    width: 100%;
+    text-align: center;
+    left: 0;
+    padding: 8px;
+    background: transparent;
+    border-radius: 12px;
+  }
+
+  .rating-title {
+    font-size: 1.2rem;        /* más compacto en móvil */
+    margin-bottom: 6px;
+  }
+
+  .rating-value {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .star-rating {
+    gap: 8px;
+    font-size: 22px;
+    justify-content: center;
+  }
+
+  .star-rating.enabled .star:hover {
+    transform: scale(1.4);    /* un poco menos exagerado en móvil */
+  }
+
+  .locked-msg {
+    font-size: 0.75rem;       /* más pequeño y legible */
+    margin-top: 6px;
+  }
+}
+

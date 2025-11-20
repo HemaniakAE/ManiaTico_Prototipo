@@ -1,54 +1,118 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "./Sidebar.css";
+import { SearchContext } from "../Context/SearchContext";
+import { useNavigate } from "react-router-dom";
+import useTranslate from "../Context/useTranslate";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-function Sidebar() {
+export default function Sidebar() {
+  const [open, setOpen] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const { setFinalSearch } = useContext(SearchContext);
+  const navigate = useNavigate();
+  const { t } = useTranslate();
+
+  const categories = {
+    action: ["action", "shooter", "beat", "survival", "hack"],
+    adventure: ["adventure", "graphic", "openworld", "interactive"],
+    sports: ["sports", "football", "basketball", "racing", "skate"],
+    rpg: ["rpg", "actionrpg", "jrpg", "mmorpg", "strategyrpg"],
+    simulation: ["simulation", "life", "business", "flight", "builder"],
+    strategy: ["strategy", "rts", "turns", "cards", "tactical"],
+    arcade: ["arcade"],
+    platforms: ["platforms"],
+    music: ["music"],
+    puzzles: ["puzzles"],
+    dlc: ["dlc"],
+  };
+
+  const normalize = (str = "") =>
+    String(str)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+
+  const handleSelectCategory = (translationKey) => {
+    const translatedText = t(translationKey);
+    const cleaned = normalize(translatedText);
+    setFinalSearch(cleaned);
+    navigate("/search");
+    setMobileOpen(false); // cerrar sidebar en móvil
+  };
+
+  const handleCategoryClick = (catKey) => {
+    setOpen(open === catKey ? null : catKey);
+    handleSelectCategory(catKey);
+  };
+
+  const toggleMobileMenu = () => setMobileOpen(!mobileOpen);
+  const closeMobileMenu = () => setMobileOpen(false);
+
   return (
-    <aside className="sidebar">
-      <h2>Categorías</h2>
-      <ul>
-        <li className="category">Acción</li>
-        <li className="subcategory">Shooter</li>
-        <li className="subcategory">Beat 'em up</li>
-        <li className="subcategory">Supervivencia</li>
-        <li className="subcategory">Hack and Slash</li>
+    <>
+      {/* Botón hamburguesa */}
+      <button
+        className="mobile-menu-toggle"
+        onClick={toggleMobileMenu}
+        aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+      >
+        {mobileOpen ? <FaTimes /> : <FaBars />}
+      </button>
 
-        <li className="category">Aventura</li>
-        <li className="subcategory">Gráfica</li>
-        <li className="subcategory">Mundo abierto</li>
-        <li className="subcategory">Interactiva</li>
+      {/* Overlay */}
+      <div
+        className={`sidebar-overlay ${mobileOpen ? "active" : ""}`}
+        onClick={closeMobileMenu}
+      />
 
-        <li className="category">Deportes</li>
-        <li className="subcategory">Fútbol</li>
-        <li className="subcategory">Baloncesto</li>
-        <li className="subcategory">Carreras</li>
-        <li className="subcategory">Skate</li>
+      {/* Sidebar */}
+      <aside className={`sidebar ${mobileOpen ? "mobile-open" : ""}`}>
+        <h2>{t("categories")}</h2>
 
-        <li className="category">RPG</li>
-        <li className="subcategory">Acción RPG</li>
-        <li className="subcategory">JRPG</li>
-        <li className="subcategory">MMORPG</li>
-        <li className="subcategory">Estrategia RPG</li>
+        <ul>
+          {Object.keys(categories).map((catKey) => (
+            <li key={catKey}>
+              <div
+                className={`category ${open === catKey ? "active" : ""}`}
+                onClick={() => handleCategoryClick(catKey)}
+                role="button"
+                tabIndex={0}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleCategoryClick(catKey);
+                  }
+                }}
+              >
+                {t(catKey)}
+              </div>
 
-        <li className="category">Simulación</li>
-        <li className="subcategory">Vida</li>
-        <li className="subcategory">Negocios</li>
-        <li className="subcategory">Vuelo</li>
-        <li className="subcategory">Construcción</li>
-
-        <li className="category">Estrategia</li>
-        <li className="subcategory">RTS</li>
-        <li className="subcategory">Turnos</li>
-        <li className="subcategory">Cartas</li>
-        <li className="subcategory">Táctico</li>
-
-        <li className="category">Arcade</li>
-        <li className="category">Plataformas</li>
-        <li className="category">Música</li>
-        <li className="category">Puzles</li>
-        <li className="category">DLC´s</li>
-      </ul>
-    </aside>
+              {open === catKey && categories[catKey].length > 0 && (
+                <div className="subcategory-container">
+                  <ul>
+                    {categories[catKey].map((subKey) => (
+                      <li
+                        className="subcategory"
+                        key={subKey}
+                        onClick={() => handleSelectCategory(subKey)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            handleSelectCategory(subKey);
+                          }
+                        }}
+                      >
+                        {t(subKey)}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </>
   );
 }
-
-export default Sidebar;

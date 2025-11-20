@@ -1,0 +1,109 @@
+.add-cart-btn {
+  position: relative;
+  width: 70vh;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  margin-top: 0;
+  padding: 12px 18px;
+  background: transparent;
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.25);
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.5s ease, background 0.18s ease;
+  z-index: 20;
+}
+
+.add-cart-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid transparent;
+}
+
+.cart-icon {
+  font-size: 26px;
+  line-height: 1;
+}
+
+/* Texto del botón */
+.btn-text {
+  font-size: 24px;
+}
+
+/* Pastilla con la cantidad actual en carrito */
+.qty-pill {
+  margin-left: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Animación breve al añadir */
+.add-cart-btn.pulse {
+  animation: pulseAdd 0.35s ease;
+}
+
+@media (max-width: 480px) {
+
+  .add-cart-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px;
+    font-size: 4vw;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    background: rgb(29, 28, 28);
+  }
+
+  .btn-text {
+    font-size: 4vw;
+  }
+
+  .cart-icon {
+    font-size: 20px;
+  }
+
+  .qty-pill {
+    font-size: 10px;
+    padding: 3px 6px;
+    margin-left: 4px;
+  }
+
+  /* Hover menos agresivo para móviles táctiles */
+  .add-cart-btn:hover {
+    transform: none; 
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* Animación pulse más sutil */
+  .add-cart-btn.pulse {
+    animation: pulseAdd 0.35s ease;
+  }
+
+  @keyframes pulseAdd {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+  }
+}
+
+
+@keyframes pulseAdd {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

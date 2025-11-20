@@ -34,4 +34,26 @@
   transform: scale(0.9);
 }
 
+@media (max-width: 480px) {
+  .cart-button {
+    margin-top: -30px;
+    margin-right: 8px;        /* margen más pequeño para caber */
+    height: 20px;             /* altura reducida para móvil */
+    flex-shrink: 0;           /* que no se reduzca demasiado */
+  }
+
+  .cart-logo {
+    height: 20px;             /* ícono más pequeño */
+    transition: transform 0.2s ease, color 0.3s ease;
+  }
+
+  .cart-logo:hover {
+    transform: scale(1.1);    /* hover más notorio sin salir del header */
+    color: #b61a2e;
+  }
+
+  .cart-logo:active {
+    transform: scale(0.95);   /* active más pequeño para touch */
+  }
+}
 

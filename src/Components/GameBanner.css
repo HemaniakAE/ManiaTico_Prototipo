@@ -1,0 +1,72 @@
+.game-banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1; /* Mantiene proporción para tu imagen 2:1 */
+  overflow: hidden;
+  background: #000; /* por si la imagen no carga */
+  z-index: 1;
+}
+
+/* La imagen se oscurece ligeramente */
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que llene el banner sin bordes */
+  filter: brightness(40%); /* Oscurecer para dar enfoque al texto */
+  z-index: 1;
+}
+
+/* Capa de degradado inferior */
+.game-banner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 2;
+  background: linear-gradient(to bottom, transparent, rgb(0, 0, 0));
+}
+
+/* Contenido encima del banner (título, boton, etc) */
+.game-banner-content {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  color: #fff;
+  z-index: 3; /* Ahora sí encima del degradado */
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+
+  .game-banner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: auto; /* se adapta al alto de la imagen */
+    height: 190px; /* altura fija para móviles, ajustable según diseño */
+    overflow: hidden;
+    background: #000;
+    border-radius: 0.6rem; /* opcional, para bordes suaves */
+    top: 0;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* Ajuste de la imagen */
+    filter: brightness(40%);
+  }
+
+  .game-banner::after {
+    height: 60%; /* degradado más grande para texto en móvil */
+  }
+
+  .game-banner-content {
+    bottom: 10px; /* reduce separación del borde */
+    left: 10px; /* margen más pequeño */
+    font-size: 0.85rem; /* más legible en pantallas pequeñas */
+  }
+}
+

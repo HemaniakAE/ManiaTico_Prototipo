@@ -1,12 +1,18 @@
 // src/Components/GameCard.jsx
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./GameCard.css";
+import { GameSelectionContext } from "../Context/GameSelectionContext";
+import useTranslate from "../Context/useTranslate";
 
 export default function GameCard({ game, variant = "default", onClick }) {
     const navigate = useNavigate();
+    const { setSelectedGame } = useContext(GameSelectionContext);
+    const { t } = useTranslate();
+    
     const gameCardClick = () => {
-        navigate("/gameview"); // Ir a gameview
+        setSelectedGame(game);
+        navigate("/gameview");
     }
 
   return (
@@ -36,7 +42,7 @@ export default function GameCard({ game, variant = "default", onClick }) {
         <div className="categories">
           {game.categories?.map((cat, i) => (
             <span key={i} className="category-tag">
-              {cat}
+              {t(cat)}
             </span>
           ))}
         </div>
@@ -50,7 +56,7 @@ export default function GameCard({ game, variant = "default", onClick }) {
 
       {variant === "featured" && (
         <div className="featured-overlay">
-          <p className="featured-description">{game.description}</p>
+          <p className="featured-description">{t(`gameDescriptions.${game.id}`)}</p>
         </div>
       )}
     </div>
