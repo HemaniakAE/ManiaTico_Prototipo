@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useMessages } from "../Context/MessageContext";
 import { useAuth } from "../Context/AuthContext";
 import "./MessagingDock.css";
+import useTranslate from "../Context/useTranslate";
 
 export default function MessagingDock() {
   const { users, currentUser, isAuthenticated } = useAuth();
@@ -12,6 +13,7 @@ export default function MessagingDock() {
     getMessages, 
     getUnreadCount 
   } = useMessages();
+  const { t } = useTranslate();
 
   const [text, setText] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +41,7 @@ export default function MessagingDock() {
         className="mt-msg-toggle"
         onClick={() => setIsOpen(true)}
       >
-        💬 Mensajes
+        💬 {t('messaging.messages')}
         {getUnreadCount(currentUser) > 0 && (
           <span className="mt-msg-toggle-badge">
             {getUnreadCount(currentUser)}
@@ -58,7 +60,7 @@ export default function MessagingDock() {
           <div className="mt-msg-dock">
             {/* Barra superior */}
             <div className="mt-msg-topbar">
-              <span className="mt-msg-topbar-title">Mensajes</span>
+              <span className="mt-msg-topbar-title">{t('messaging.messages')}</span>
               <button 
                 className="mt-msg-topbar-close"
                 onClick={() => setIsOpen(false)}
@@ -69,7 +71,7 @@ export default function MessagingDock() {
 
             {/* Sidebar con usuarios */}
             <div className="mt-msg-sidebar">
-              <div className="mt-msg-sidebar-header">Conversaciones</div>
+              <div className="mt-msg-sidebar-header">{t('messaging.conversations')}</div>
               <ul className="mt-msg-channel-list">
                 {users
                   .filter(user => user.id !== currentUser.id)
@@ -98,13 +100,13 @@ export default function MessagingDock() {
                 <>
                   <div className="mt-msg-panel-header">
                     <div className="mt-msg-panel-title">{activeUser.username}</div>
-                    <div className="mt-msg-panel-subtitle">En línea</div>
+                    <div className="mt-msg-panel-subtitle">{t('messaging.online')}</div>
                   </div>
 
                   <div className="mt-msg-thread">
                     {messages.length === 0 ? (
                       <div className="mt-msg-panel-empty">
-                        No hay mensajes aún. ¡Envía el primero!
+                        {t('messaging.noMessages')}
                       </div>
                     ) : (
                       messages.map(msg => (
@@ -123,7 +125,7 @@ export default function MessagingDock() {
                   <div className="mt-msg-input-row">
                     <textarea
                       className="mt-msg-input"
-                      placeholder="Escribe un mensaje..."
+                      placeholder={t('messaging.writeMessage')}
                       rows="1"
                       value={text}
                       onChange={(e) => setText(e.target.value)}
@@ -139,13 +141,13 @@ export default function MessagingDock() {
                       onClick={handleSend}
                       disabled={!text.trim()}
                     >
-                      Enviar
+                      {t('messaging.send')}
                     </button>
                   </div>
                 </>
               ) : (
                 <div className="mt-msg-panel-empty">
-                  Selecciona una conversación
+                  {t('messaging.selectConversation')}
                 </div>
               )}
             </div>

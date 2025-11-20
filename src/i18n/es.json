@@ -190,5 +190,15 @@
       "noImage": "Sube una imagen con relación 2:1.",
       "submitError": "Error al enviar la solicitud."
     }
+  },
+
+  "messaging": {
+    "messages": "Mensajes",
+    "conversations": "Conversaciones",
+    "online": "En línea",
+    "noMessages": "No hay mensajes aún. ¡Envía el primero!",
+    "selectConversation": "Selecciona una conversación",
+    "writeMessage": "Escribe un mensaje...",
+    "send": "Enviar"
   }
 }
