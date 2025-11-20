@@ -22,7 +22,6 @@ export default function Sidebar() {
     platforms: [],
     music: [],
     puzzles: [],
-    dlc: [],
   };
 
   const normalize = (str = "") =>
