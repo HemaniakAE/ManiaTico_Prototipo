@@ -60,5 +60,27 @@
   "developer": "Developer",
   "enter": "Enter",
   "create": "Create Account",
-  "googleLogin": "Continue with Google"
+  "googleLogin": "Continue with Google",
+
+  "catalogTitle": "Games Catalog",
+  "featured": "Featured", 
+  "popular": "Most Popular",
+  "allGames": "All Games",
+  "comingSoon": "More games coming soon...!",
+  "newTitles": "Amazing new titles are coming!",
+  "price": "Price",
+  "buy": "Buy",
+  "addToCart": "Add to Cart",
+
+  "userLibrary": {
+    "myLibrary": "My Library",
+    "searchLibrary": "Search in library",
+    "emptyLibrary": "Your library is empty",
+    "emptyLibraryMessage": "When you buy or claim a game, it will appear here in your list of all games.",
+    "exploreStore": "Explore store",
+    "allGames": "All games",
+    "noResults": "No results found",
+    "noResultsMessage": "Try another term or clear the search to see all games.",
+    "clearSearch": "Clear search"
+  }
 }
