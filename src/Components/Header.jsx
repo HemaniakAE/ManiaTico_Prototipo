@@ -6,6 +6,7 @@ import { FaRegUserCircle, FaUserCheck } from "react-icons/fa";
 import { BiLibrary } from "react-icons/bi";
 import SearchBar from "./Searchbar";
 import CartButton from "./CartButton";
+import NotificationsButton from "./NotificationsButton";
 import { AuthContext } from "../Context/AuthContext";
 
 function Header() {
@@ -30,6 +31,9 @@ function Header() {
       </div>
 
       <div className="header-right">
+
+        <NotificationsButton />
+
         {/* Solo clientes pueden ver el carrito */}
         {isLoggedIn() && isClient() && <CartButton />}
         

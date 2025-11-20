@@ -29,6 +29,21 @@ export default function CartSummary({ itemsWithData, onClear }){
       console.warn('No se pudo guardar la biblioteca:', err)
     }
 
+        // Emitir notificación por cada juego comprado
+    itemsWithData.forEach((it) => {
+      window.dispatchEvent(
+        new CustomEvent("mt_new_notification", {
+          detail: {
+            title: "Compra realizada",
+            message: `${it.name} fue comprado exitosamente`,
+            gameId: it.id,
+            timestamp: Date.now()
+          }
+        })
+      );
+    });
+
+
     // vaciar carrito inmediatamente después de la compra
     if (onClear) onClear()
   }
