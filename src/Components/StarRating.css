@@ -56,3 +56,41 @@
   opacity: 0.8;
   margin-top: 8px;
 }
+
+@media (max-width: 480px) {
+
+  .rating-container {
+    width: 100%;
+    text-align: center;
+    left: 0;
+    padding: 8px;
+    background: transparent;
+    border-radius: 12px;
+  }
+
+  .rating-title {
+    font-size: 1.2rem;        /* más compacto en móvil */
+    margin-bottom: 6px;
+  }
+
+  .rating-value {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .star-rating {
+    gap: 8px;
+    font-size: 22px;
+    justify-content: center;
+  }
+
+  .star-rating.enabled .star:hover {
+    transform: scale(1.4);    /* un poco menos exagerado en móvil */
+  }
+
+  .locked-msg {
+    font-size: 0.75rem;       /* más pequeño y legible */
+    margin-top: 6px;
+  }
+}
+

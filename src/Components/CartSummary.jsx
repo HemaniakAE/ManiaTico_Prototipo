@@ -25,6 +25,21 @@ export default function CartSummary({ itemsWithData, onClear }){
     } catch (err) {
       console.warn('No se pudo guardar la biblioteca:', err)
     }
+
+        // Emitir notificación por cada juego comprado
+    itemsWithData.forEach((it) => {
+      window.dispatchEvent(
+        new CustomEvent("mt_new_notification", {
+          detail: {
+            title: "Compra realizada",
+            message: `${it.name} fue comprado exitosamente`,
+            gameId: it.id,
+            timestamp: Date.now()
+          }
+        })
+      );
+    });
+
     if (onClear) onClear()
   }
 
@@ -50,7 +65,7 @@ export default function CartSummary({ itemsWithData, onClear }){
         <h4>{t('cart.summary')}</h4>
         {itemsWithData.slice(0,2).map(i=> (
           <div key={i.id} className="cart-mini">
-            <img src={i.image ? `/src/assets/games/${i.image}` : ''} alt='' />
+            <img src={i.image ? `/assets/games/${i.image}` : ''} alt='' />
             <div>
               <div className="mini-name">{i.name}</div>
               <div className="mini-price">{fmt(i.price)}</div>

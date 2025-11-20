@@ -6,10 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
-  height: 100%; /* ocupa todo el espacio asignado por el padre */
-  height: 60vh; /* crece con el contenido */
-  backdrop-filter: blur(6px);
-  padding-top: 0;
+  height: auto; /* crece con el contenido */
   z-index: 20;
 }
 
@@ -21,7 +18,7 @@
 }
 
 .comment-textarea {
-  width: 100%;
+  width: 173vh;
   min-height: 90px;
   font-size: 1.5vh;
   padding: 12px;
@@ -65,6 +62,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 70vh;
+  z-index: 50;
 }
 
 .comment-card {
@@ -73,7 +72,6 @@
   background: rgba(255, 255, 255, 0.08);
   padding: 18px;
   border-radius: 12px;
-  backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -145,4 +143,77 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 480px) {
+
+  .comments-container {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+  }
+
+  .comments-title {
+    font-size: 1.5rem;  /* más pequeño */
+    margin-bottom: 8px;
+  }
+
+  .no-comments {
+    font-size: 0.85rem;
+  }
+
+   .comment-input-box {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .comment-textarea {
+    width: 100%;
+    font-size: 3.5vw;
+    min-height: 80px;
+  }
+
+ .comment-button {
+    width: 100%;
+    font-size: 3.5vw;
+  }
+
+  .comments-list {
+    gap: 15px;
+    height: auto; /* que crezca con los comentarios */
+  }
+
+  .comment-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .comment-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .comment-user {
+    font-size: 4vw;
+  }
+
+  .comment-date {
+    font-size: 0.7rem;
+  }
+
+  .comment-text {
+    font-size: 3.5vw;
+  }
+
+  .delete-comment-btn {
+    font-size: 20px;
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border-width: 2px;
+  }
+}
+
 

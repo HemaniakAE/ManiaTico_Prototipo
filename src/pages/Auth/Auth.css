@@ -1,17 +1,5 @@
 /* ----------- PALETA COLORES -------- */
-:root {
-  --cardinal: #b61a2e;
-  --curious-blue: #2ca6c6;
-  --baltic-sea: #1c1a21;
-  --gigas: #543985;
-  --azure: #396aa9;
-  --pink-swan: #b8aab2;
-  --merlot: #7c1c26;
-  --blumine: #1e4a7a;
-  --mandy: #d13542;
 
-  --text-light: #e8e8e8;
-}
 
 /* -------------- CONTENEDORES -------------- */
 .auth-container {
@@ -47,7 +35,7 @@
 }
 
 .left-title {
-  font-size: 2.8rem;
+  font-size: 2vh;
   color: var(--curious-blue);
 }
 
@@ -59,7 +47,7 @@
 
 /* -------------------- DONDE VA EL FORMULARIO DE INGRESO DE INFORMACION ---------------- */
 .auth-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(145deg, #13263a, #1c1a21);
   padding: 2rem 2.5rem;
   border-radius: 16px;
   width: 100%;
@@ -133,14 +121,14 @@ form input:focus {
   flex: 1;
   padding: 0.6rem;
   border-radius: 8px;
-  background: rgba(255,255,255,0.12);
+  background: transparent;
   border: none;
   color: #fff;
   cursor: pointer;
 }
 
 .role.active {
-  background: var(--azure);
+  background: rgba(255,255,255,0.12);
 }
 
 /* --------------- BOTÓN DE INGRESO CON INFORMACION INGRESADA ------------- */
@@ -178,8 +166,8 @@ form input:focus {
 
 /* --------- BOTÓN DE REGRESO A HOME ----------- */
 .auth-back-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border: 2px solid transparent;
   padding: 10px;
   border-radius: 14px;
   backdrop-filter: blur(4px);
@@ -189,7 +177,7 @@ form input:focus {
 
 .auth-back-btn:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: var(--curious-blue);
+  border: 1px solid transparent;
 }
 
 .auth-back-img {

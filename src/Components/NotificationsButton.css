@@ -1,0 +1,109 @@
+/* Contenedor para permitir posición relativa */
+.notif-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 5vh;
+  margin-top: 0.5vh;
+}
+
+/* Botón */
+.notif-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  transition: color 0.2s ease, transform 0.4s ease;
+}
+
+.notif-button:hover {
+  color: #b61a2e;
+  transform: scale(1.2);
+}
+
+.notif-button.new {
+  color: #e0b500;
+}
+.notif-button.new:hover {
+  color: #e8ca53;
+}
+
+
+/* Bandeja (esconde por defecto) */
+.notif-tray {
+  position: absolute;
+  top: 55px; /* Separación hacia abajo */
+  right: 0;
+  width: 280px;
+  background: linear-gradient(145deg, #13263a, #1c1a21);
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(-15px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 20;
+}
+
+/* Cuando está abierta */
+.notif-tray.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Títulos y contenido */
+.notif-tray h4 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.notif-tray ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notif-tray li {
+  padding: 8px 0;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+}
+
+/* Último sin borde */
+.notif-tray li:last-child {
+  border-bottom: none;
+}
+
+/* ---------------------------
+   RESPONSIVE < 480px
+---------------------------- */
+
+@media (max-width: 480px) {
+  .notif-tray {
+    position: fixed;     /* fijo respecto al viewport */
+    top: 10px;           /* debajo del header */
+    right: 10px;
+    width: 25vw;
+    max-height: 70vh;
+    overflow-y: auto;    /* scroll si hay muchas notificaciones */
+    z-index: 9999;
+  }
+
+  .notif-button {
+    padding: 8px;
+  }
+
+  .notif-tray h4 {
+    font-size: 16px;
+  }
+
+  .notif-tray li {
+    font-size: 13px;
+  }
+}

@@ -9,31 +9,7 @@
   left: 0;
   color: white;
   padding: 20px;
-  overflow-y: auto;
-  /*Para Firefox*/
-  scrollbar-width: thin;
-  scrollbar-color: #b61a2e rgba(255, 255, 255, 0.08);
-}
-
-/* Estilo del scrollbar (para navegadores WebKit como Chrome, Edge, Opera) */
-.sidebar::-webkit-scrollbar {
-  width: 8px; /* ancho del scroll */
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background-color: #b61a2e;
-  border-radius: 10px;
-  border: 2px solid rgba(19, 38, 58, 0.85);
-  transition: background-color 0.3s ease;
-}
-
-.sidebar::-webkit-scrollbar-thumb:hover {
-  background-color: #d2263d; /* un tono más claro al pasar el mouse */
+  z-index: 10;
 }
 
 .sidebar h2 {
@@ -85,4 +61,231 @@
   content: "";
   display: block;
   height: 40px;
+}
+
+/* ==========================================
+   MOBILE MENU TOGGLE BUTTON
+   ========================================== */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 15px;
+  z-index: 1001;
+  background: #b61a2e;
+  border: none;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.mobile-menu-toggle:hover {
+  background: #d2263d;
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   OVERLAY PARA MÓVILES
+   ========================================== */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* ==========================================
+   ANIMACIONES PARA SUBCATEGORÍAS
+   ========================================== */
+.subcategory-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.category.active + .subcategory-container {
+  max-height: 500px;
+}
+
+/* ==========================================
+   RESPONSIVE - TABLETS (hasta 1024px)
+   ========================================== */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+    padding: 16px;
+  }
+
+  .sidebar h2 {
+    font-size: 17px;
+    margin-top: 16px;
+  }
+
+  .category {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+
+  .subcategory {
+    font-size: 13px;
+    margin-left: 12px;
+    padding: 6px 10px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MÓVILES (hasta 768px)
+   ========================================== */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar {
+    width: 280px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    padding: 80px 20px 40px 20px;
+    background: rgba(19, 38, 58, 0.98);
+    backdrop-filter: blur(20px);
+    border-right: none;
+    z-index: 999;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.7);
+  }
+
+  .sidebar h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .category {
+    font-size: 16px;
+    padding: 14px 16px;
+    margin: 6px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .subcategory {
+    font-size: 14px;
+    margin-left: 20px;
+    margin-bottom: 6px;
+    padding: 12px 16px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Scroll personalizado para móviles */
+  .sidebar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: #b61a2e;
+    border-radius: 2px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS (hasta 480px)
+   ========================================== */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 85%;
+    max-width: 300px;
+    padding: 70px 15px 30px 15px;
+  }
+
+  .mobile-menu-toggle {
+    top: 75px;
+    left: 12px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .sidebar h2 {
+    font-size: 17px;
+    margin-top: 15px;
+    margin-bottom: 12px;
+  }
+
+  .category {
+    font-size: 15px;
+    padding: 12px 14px;
+    margin: 4px 0;
+  }
+
+  .subcategory {
+    font-size: 14px;
+    margin-left: 15px;
+    padding: 10px 14px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MÓVILES MUY PEQUEÑOS (hasta 360px)
+   ========================================== */
+@media (max-width: 360px) {
+  .sidebar {
+    width: 90%;
+    padding: 65px 12px 25px 12px;
+  }
+
+  .mobile-menu-toggle {
+    top: 70px;
+    left: 8px;
+    padding: 8px;
+  }
+
+  .category {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .subcategory {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+
+/* ==========================================
+   MEJORAS DE ACCESIBILIDAD
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .mobile-menu-toggle,
+  .category,
+  .subcategory {
+    transition: none;
+  }
 }

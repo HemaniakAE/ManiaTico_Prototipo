@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import useTranslate from "../../Context/useTranslate";
+import { AuthContext } from "../../Context/AuthContext";
 
 export default function Auth() {
   const { t } = useTranslate();
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const [mode, setMode] = useState("login");
   const [role, setRole] = useState("cliente");
@@ -48,7 +50,19 @@ export default function Auth() {
     const v = validate();
     if (Object.keys(v).length) return setErrors(v);
 
-    navigate("/"); // éxito → al home
+    // Crear objeto de usuario
+    const userData = {
+      name: form.name || form.email.split("@")[0],
+      email: form.email,
+      role: mode === "register" ? role : "cliente",
+      studio: role === "dev" ? form.studio : null
+    };
+
+    // Guardar sesión
+    login(userData);
+    
+    // Navegar al home
+    navigate("/");
   }
 
   // ------------------
@@ -59,7 +73,17 @@ export default function Auth() {
 
     setTimeout(() => {
       setGoogleLoading(false);
-      navigate("/"); // simula login
+      
+      // Simular usuario de Google
+      const googleUser = {
+        name: "Usuario Google",
+        email: "usuario@gmail.com",
+        role: "cliente",
+        studio: null
+      };
+      
+      login(googleUser);
+      navigate("/");
     }, 1600);
   }
 
@@ -72,9 +96,7 @@ export default function Auth() {
         </button>
 
         <h1 className="left-title">
-          La tienda costarricense de videojuegos.
-          <br />
-          {t("login")} / {t("register")}
+          El portal del desarrollo de videojuegos en Costa Rica
         </h1>
       </aside>
 
