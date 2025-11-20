@@ -51,10 +51,7 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 /* Tablets (768px en adelante) */
 @media (min-width: 768px) {
