@@ -60,5 +60,90 @@
   "developer": "Desarrollador",
   "enter": "Entrar",
   "create": "Crear Cuenta",
-  "googleLogin": "Iniciar con Google"
+  "googleLogin": "Iniciar con Google",
+
+  "catalogTitle": "Catálogo de Juegos",
+  "featured": "Destacado",
+  "popular": "Más Populares", 
+  "allGames": "Todos los juegos",
+  "comingSoon": "¡Próximamente más juegos...!",
+  "newTitles": "¡Se vienen nuevos títulos increíbles!",
+  "price": "Precio",
+  "buy": "Comprar",
+  "addToCart": "Añadir al carrito",
+
+  "userLibrary": {
+    "myLibrary": "Mi Biblioteca",
+    "searchLibrary": "Buscar en la biblioteca",
+    "emptyLibrary": "Tu biblioteca esta vacia",
+    "emptyLibraryMessage": "Cuando compres o reclames un juego, aparecera aqui en tu lista de todos los juegos.",
+    "exploreStore": "Explorar tienda",
+    "allGames": "Todos los juegos",
+    "noResults": "No se encontraron resultados",
+    "noResultsMessage": "Prueba con otro termino o limpia la busqueda para ver todos los juegos.",
+    "clearSearch": "Limpiar busqueda"
+  },
+
+  "searchResults": {
+    "title": "Resultados de búsqueda:",
+    "noResults": "No se encontraron juegos con"
+  },
+
+  "cart": {
+    "confirmPurchase": "Confirmar Compra",
+    "subtotal": "Subtotal",
+    "discount": "Descuento",
+    "total": "Total",
+    "items": "artículos",
+    "redeemCode": "Canjear Código",
+    "enterCode": "Introducir código de descuento",
+    "checkout": "Confirmar Compra",
+    "purchaseSuccess": "Compra simulada exitosa ✅",
+    "summary": "Resumen",
+    "clearCart": "Vaciar carrito",
+    "remove": "Quitar"
+  },
+
+  "shopCenter": {
+    "yourCart": "Tu carrito",
+    "emptyCart": "Tu carrito está vacío. Explora y agrega juegos.",
+    "add": "Agregar",
+    "continueAdding": "Seguir agregando"
+  },
+
+  "comments": {
+    "title": "Comentarios",
+    "buyToComment": "Compra el juego para poder dejar un comentario.",
+    "writeComment": "Escribe un comentario...",
+    "publish": "Publicar",
+    "alreadyCommented": "Ya has comentado este juego. Puedes eliminar tu comentario si deseas escribir otro.",
+    "firstToComment": "Sé el primero en comentar este juego.",
+    "delete": "Eliminar"
+  },
+
+  "gameDetails": {
+    "developer": "Desarrollador:"
+  },
+
+  "starRating": {
+    "ratings": "Calificaciones",
+    "gameRating": "Calificación del juego:",
+    "buyToRate": "Compra el juego para poder calificarlo"
+  },
+
+  "gameBanner": {
+    "noGameSelected": "No hay juego seleccionado"
+  },
+
+  "cartButton": {
+    "addAnotherCopy": "Agregar otra copia",
+    "inCart": "en carrito",
+    "alreadyPurchased": "Ya lo compraste — agregar copia adicional",
+    "addAnotherUnit": "Agregar otra unidad",
+    "addToCart": "Añadir al carrito",
+    "addCopy": "Añadir copia",
+    "purchased": "Comprado",
+    "add": "Añadir"
+  }
 }
+

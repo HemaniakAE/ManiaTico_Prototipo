@@ -60,5 +60,89 @@
   "developer": "Developer",
   "enter": "Enter",
   "create": "Create Account",
-  "googleLogin": "Continue with Google"
+  "googleLogin": "Continue with Google",
+
+  "catalogTitle": "Games Catalog",
+  "featured": "Featured", 
+  "popular": "Most Popular",
+  "allGames": "All Games",
+  "comingSoon": "More games coming soon...!",
+  "newTitles": "Amazing new titles are coming!",
+  "price": "Price",
+  "buy": "Buy",
+  "addToCart": "Add to Cart",
+
+  "userLibrary": {
+    "myLibrary": "My Library",
+    "searchLibrary": "Search in library",
+    "emptyLibrary": "Your library is empty",
+    "emptyLibraryMessage": "When you buy or claim a game, it will appear here in your list of all games.",
+    "exploreStore": "Explore store",
+    "allGames": "All games",
+    "noResults": "No results found",
+    "noResultsMessage": "Try another term or clear the search to see all games.",
+    "clearSearch": "Clear search"
+  },
+
+  "searchResults": {
+    "title": "Search results:",
+    "noResults": "No games found with"
+  },
+
+  "cart": {
+    "confirmPurchase": "Confirm Purchase",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total",
+    "items": "items",
+    "redeemCode": "Redeem Code",
+    "enterCode": "Enter discount code",
+    "checkout": "Confirm Purchase",
+    "purchaseSuccess": "Purchase simulated successfully ✅",
+    "summary": "Summary",
+    "clearCart": "Clear cart",
+    "remove": "Remove"
+  },
+
+  "shopCenter": {
+    "yourCart": "Your cart",
+    "emptyCart": "Your cart is empty. Explore and add games.",
+    "add": "Add",
+    "continueAdding": "Continue adding"
+  },
+
+  "comments": {
+    "title": "Comments",
+    "buyToComment": "Buy the game to be able to leave a comment.",
+    "writeComment": "Write a comment...",
+    "publish": "Publish",
+    "alreadyCommented": "You have already commented on this game. You can delete your comment if you want to write another one.",
+    "firstToComment": "Be the first to comment on this game.",
+    "delete": "Delete"
+  },
+
+  "gameDetails": {
+    "developer": "Developer:"
+  },
+
+  "starRating": {
+    "ratings": "Ratings",
+    "gameRating": "Game rating:",
+    "buyToRate": "Buy the game to be able to rate it"
+  },
+
+  "gameBanner": {
+    "noGameSelected": "No game selected"
+  },
+
+  "cartButton": {
+    "addAnotherCopy": "Add another copy",
+    "inCart": "in cart",
+    "alreadyPurchased": "Already purchased — add additional copy",
+    "addAnotherUnit": "Add another unit", 
+    "addToCart": "Add to cart",
+    "addCopy": "Add copy",
+    "purchased": "Purchased",
+    "add": "Add"
+  }
 }

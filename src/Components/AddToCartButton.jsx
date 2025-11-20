@@ -5,12 +5,17 @@ import { GameSelectionContext } from "../Context/GameSelectionContext";
 import { AuthContext } from "../Context/AuthContext";
 import { TbShoppingCartHeart, TbShoppingCartCheck, TbLock } from "react-icons/tb";
 import "./AddToCartButton.css";
+import useTranslate from "../Context/useTranslate";
 
 export default function AddToCartButton() {
   const { selectedGame } = useContext(GameSelectionContext);
   const { items, addItem } = useContext(CartContext);
+
   const { isLoggedIn, isClient, user } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const { t } = useTranslate();
+
 
   const [pulse, setPulse] = useState(false);
   const [owned, setOwned] = useState(false);
@@ -76,11 +81,11 @@ export default function AddToCartButton() {
       title={
         owned
           ? isInCart
-            ? `Agregar otra copia (${qty} en carrito)`
-            : "Ya lo compraste — agregar copia adicional"
+            ? `${t('cartButton.addAnotherCopy')} (${qty} ${t('cartButton.inCart')})`
+            : t('cartButton.alreadyPurchased')
           : isInCart
-          ? `Agregar otra unidad (${qty} en carrito)`
-          : "Añadir al carrito"
+          ? `${t('cartButton.addAnotherUnit')} (${qty} ${t('cartButton.inCart')})`
+          : t('cartButton.addToCart')
       }
     >
       {owned ? (
@@ -92,7 +97,7 @@ export default function AddToCartButton() {
       )}
 
       <span className="btn-text">
-        {owned ? (isInCart ? "Añadir copia" : "Comprado") : isInCart ? "Añadir" : "Añadir al carrito"}
+        {owned ? (isInCart ? t('cartButton.addCopy') : t('cartButton.purchased')) : isInCart ? t('cartButton.add') : t('cartButton.addToCart')}
       </span>
 
       {isInCart && <span className="qty-pill">{qty}</span>}

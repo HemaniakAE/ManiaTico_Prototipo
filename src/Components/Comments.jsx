@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Comments.css";
 import { MdDelete } from "react-icons/md";
 import commentsData from "../data/commets.json";
+import useTranslate from "../Context/useTranslate";
 
 export default function Comments({ gameId }) {
   const initial = commentsData.filter((c) => c.gameId === gameId);
@@ -10,6 +11,7 @@ export default function Comments({ gameId }) {
   const [text, setText] = useState("");
   const [canComment, setCanComment] = useState(false);
   const [isPosting, setIsPosting] = useState(false);
+  const { t } = useTranslate();
 
   // Ver si el usuario ya comentó
   const userComment = localComments.find((c) => c.user === "Tú");
@@ -47,7 +49,7 @@ export default function Comments({ gameId }) {
   function handleAddComment() {
     if (text.trim() === "" || userComment) return;
 
-    setIsPosting(true); // iniciar animación
+    setIsPosting(true);
 
     setTimeout(() => {
       const newComment = {
@@ -70,11 +72,10 @@ export default function Comments({ gameId }) {
         localStorage.setItem("mt_comments", JSON.stringify(all));
       } catch {}
 
-      setIsPosting(false); // finalizar animación
-    }, 1000); // duración de “carga”
+      setIsPosting(false);
+    }, 1000);
   }
 
-  // 🔥 Eliminar comentario del usuario
   function handleDeleteComment(id) {
     const updated = localComments.filter((c) => c.id !== id);
     setLocalComments(updated);
@@ -89,11 +90,11 @@ export default function Comments({ gameId }) {
 
   return (
     <div className="comments-container">
-      <h2 className="comments-title">Comentarios</h2>
+      <h2 className="comments-title">{t('comments.title')}</h2>
 
       {!canComment && (
         <p className="no-comments">
-          Compra el juego para poder dejar un comentario.
+          {t('comments.buyToComment')}
         </p>
       )}
 
@@ -101,7 +102,7 @@ export default function Comments({ gameId }) {
         <div className="comment-input-box">
           <textarea
             className="comment-textarea"
-            placeholder="Escribe un comentario..."
+            placeholder={t('comments.writeComment')}
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></textarea>
@@ -111,21 +112,22 @@ export default function Comments({ gameId }) {
             onClick={handleAddComment}
             disabled={isPosting}
           >
-            {isPosting ? <div className="spinner"></div> : "Publicar"}
+            {isPosting ? <div className="spinner"></div> : t('comments.publish')}
           </button>
         </div>
       )}
 
       {canComment && userComment && (
         <p className="no-comments">
-          Ya has comentado este juego. Puedes eliminar tu comentario si deseas
-          escribir otro.
+          {t('comments.alreadyCommented')}
         </p>
       )}
 
       <div className="comments-list">
         {comments.length === 0 && (
-          <p className="no-comments">Sé el primero en comentar este juego.</p>
+          <p className="no-comments">
+            {t('comments.firstToComment')}
+          </p>
         )}
 
         {comments.map((c) => (
@@ -139,11 +141,11 @@ export default function Comments({ gameId }) {
                   {new Date(c.date).toLocaleDateString()}
                 </span>
 
-                {/* 🔥 Botón de borrar SOLO para el usuario */}
                 {c.user === "Tú" && (
                   <MdDelete
                     className="delete-comment-btn"
                     onClick={() => handleDeleteComment(c.id)}
+                    title={t('comments.delete')}
                   />
                 )}
               </div>

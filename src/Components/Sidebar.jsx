@@ -19,10 +19,11 @@ export default function Sidebar() {
     rpg: ["rpg", "actionrpg", "jrpg", "mmorpg", "strategyrpg"],
     simulation: ["simulation", "life", "business", "flight", "builder"],
     strategy: ["strategy", "rts", "turns", "cards", "tactical"],
-    arcade: [],
-    platforms: [],
-    music: [],
-    puzzles: [],
+    arcade: ["arcade"],
+    platforms: ["platforms"],
+    music: ["music"],
+    puzzles: ["puzzles"],
+    dlc: ["dlc"],
   };
 
   const normalize = (str = "") =>
@@ -37,7 +38,7 @@ export default function Sidebar() {
     const cleaned = normalize(translatedText);
     setFinalSearch(cleaned);
     navigate("/search");
-    setMobileOpen(false); // Cerrar sidebar en móvil después de seleccionar
+    setMobileOpen(false); // cerrar sidebar en móvil
   };
 
   const handleCategoryClick = (catKey) => {
@@ -45,45 +46,40 @@ export default function Sidebar() {
     handleSelectCategory(catKey);
   };
 
-  const toggleMobileMenu = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setMobileOpen(false);
-  };
+  const toggleMobileMenu = () => setMobileOpen(!mobileOpen);
+  const closeMobileMenu = () => setMobileOpen(false);
 
   return (
     <>
-      {/* Botón de menú hamburguesa para móviles */}
-      <button 
-        className="mobile-menu-toggle" 
+      {/* Botón hamburguesa */}
+      <button
+        className="mobile-menu-toggle"
         onClick={toggleMobileMenu}
         aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
       >
         {mobileOpen ? <FaTimes /> : <FaBars />}
       </button>
 
-      {/* Overlay para cerrar al hacer click fuera */}
-      <div 
-        className={`sidebar-overlay ${mobileOpen ? 'active' : ''}`}
+      {/* Overlay */}
+      <div
+        className={`sidebar-overlay ${mobileOpen ? "active" : ""}`}
         onClick={closeMobileMenu}
       />
 
       {/* Sidebar */}
-      <aside className={`sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
+      <aside className={`sidebar ${mobileOpen ? "mobile-open" : ""}`}>
         <h2>{t("categories")}</h2>
 
         <ul>
           {Object.keys(categories).map((catKey) => (
             <li key={catKey}>
               <div
-                className={`category ${open === catKey ? 'active' : ''}`}
+                className={`category ${open === catKey ? "active" : ""}`}
                 onClick={() => handleCategoryClick(catKey)}
                 role="button"
                 tabIndex={0}
                 onKeyPress={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     handleCategoryClick(catKey);
                   }
                 }}
@@ -102,7 +98,7 @@ export default function Sidebar() {
                         role="button"
                         tabIndex={0}
                         onKeyPress={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
+                          if (e.key === "Enter" || e.key === " ") {
                             handleSelectCategory(subKey);
                           }
                         }}

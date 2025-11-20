@@ -4,12 +4,13 @@ import games from '../../data/games.json'
 import { useEffect, useState, useMemo } from 'react'
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom' 
-
+import useTranslate from '../../Context/useTranslate';
 
 export default function Library() {
   const [owned, setOwned] = useState([])
   const [q, setQ] = useState('')
   const navigate = useNavigate()
+  const { t } = useTranslate();
   
   // 1) Reset inicial solo una vez por sesion de pestaña
 useEffect(() => {
@@ -40,9 +41,6 @@ useEffect(() => {
   }
 }, [])
 
-
-
-
   const remove = (id) => {
     try {
       const raw = localStorage.getItem('mt_library')
@@ -54,7 +52,6 @@ useEffect(() => {
       console.warn(e)
     }
   }
-
 
   const filtered = useMemo(() => {
     if (!q) return owned
@@ -72,44 +69,41 @@ useEffect(() => {
       <Header />
       <main className="library-container horizontal-view">
   <div className="library-header">
-  <h1>Mi Biblioteca</h1>
+  <h1>{t('userLibrary.myLibrary')}</h1>
 
   <div className="library-controls">
     <input 
       className="library-search" 
-      placeholder="Buscar en la biblioteca" 
+      placeholder={t('userLibrary.searchLibrary')} 
       value={q} 
       onChange={(e)=>setQ(e.target.value)} 
     />
   </div>
 </div>
 
-
   {owned.length === 0 ? (
   <div className="hero-card hero-card-empty">
     <div className="hero-empty-main">
-      <h2>Tu biblioteca esta vacia</h2>
+      <h2>{t('userLibrary.emptyLibrary')}</h2>
       <p>
-        Cuando compres o reclames un juego, aparecera aqui en tu lista
-        de todos los juegos.
+        {t('userLibrary.emptyLibraryMessage')}
       </p>
         <button
     type="button"
     className="hero-empty-btn"
-    onClick={() => navigate('/')}   // ⬅️ te manda al home
+    onClick={() => navigate('/')}
     >
-    Explorar tienda
+    {t('userLibrary.exploreStore')}
     </button>
 
     </div>
   </div>
 
     ) : filtered.length === 0 && q.trim().length > 0 ? (
-    // ================= SIN RESULTADOS DE BUSQUEDA =================
     <section className="library-empty-steam">
       <header className="section-header">
         <div className="section-title">
-          <span>Todos los juegos</span>
+          <span>{t('userLibrary.allGames')}</span>
           <span className="section-count">({owned.length})</span>
         </div>
       </header>
@@ -117,22 +111,21 @@ useEffect(() => {
       <div className="empty-panel">
         <div className="empty-illustration" />
         <div className="empty-text">
-          <h2>No se encontraron resultados</h2>
+          <h2>{t('userLibrary.noResults')}</h2>
           <p>
-            Prueba con otro termino o limpia la busqueda para ver todos los juegos.
+            {t('userLibrary.noResultsMessage')}
           </p>
           <button
             className="empty-secondary-btn"
             type="button"
             onClick={() => setQ('')}
           >
-            Limpiar busqueda
+            {t('userLibrary.clearSearch')}
           </button>
         </div>
       </div>
     </section>
   ) : (
-    // ================= BIBLIOTECA CON JUEGOS =================
     <>
       <section className="hero-row">
         <div className="hero-grid">
@@ -151,7 +144,7 @@ useEffect(() => {
       <section className="all-games">
         <div className="section-header">
           <div className="section-title">
-            <span>Todos los juegos</span>
+            <span>{t('userLibrary.allGames')}</span>
             <span className="section-count">({filtered.length})</span>
           </div>
         </div>
