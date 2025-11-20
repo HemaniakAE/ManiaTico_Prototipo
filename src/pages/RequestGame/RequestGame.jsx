@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import "./requestGame.css";
 import Header from "../../Components/Header";
 import SettingsPanel from "../../Components/SettingsPanel";
+import { CiCircleCheck } from "react-icons/ci";
 
 export default function RequestGame() {
   const [form, setForm] = useState({
     name: "",
     categories: [],
     description: "",
+    price: "",
   });
 
   const [imageFile, setImageFile] = useState(null);
@@ -16,6 +18,9 @@ export default function RequestGame() {
   const [dragOver, setDragOver] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const inputRef = useRef(null);
+
+  const [successMessage, setSuccessMessage] = useState(false);
+
 
   const ASPECT_TARGET = 2;
   const TOLERANCE = 0.02;
@@ -35,12 +40,15 @@ export default function RequestGame() {
   function toggleCategory(value) {
     setForm((p) => {
       const exists = p.categories.includes(value);
-      return {
-        ...p,
-        categories: exists
-          ? p.categories.filter((c) => c !== value)
-          : [...p.categories, value],
-      };
+
+      if (exists) {
+        // Si ya existe, lo removemos
+        return { ...p, categories: p.categories.filter((c) => c !== value) };
+      } else {
+        // Solo agregamos si hay menos de 3 categorías
+        if (p.categories.length >= 3) return p; // ignorar si ya hay 3
+        return { ...p, categories: [...p.categories, value] };
+      }
     });
   }
 
@@ -135,6 +143,7 @@ export default function RequestGame() {
         developer: "TuNombreDeSesion",
         categories: form.categories,
         description: form.description.trim(),
+        price: Number(form.price) || 0, // convertir a número o 0
         imageName: imageFile.name,
       };
 
@@ -149,10 +158,29 @@ export default function RequestGame() {
         );
       } catch (err) {}
 
+      // Notificación para el botón de notificaciones
+      try {
+        window.dispatchEvent(
+          new CustomEvent("mt_new_notification", { 
+            detail: { 
+              title: "Solicitud de juego", 
+              message: `${payload.name} en revisión` 
+            } 
+          })
+        );
+      } catch (err) {}
+
+
+
       setTimeout(() => {
         setSubmitting(false);
-        alert("Solicitud enviada.");
-        setForm({ name: "", categories: [], description: "" });
+        setSuccessMessage(true);
+
+        // Ocultarlo después de 2 segundos
+        setTimeout(() => {
+          setSuccessMessage(false);
+        }, 2000);
+        setForm({ name: "", categories: [], description: "", price: "" });
         removeImage();
       }, 700);
     } catch (err) {
@@ -262,6 +290,18 @@ export default function RequestGame() {
             </div>
 
             <div className="form-group">
+              <label>Precio (₡)</label>
+              <input
+                type="number"
+                placeholder="Ej: 100"
+                name="price"
+                value={form.price}
+                onChange={handleInputChange}
+                min={0}
+              />
+            </div>
+
+            <div className="form-group">
               <label>Imagen del juego (relación 2:1)</label>
 
               <div
@@ -309,6 +349,13 @@ export default function RequestGame() {
 
           <SettingsPanel />
         </div>
+        {successMessage && (
+          <div className="success-toast">
+            <CiCircleCheck size={48} />
+            <span>¡Solicitud enviada correctamente!</span>
+          </div>
+        )}
+
       </div>
     </>
   );

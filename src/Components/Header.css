@@ -243,6 +243,7 @@
     overflow-x: auto;         /* Scroll horizontal si no caben */
     white-space: nowrap;      /* No se rompen las líneas */
     -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    z-index: 999;
   }
 
   /* Contenedores flexibles dentro del header */

@@ -1,5 +1,4 @@
-// src/Components/Catalog.jsx
-import React from "react";
+import React, { useContext } from "react";
 import gamesData from "../data/games.json";
 import GameCard from "./GameCard";
 import "./Catalog.css";

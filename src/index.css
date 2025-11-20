@@ -60,6 +60,12 @@ button:hover {
   border-color: #646cff;
 }
 
+@media (max-width: 480px) {
+  :root {
+    font-size: 15px;
+    z-index: 1;
+  }
+}
 
 /* Tablets (768px en adelante) */
 @media (min-width: 768px) {

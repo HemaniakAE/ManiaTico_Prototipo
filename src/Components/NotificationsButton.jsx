@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { IoIosNotifications } from "react-icons/io";
 import "./NotificationsButton.css";
 
@@ -51,7 +52,6 @@ export default function NotificationsButton() {
   const toggleOpen = () => {
     const newState = !open;
 
-    // Si la bandeja se está abriendo → marca como "visto"
     if (newState === true) {
       setHasNew(false);
       localStorage.setItem("mt_notifications_new", "false");
@@ -60,31 +60,34 @@ export default function NotificationsButton() {
     setOpen(newState);
   };
 
+  const isMobile = window.innerWidth <= 480;
+
+  const trayContent = (
+    <div className={`notif-tray ${open ? "open" : ""}`}>
+      <h4>Notificaciones</h4>
+
+      {notifications.length === 0 && <p className="no-notifs">No hay notificaciones</p>}
+
+      <ul>
+        {notifications.map((n, idx) => (
+          <li key={idx}>
+            <strong>{n.title}</strong>
+            <br />
+            {n.message}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
     <div className="notif-container" ref={trayRef}>
-      <button
-        className={`notif-button ${hasNew ? "new" : ""}`}
-        onClick={toggleOpen}
-      >
+      <button className={`notif-button ${hasNew ? "new" : ""}`} onClick={toggleOpen}>
         <IoIosNotifications size={30} />
       </button>
 
-      <div className={`notif-tray ${open ? "open" : ""}`}>
-        <h4>Notificaciones</h4>
-
-        {notifications.length === 0 && (
-          <p className="no-notifs">No hay notificaciones</p>
-        )}
-
-        <ul>
-          {notifications.map((n, idx) => (
-            <li key={idx}>
-              <strong>{n.title}</strong><br />
-              {n.message}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* Renderizar en portal si es mobile, sino normal */}
+      {isMobile ? createPortal(trayContent, document.body) : trayContent}
     </div>
   );
 }

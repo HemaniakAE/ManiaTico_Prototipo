@@ -86,10 +86,13 @@
 
 @media (max-width: 480px) {
   .notif-tray {
-    width: 95vw;
-    right: -10px; /* Para evitar que se salga */
-    top: 50px;
-    border-radius: 12px;
+    position: fixed;     /* fijo respecto al viewport */
+    top: 10px;           /* debajo del header */
+    right: 10px;
+    width: 25vw;
+    max-height: 70vh;
+    overflow-y: auto;    /* scroll si hay muchas notificaciones */
+    z-index: 9999;
   }
 
   .notif-button {

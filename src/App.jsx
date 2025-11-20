@@ -10,6 +10,7 @@ import GameView from "./pages/GameView/GameView";
 import ShopCenter from "./pages/ShopCenter/ShopCenter";
 import Library from "./pages/Library/Library";
 import RequestGame from "./pages/RequestGame/RequestGame";
+import { RequestsProvider } from "./Context/RequestsContext";
 
 
   // Limpiar datos ANTES de que React monte cualquier cosa
@@ -27,19 +28,21 @@ function App() {
   
   return (
     <AuthProvider>
-      <GameSelectionProvider>
-        <SearchProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/search" element={<SearchResults />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/library" element={<Library />} />
-            <Route path="/gameview" element={<GameView />} />
-            <Route path="/shopcenter" element={<ShopCenter />} />
-            <Route path="/requestgame" element={<RequestGame />} />
-          </Routes>
-        </SearchProvider>
-      </GameSelectionProvider>
+      <RequestsProvider>
+        <GameSelectionProvider>
+          <SearchProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/search" element={<SearchResults />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/library" element={<Library />} />
+              <Route path="/gameview" element={<GameView />} />
+              <Route path="/shopcenter" element={<ShopCenter />} />
+              <Route path="/requestgame" element={<RequestGame />} />
+            </Routes>
+          </SearchProvider>
+        </GameSelectionProvider>
+      </RequestsProvider>  
     </AuthProvider>
   );
 }
