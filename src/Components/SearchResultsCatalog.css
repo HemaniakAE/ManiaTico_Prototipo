@@ -44,16 +44,43 @@
   row-gap: 70px;
 }
 
-/* RESPONSIVE */
-@media (min-width: 1400px) {
+/* 📱 Centrar TODO el catálogo en la mitad de la pantalla (≤480px) */
+@media (max-width: 480px) {
+
   .search-results-catalog-container {
-    padding-left: 6rem; /* 👉 Más desplazamiento en monitores grandes */
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh; /* 👈 usa toda la altura de la pantalla */
+    padding: 0 1rem;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 👈 CENTRO VERTICAL */
+    align-items: center;     /* 👈 CENTRO HORIZONTAL */
+    text-align: center;
+  }
+
+  .search-results-catalog-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .search-results-catalog-grid {
+    width: 100%;
+    display: flex;           /* 👈 cambiamos grid → columna centrada */
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .game-card {
+    width: 90% !important;
+    max-width: 340px;
+  }
+
+  .featured-game-card {
+    width: 100% !important;
+    max-width: 380px;
   }
 }
-
-@media (max-width: 800px) {
-  .search-results-catalog-container {
-    padding-left: 1rem; /* 👉 En móviles casi centrado */
-  }
-}
-

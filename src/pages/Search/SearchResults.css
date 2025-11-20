@@ -56,5 +56,39 @@
   width: 100%;
 }
 
+@media (max-width: 480px) {
+
+  /* --- Contenedor principal --- */
+  #root {
+    padding: 0.5rem;
+    overflow-x: hidden;
+  }
+
+  /* --- El layout principal se convierte en una columna centrada --- */
+  .search-layout {
+    display: flex;
+    flex-direction: column;     /* Deja todo en columna */
+    align-items: center;        /* Centro horizontal */
+    justify-content: center;    /* Centro vertical */
+    min-height: 100vh;          /* Ocupa toda la pantalla */
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 90px;
+  }
+
+  /* --- Contenido del catálogo --- */
+  .search-content {
+    margin-left: 0;             /* Quitamos el espacio del sidebar */
+    padding: 1rem;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* Centro horizontal */
+    justify-content: center;    /* Centro vertical */
+    text-align: center;
+  }
+}
+
 
 

@@ -12,19 +12,146 @@
   opacity: 0.9;
 }
 
-.shop-center-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;padding:28px;align-items:start}
-.shop-center-main{background:transparent;padding:8px}
-.shop-center-side{display:flex;justify-content:flex-end}
-.cart-list{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px}
-.empty-cart{padding:18px}
-.suggestions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
-.suggestion-card{background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;display:flex;gap:8px;align-items:center}
-.suggestion-card img{width:64px;height:64px;object-fit:cover;border-radius:6px}
-.suggestion-card .s-meta{flex:1;text-align:left}
-.suggestion-card .s-name{font-weight:700;color:#fff}
-.suggestion-card .s-dev{font-size:12px;color:rgba(255,255,255,0.6)}
-.suggestion-card button{background:#0076ff;color:#fff;border:0;padding:6px 10px;border-radius:8px;cursor:pointer}
+.shop-center-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 28px;
+  padding: 28px;
+  align-items: start;
+}
+.shop-center-main {
+  background: transparent;
+  padding: 8px;
+}
+.shop-center-side {
+  display: flex;
+  justify-content: flex-end;
+}
+.cart-list {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+  border-radius: 8px;
+}
+.empty-cart {
+  padding: 18px;
+}
+.suggestions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+.suggestion-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.suggestion-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.suggestion-card .s-meta {
+  flex: 1;
+  text-align: left;
+}
+.suggestion-card .s-name {
+  font-weight: 700;
+  color: #fff;
+}
+.suggestion-card .s-dev {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.suggestion-card button {
+  background: #0076ff;
+  color: #fff;
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-.more-suggestions{margin-top:18px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.03)}
+.more-suggestions {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
 
 
+@media (max-width: 480px) {
+
+  /* --------- CONTENEDOR PRINCIPAL --------- */
+  .shop-center-container {
+    margin-top: 70px;                /* Bajo por debajo del header */
+    padding: 10px;
+    height: auto;                     /* Deja crecer el contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;      /* Evita que quede todo centrado extraño */
+    align-items: center;
+    text-align: center;
+  }
+
+  /* --------- GRID PRINCIPAL --------- */
+  .shop-center-grid {
+    grid-template-columns: 1fr;       /* 👉 TODO EN UNA COLUMNA */
+    gap: 20px;
+    width: 100%;
+    padding: 0;
+  }
+
+  /* --------- COLUMNA PRINCIPAL --------- */
+  .shop-center-main {
+    width: 100%;
+    padding: 0 12px;
+    justify-content: center;
+  }
+
+  /* --------- COLUMNA DEL CARRITO --------- */
+  .shop-center-side {
+    width: 100%;
+    justify-content: center;          /* 👉 Centrado en móvil */
+  }
+
+  .cart-list {
+    margin: 0 auto;            /* 👈 centra el contenedor */
+    width: 100%;               /* 👈 asegura que use todo el ancho disponible */
+    max-width: 340px; 
+    padding: 12px;
+  }
+
+  /* --------- SUGERENCIAS --------- */
+  .suggestions {
+    grid-template-columns: 1fr;       /* 👉 Una por fila */
+    gap: 16px;
+    width: 100%;
+  }
+
+  .suggestion-card {
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .suggestion-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .suggestion-card button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  /* --------- SECCIÓN MORE SUGGESTIONS --------- */
+  .more-suggestions {
+    margin-top: 16px;
+    padding-top: 10px;
+  }
+}
