@@ -3,41 +3,43 @@ import "./Sidebar.css";
 import useTranslate from "../Context/useTranslate";
 
 const categories = {
-  "Acción": ["Acción","Shooter", "Beat 'em up", "Supervivencia", "Hack and Slash"],
-  "Aventura": ["Aventura", "Gráfica", "Mundo abierto", "Interactiva"],
-  "Deportes": ["Deportes","Fútbol", "Baloncesto", "Carreras", "Skate"],
-  "RPG": ["RPG", "Acción RPG", "JRPG", "MMORPG", "Estrategia RPG"],
-  "Simulación": ["Simulación", "Vida", "Negocios", "Vuelo", "Construcción"],
-  "Estrategia": ["Estrategia", "RTS", "Turnos", "Cartas", "Táctico"],
-  "Arcade": [],
-  "Plataformas": [],
-  "Música": [],
-  "Puzles": [],
-  "DLC´s": [],
+  "action": ["action", "shooter", "beat", "survival", "hack"],
+  "adventure": ["adventure", "graphic", "openworld", "interactive"],
+  "sports": ["sports", "football", "basketball", "racing", "skate"],
+  "rpg": ["rpg", "actionrpg", "jrpg", "mmorpg", "strategyrpg"],
+  "simulation": ["simulation", "life", "business", "flight", "builder"],
+  "strategy": ["strategy", "rts", "turns", "cards", "tactical"],
+  "arcade": ["arcade"],
+  "platforms": ["platforms"],
+  "music": ["music"],
+  "puzzles": ["puzzles"],
+  "dlc": ["dlc"],
 };
 
 export default function Sidebar() {
   const [open, setOpen] = useState(null);
+  const { t } = useTranslate();
 
   return (
     <aside className="sidebar">
-      <h2>Categorías</h2>
+      <h2>{t('categories')}</h2>
 
       <ul>
-        {Object.keys(categories).map((cat) => (
-          <li key={cat}>
+        {Object.keys(categories).map((catKey) => (
+          <li key={catKey}>
             <div
               className="category"
-              onClick={() => setOpen(open === cat ? null : cat)}
+              onClick={() => setOpen(open === catKey ? null : catKey)}
             >
-              {cat} {categories[cat].length > 0}
+              {t(catKey)}
+              {categories[catKey].length > 0}
             </div>
 
-            {open === cat && (
+            {open === catKey && (
               <ul>
-                {categories[cat].map((sub) => (
-                  <li className="subcategory" key={sub}>
-                    {sub}
+                {categories[catKey].map((subKey) => (
+                  <li className="subcategory" key={subKey}>
+                    {t(subKey)}
                   </li>
                 ))}
               </ul>
