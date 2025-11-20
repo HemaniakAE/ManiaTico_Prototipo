@@ -148,5 +148,19 @@
     "addCopy": "Add copy",
     "purchased": "Purchased",
     "add": "Add"
+  },
+
+  "gameDescriptions": {
+    "1": "Don Memo is a brave bull who embarks on a final journey through Costa Rica to rescue his granddaughter and face the Pisuicas. Fight against legends and shadows of the past in this 2D pixel platformer full of Costa Rican folklore and intense action.",
+    "2": "FutboTico puts you in the most emblematic stadiums of Costa Rica, where every match is lived with pure passion. Create your own team, train your players and compete in national and international tournaments. With an arcade style and commentary full of Costa Rican flavor, show the world how to play the Tico way!",
+    "3": "You wake up at the top of an active volcano where fire grants power. Explore a world divided by elemental tribes and face mythical creatures to master the four elements. A Costa Rican RPG of fire and legends.",
+    "4": "Explore the mysteries of the Costa Rican tropical forest, where the jungle is alive... literally. Survive by collecting resources, solving natural puzzles and discovering the secrets of a civilization hidden in the green depths.",
+    "5": "Awaken as an ancestral spirit of the Irazú volcano. Travel through temples, control elements and protect the natural balance of the central valley in a mystical story full of Costa Rican symbolism.",
+    "6": "In a futuristic San José dominated by technology corporations, a hacker known as 'El Mae' fights to liberate the Tico network. Shooting, drones and pure adrenaline in this cyberpunk shooter full of local references.",
+    "7": "From San José to Liberia, drive along the legendary Route 506 in this racing game with Costa Rican landscapes, crazy traffic and tropical music. Accelerate to the max and feel the pure life at full speed!",
+    "8": "Build your own tourist paradise on the Pacific coast. Manage hotels, surf camps and local eateries while trying to keep tourists happy and locals content. Will you be able to achieve the true 'pure life'?",
+    "9": "Race against time to deliver the best coffee from the mountains of Tarrazú to San José. Dodge cows, potholes and buses while upgrading your scooter and unlocking legendary routes. Only the fastest can keep the coffee hot!",
+    "10": "Compete with characters inspired by Costa Rican culture: the snow cone vendor, the grandmother, the surfer from Jacó and more. Battle with gallo pinto power-ups and chiverre bombs on tracks full of local humor.",
+    "11": "Enter Backdoor's, a card game where irreverence and chaos mix with the supernatural. Recruit eccentric characters, cast impossible spells and face strange creatures while uncovering dark secrets of your city. Strategy, dark humor and a touch of terror combine in unpredictable matches that will make you laugh and tremble at the same time."
   }
 }
