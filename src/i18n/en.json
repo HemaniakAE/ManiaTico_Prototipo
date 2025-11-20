@@ -165,14 +165,14 @@
   },
 
   "notifications": {
-    "title": "Notifications", 
+    "title": "Notifications",
     "noNotifications": "No notifications"
   },
 
   "requestGame": {
     "title": "New Game Request",
     "nameLabel": "Game Name",
-    "namePlaceholder": "Ex: Don Memo", 
+    "namePlaceholder": "Ex: Don Memo",
     "categoriesLabel": "Categories",
     "descriptionLabel": "Description",
     "descriptionPlaceholder": "Briefly explain your game…",
@@ -181,7 +181,7 @@
     "imageLabel": "Game Image (2:1 ratio)",
     "dropzoneText": "Drag an image here or click to upload (2:1)",
     "removeImage": "Remove image",
-    "submit": "Submit Request", 
+    "submit": "Submit Request",
     "submitting": "Submitting...",
     "success": "Request submitted successfully!",
     "errors": {
@@ -195,11 +195,15 @@
 
   "messaging": {
     "messages": "Messages",
-    "conversations": "Conversations", 
+    "conversations": "Conversations",
     "online": "Online",
     "noMessages": "No messages yet. Send the first one!",
     "selectConversation": "Select a conversation",
     "writeMessage": "Write a message...",
     "send": "Send"
+  },
+
+  "settings": {
+    "easterEggs": ["Developed by Team ManiaTico and Bubblesort"]
   }
 }

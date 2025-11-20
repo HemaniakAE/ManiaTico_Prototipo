@@ -173,7 +173,7 @@
     "nameLabel": "Nombre del juego",
     "namePlaceholder": "Ej: Don Memo",
     "categoriesLabel": "Categorías",
-    "descriptionLabel": "Descripción", 
+    "descriptionLabel": "Descripción",
     "descriptionPlaceholder": "Explica brevemente tu juego…",
     "priceLabel": "Precio (₡)",
     "pricePlaceholder": "Ej: 100",
@@ -200,5 +200,9 @@
     "selectConversation": "Selecciona una conversación",
     "writeMessage": "Escribe un mensaje...",
     "send": "Enviar"
+  },
+
+  "settings": {
+    "easterEggs": ["Desarrollado por Team ManiaTico y Bubblesort"]
   }
 }

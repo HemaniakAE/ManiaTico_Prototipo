@@ -1,19 +1,19 @@
 import { useState, useRef, useEffect } from "react";
 import { FaCog, FaQuestionCircle } from "react-icons/fa";
 import { useLanguage } from "../Context/LanguageContext";
+import useTranslate from "../Context/useTranslate";
 import "./SettingsPanel.css";
 
 export default function SettingsPanel() {
   const { language, setLanguage } = useLanguage();
   const [openMenu, setOpenMenu] = useState(false);
   const [toast, setToast] = useState(null);
+  const { t } = useTranslate();
 
   const menuRef = useRef(null);      // ← referencia al dropdown
   const buttonsRef = useRef(null);   // ← referencia a los botones de settings/help
 
-  const easterEggs = [
-    "Desarrollado por Team ManiaTico y Bubblesort",
-  ];
+  const easterEggs = t("settings.easterEggs", { returnObjects: true }) || [];
 
   function handleHelp() {
     const random = easterEggs[Math.floor(Math.random() * easterEggs.length)];
