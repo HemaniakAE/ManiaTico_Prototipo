@@ -4,7 +4,7 @@ import { useAuth } from "../Context/AuthContext";
 import "./MessagingDock.css";
 
 export default function MessagingDock() {
-  const { users, currentUser, isAuthenticated } = useAuth();
+  const { users, currentUser, isAuthenticated, isDeveloper} = useAuth();
   const { 
     activeChat, 
     setActiveChat, 
@@ -17,7 +17,7 @@ export default function MessagingDock() {
   const [isOpen, setIsOpen] = useState(false);
 
   // 🔹 No mostrar nada si no está autenticado
-  if (!isAuthenticated || !currentUser) return null;
+    if (!isAuthenticated || !currentUser || !isDeveloper()) return null;
 
   function handleSend() {
     if (!activeChat || !text.trim()) return;

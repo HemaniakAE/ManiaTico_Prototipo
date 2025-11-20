@@ -76,7 +76,7 @@ export default function Auth() {
       
       // Simular usuario de Google
       const googleUser = {
-        name: "Usuario Google",
+        name: "Google",
         email: "usuario@gmail.com",
         role: "cliente",
         studio: null
