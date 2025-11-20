@@ -32,7 +32,7 @@ function Header() {
 
       <div className="header-right">
 
-        <NotificationsButton />
+        {isLoggedIn() && <NotificationsButton />}
 
         {/* Solo clientes pueden ver el carrito */}
         {isLoggedIn() && isClient() && <CartButton />}

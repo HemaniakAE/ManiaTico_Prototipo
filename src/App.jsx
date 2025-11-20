@@ -17,6 +17,10 @@ localStorage.removeItem("mt_library");
 localStorage.removeItem("mt_comments");
 localStorage.removeItem("mt_session");
 
+// Notificaciones
+localStorage.removeItem("mt_notifications");
+localStorage.removeItem("mt_notifications_new");
+
 
 function App() {
   
