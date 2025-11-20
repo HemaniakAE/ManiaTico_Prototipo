@@ -3,7 +3,7 @@ import "./requestGame.css";
 import Header from "../../Components/Header";
 import SettingsPanel from "../../Components/SettingsPanel";
 import { CiCircleCheck } from "react-icons/ci";
-
+import useTranslate from "../../Context/useTranslate";
 export default function RequestGame() {
   const [form, setForm] = useState({
     name: "",
@@ -18,9 +18,8 @@ export default function RequestGame() {
   const [dragOver, setDragOver] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const inputRef = useRef(null);
-
   const [successMessage, setSuccessMessage] = useState(false);
-
+  const { t } = useTranslate();
 
   const ASPECT_TARGET = 2;
   const TOLERANCE = 0.02;
@@ -36,17 +35,13 @@ export default function RequestGame() {
     setForm((p) => ({ ...p, [name]: value }));
   }
 
-  // ✅ NUEVO: alternar categoría sin usar Ctrl
   function toggleCategory(value) {
     setForm((p) => {
       const exists = p.categories.includes(value);
-
       if (exists) {
-        // Si ya existe, lo removemos
         return { ...p, categories: p.categories.filter((c) => c !== value) };
       } else {
-        // Solo agregamos si hay menos de 3 categorías
-        if (p.categories.length >= 3) return p; // ignorar si ya hay 3
+        if (p.categories.length >= 3) return p;
         return { ...p, categories: [...p.categories, value] };
       }
     });
@@ -128,11 +123,10 @@ export default function RequestGame() {
     e.preventDefault();
     setError("");
 
-    if (!form.name.trim()) return setError("El nombre del juego es requerido.");
-    if (!form.categories.length)
-      return setError("Selecciona al menos una categoría.");
-    if (!form.description.trim()) return setError("La descripción es requerida.");
-    if (!imageFile) return setError("Sube una imagen con relación 2:1.");
+    if (!form.name.trim()) return setError(t('requestGame.errors.noName'));
+    if (!form.categories.length) return setError(t('requestGame.errors.noCategories'));
+    if (!form.description.trim()) return setError(t('requestGame.errors.noDescription'));
+    if (!imageFile) return setError(t('requestGame.errors.noImage'));
 
     setSubmitting(true);
 
@@ -143,7 +137,7 @@ export default function RequestGame() {
         developer: "TuNombreDeSesion",
         categories: form.categories,
         description: form.description.trim(),
-        price: Number(form.price) || 0, // convertir a número o 0
+        price: Number(form.price) || 0,
         imageName: imageFile.name,
       };
 
@@ -158,7 +152,6 @@ export default function RequestGame() {
         );
       } catch (err) {}
 
-      // Notificación para el botón de notificaciones
       try {
         window.dispatchEvent(
           new CustomEvent("mt_new_notification", { 
@@ -170,13 +163,9 @@ export default function RequestGame() {
         );
       } catch (err) {}
 
-
-
       setTimeout(() => {
         setSubmitting(false);
         setSuccessMessage(true);
-
-        // Ocultarlo después de 2 segundos
         setTimeout(() => {
           setSuccessMessage(false);
         }, 2000);
@@ -185,59 +174,45 @@ export default function RequestGame() {
       }, 700);
     } catch (err) {
       setSubmitting(false);
-      setError("Error al enviar la solicitud.");
+      setError(t('requestGame.errors.submitError'));
     }
   }
 
   const CATEGORY_LIST = [
-  // Principales
-  { value: "action", label: "Acción" },
-  { value: "adventure", label: "Aventura" },
-  { value: "sports", label: "Deportes" },
-  { value: "rpg", label: "RPG" },
-  { value: "simulation", label: "Simulación" },
-  { value: "strategy", label: "Estrategia" },
-  { value: "arcade", label: "Arcade" },
-  { value: "platforms", label: "Plataformas" },
-  { value: "music", label: "Música" },
-  { value: "puzzles", label: "Puzzles" },
-
-  // Subcategorías de action
-  { value: "shooter", label: "Shooter" },
-  { value: "beat", label: "Beat" },
-  { value: "survival", label: "Survival" },
-  { value: "hack", label: "Hack" },
-
-  // Subcategorías de adventure
-  { value: "graphic", label: "Graphic" },
-  { value: "openworld", label: "Openworld" },
-  { value: "interactive", label: "Interactive" },
-
-  // Subcategorías de sports
-  { value: "football", label: "Football" },
-  { value: "basketball", label: "Basketball" },
-  { value: "racing", label: "Racing" },
-  { value: "skate", label: "Skate" },
-
-  // Subcategorías de rpg
-  { value: "actionrpg", label: "ActionRPG" },
-  { value: "jrpg", label: "JRPG" },
-  { value: "mmorpg", label: "MMORPG" },
-  { value: "strategyrpg", label: "StrategyRPG" },
-
-  // Subcategorías de simulation
-  { value: "life", label: "Life" },
-  { value: "business", label: "Business" },
-  { value: "flight", label: "Flight" },
-  { value: "builder", label: "Builder" },
-
-  // Subcategorías de strategy
-  { value: "rts", label: "RTS" },
-  { value: "turns", label: "Turns" },
-  { value: "cards", label: "Cards" },
-  { value: "tactical", label: "Tactical" },
-];
-
+    { value: "action", label: t('action') },
+    { value: "adventure", label: t('adventure') },
+    { value: "sports", label: t('sports') },
+    { value: "rpg", label: t('rpg') },
+    { value: "simulation", label: t('simulation') },
+    { value: "strategy", label: t('strategy') },
+    { value: "arcade", label: t('arcade') },
+    { value: "platforms", label: t('platforms') },
+    { value: "music", label: t('music') },
+    { value: "puzzles", label: t('puzzles') },
+    { value: "shooter", label: t('shooter') },
+    { value: "beat", label: t('beat') },
+    { value: "survival", label: t('survival') },
+    { value: "hack", label: t('hack') },
+    { value: "graphic", label: t('graphic') },
+    { value: "openworld", label: t('openworld') },
+    { value: "interactive", label: t('interactive') },
+    { value: "football", label: t('football') },
+    { value: "basketball", label: t('basketball') },
+    { value: "racing", label: t('racing') },
+    { value: "skate", label: t('skate') },
+    { value: "actionrpg", label: t('actionrpg') },
+    { value: "jrpg", label: t('jrpg') },
+    { value: "mmorpg", label: t('mmorpg') },
+    { value: "strategyrpg", label: t('strategyrpg') },
+    { value: "life", label: t('life') },
+    { value: "business", label: t('business') },
+    { value: "flight", label: t('flight') },
+    { value: "builder", label: t('builder') },
+    { value: "rts", label: t('rts') },
+    { value: "turns", label: t('turns') },
+    { value: "cards", label: t('cards') },
+    { value: "tactical", label: t('tactical') },
+  ];
 
   return (
     <>
@@ -245,24 +220,22 @@ export default function RequestGame() {
 
       <div className="request-game-layout">
         <div className="request-game-content">
-          <h1 className="request-title">Solicitud de nuevo juego</h1>
+          <h1 className="request-title">{t('requestGame.title')}</h1>
 
           <form className="request-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label>Nombre del juego</label>
+              <label>{t('requestGame.nameLabel')}</label>
               <input
                 type="text"
-                placeholder="Ej: Don Memo"
+                placeholder={t('requestGame.namePlaceholder')}
                 name="name"
                 value={form.name}
                 onChange={handleInputChange}
               />
             </div>
 
-            {/* ✅ MultiSelect mejorado */}
             <div className="form-group">
-              <label>Categorías</label>
-
+              <label>{t('requestGame.categoriesLabel')}</label>
               <div className="multi-select-box">
                 {CATEGORY_LIST.map((cat) => (
                   <div
@@ -279,9 +252,9 @@ export default function RequestGame() {
             </div>
 
             <div className="form-group">
-              <label>Descripción</label>
+              <label>{t('requestGame.descriptionLabel')}</label>
               <textarea
-                placeholder="Explica brevemente tu juego…"
+                placeholder={t('requestGame.descriptionPlaceholder')}
                 name="description"
                 rows={5}
                 value={form.description}
@@ -290,10 +263,10 @@ export default function RequestGame() {
             </div>
 
             <div className="form-group">
-              <label>Precio (₡)</label>
+              <label>{t('requestGame.priceLabel')}</label>
               <input
                 type="number"
-                placeholder="Ej: 100"
+                placeholder={t('requestGame.pricePlaceholder')}
                 name="price"
                 value={form.price}
                 onChange={handleInputChange}
@@ -302,8 +275,7 @@ export default function RequestGame() {
             </div>
 
             <div className="form-group">
-              <label>Imagen del juego (relación 2:1)</label>
-
+              <label>{t('requestGame.imageLabel')}</label>
               <div
                 className={`image-dropzone ${
                   dragOver ? "drag-over" : ""
@@ -324,11 +296,11 @@ export default function RequestGame() {
                         removeImage();
                       }}
                     >
-                      Quitar imagen
+                      {t('requestGame.removeImage')}
                     </button>
                   </>
                 ) : (
-                  <p>Arrastra una imagen aquí o haz clic para subirla (2:1)</p>
+                  <p>{t('requestGame.dropzoneText')}</p>
                 )}
                 <input
                   ref={inputRef}
@@ -343,7 +315,7 @@ export default function RequestGame() {
             </div>
 
             <button type="submit" className="submit-btn" disabled={submitting}>
-              {submitting ? "Enviando..." : "Enviar solicitud"}
+              {submitting ? t('requestGame.submitting') : t('requestGame.submit')}
             </button>
           </form>
 
@@ -352,10 +324,9 @@ export default function RequestGame() {
         {successMessage && (
           <div className="success-toast">
             <CiCircleCheck size={48} />
-            <span>¡Solicitud enviada correctamente!</span>
+            <span>{t('requestGame.success')}</span>
           </div>
         )}
-
       </div>
     </>
   );

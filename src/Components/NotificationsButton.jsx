@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { IoIosNotifications } from "react-icons/io";
 import "./NotificationsButton.css";
+import useTranslate from "../Context/useTranslate";
 
 export default function NotificationsButton() {
   const [open, setOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [hasNew, setHasNew] = useState(false);
+  const { t } = useTranslate();
 
   const trayRef = useRef(null);
 
@@ -64,9 +66,9 @@ export default function NotificationsButton() {
 
   const trayContent = (
     <div className={`notif-tray ${open ? "open" : ""}`}>
-      <h4>Notificaciones</h4>
+      <h4>{t('notifications.title')}</h4>
 
-      {notifications.length === 0 && <p className="no-notifs">No hay notificaciones</p>}
+      {notifications.length === 0 && <p className="no-notifs">{t('notifications.noNotifications')}</p>}
 
       <ul>
         {notifications.map((n, idx) => (

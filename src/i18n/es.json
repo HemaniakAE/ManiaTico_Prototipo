@@ -158,6 +158,35 @@
     "9": "Corre contra el tiempo para entregar el mejor café de las montañas de Tarrazú a San José. Esquiva vacas, huecos y buses mientras mejoras tu motoneta y desbloqueás rutas legendarias. ¡Solo los más rápidos logran mantener el café caliente!",
     "10": "Competí con personajes inspirados en la cultura costarricense: el vendedor de copos, la abuela, el surfista de Jacó y más. Luchá con power-ups de gallo pinto y bombas de chiverre en pistas llenas de humor local.",
     "11": "Adentráte en Backdoor's, un juego de cartas donde la irreverencia y el caos se mezclan con lo sobrenatural. Reclutá personajes excéntricos, lanzá hechizos imposibles y enfrentá criaturas extrañas mientras desvelás secretos oscuros de tu ciudad. Estrategia, humor negro y un toque de terror se combinan en partidas impredecibles que te harán reír y temblar al mismo tiempo."
+  },
+
+  "notifications": {
+    "title": "Notificaciones",
+    "noNotifications": "No hay notificaciones"
+  },
+
+  "requestGame": {
+    "title": "Solicitud de nuevo juego",
+    "nameLabel": "Nombre del juego",
+    "namePlaceholder": "Ej: Don Memo",
+    "categoriesLabel": "Categorías",
+    "descriptionLabel": "Descripción", 
+    "descriptionPlaceholder": "Explica brevemente tu juego…",
+    "priceLabel": "Precio (₡)",
+    "pricePlaceholder": "Ej: 100",
+    "imageLabel": "Imagen del juego (relación 2:1)",
+    "dropzoneText": "Arrastra una imagen aquí o haz clic para subirla (2:1)",
+    "removeImage": "Quitar imagen",
+    "submit": "Enviar solicitud",
+    "submitting": "Enviando...",
+    "success": "¡Solicitud enviada correctamente!",
+    "errors": {
+      "noName": "El nombre del juego es requerido.",
+      "noCategories": "Selecciona al menos una categoría.",
+      "noDescription": "La descripción es requerida.",
+      "noImage": "Sube una imagen con relación 2:1.",
+      "submitError": "Error al enviar la solicitud."
+    }
   }
 }
 
