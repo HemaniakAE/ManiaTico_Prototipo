@@ -59,3 +59,72 @@
   background: #253d56;
   color: #fff;
 }
+
+/* ========== RESPONSIVE - MÓVILES GRANDES (768px) ========== */
+@media (max-width: 768px) {
+  .search-wrapper {
+    max-width: none; /* Ocupa todo el espacio disponible */
+    margin: 0 10px;
+  }
+  
+  .search-bar {
+    height: 46px;
+    padding: 0 16px;
+    font-size: 16px; /* Previene zoom en iOS */
+    border-radius: 8px 0 0 8px;
+  }
+  
+  .search-button {
+    height: 12px;
+    padding: 0 18px;
+    min-width: 5px;
+  }
+  
+  .search-suggestions {
+    position: fixed;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    max-height: 50vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    border-top: 1px solid rgba(182, 26, 46, 0.3);
+  }
+}
+
+/* ========== RESPONSIVE - MÓVILES PEQUEÑOS (480px) ========== */
+@media (max-width: 480px) {
+  .search-wrapper {
+    margin: 0 5px;
+    left: 40%;
+  }
+  
+  .search-bar {
+    height: 20px;
+    padding: 0 5px;
+    font-size: 8px;
+  }
+  
+  .search-button {
+    height: 22px;
+    padding: 0 8px;
+    min-width: 5px;
+  }
+  
+  .search-suggestions {
+    left: 20%;
+    right: 5px;
+    top: 55px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .search-suggestions li {
+    padding: 14px 16px;
+    font-size: 10px;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+  }
+}

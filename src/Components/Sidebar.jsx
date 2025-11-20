@@ -3,14 +3,15 @@ import "./Sidebar.css";
 import { SearchContext } from "../Context/SearchContext";
 import { useNavigate } from "react-router-dom";
 import useTranslate from "../Context/useTranslate";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const { setFinalSearch } = useContext(SearchContext);
   const navigate = useNavigate();
   const { t } = useTranslate();
 
-  // Definir categorías usando las keys de traducción
   const categories = {
     action: ["action", "shooter", "beat", "survival", "hack"],
     adventure: ["adventure", "graphic", "openworld", "interactive"],
@@ -32,46 +33,90 @@ export default function Sidebar() {
       .trim();
 
   const handleSelectCategory = (translationKey) => {
-    // Obtener el texto traducido y normalizarlo
     const translatedText = t(translationKey);
     const cleaned = normalize(translatedText);
     setFinalSearch(cleaned);
     navigate("/search");
+    setMobileOpen(false); // Cerrar sidebar en móvil después de seleccionar
+  };
+
+  const handleCategoryClick = (catKey) => {
+    setOpen(open === catKey ? null : catKey);
+    handleSelectCategory(catKey);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
   };
 
   return (
-    <aside className="sidebar">
-      <h2>{t("categories")}</h2>
+    <>
+      {/* Botón de menú hamburguesa para móviles */}
+      <button 
+        className="mobile-menu-toggle" 
+        onClick={toggleMobileMenu}
+        aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+      >
+        {mobileOpen ? <FaTimes /> : <FaBars />}
+      </button>
 
-      <ul>
-        {Object.keys(categories).map((catKey) => (
-          <li key={catKey}>
-            <div
-              className="category"
-              onClick={() => {
-                setOpen(open === catKey ? null : catKey);
-                handleSelectCategory(catKey);
-              }}
-            >
-              {t(catKey)}
-            </div>
+      {/* Overlay para cerrar al hacer click fuera */}
+      <div 
+        className={`sidebar-overlay ${mobileOpen ? 'active' : ''}`}
+        onClick={closeMobileMenu}
+      />
 
-            {open === catKey && categories[catKey].length > 0 && (
-              <ul>
-                {categories[catKey].map((subKey) => (
-                  <li
-                    className="subcategory"
-                    key={subKey}
-                    onClick={() => handleSelectCategory(subKey)}
-                  >
-                    {t(subKey)}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-    </aside>
+      {/* Sidebar */}
+      <aside className={`sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
+        <h2>{t("categories")}</h2>
+
+        <ul>
+          {Object.keys(categories).map((catKey) => (
+            <li key={catKey}>
+              <div
+                className={`category ${open === catKey ? 'active' : ''}`}
+                onClick={() => handleCategoryClick(catKey)}
+                role="button"
+                tabIndex={0}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleCategoryClick(catKey);
+                  }
+                }}
+              >
+                {t(catKey)}
+              </div>
+
+              {open === catKey && categories[catKey].length > 0 && (
+                <div className="subcategory-container">
+                  <ul>
+                    {categories[catKey].map((subKey) => (
+                      <li
+                        className="subcategory"
+                        key={subKey}
+                        onClick={() => handleSelectCategory(subKey)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            handleSelectCategory(subKey);
+                          }
+                        }}
+                      >
+                        {t(subKey)}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </>
   );
 }

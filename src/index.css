@@ -3,6 +3,13 @@
   --header-bg: #1c1a21;
   --accent: #b61a2e;
   --text: rgba(255, 255, 255, 0.87);
+   --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+    --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -49,15 +56,24 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* Tablets (768px en adelante) */
+@media (min-width: 768px) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    font-size: 15px;
   }
-  a:hover {
-    color: #747bff;
+  
+  h1 {
+    font-size: 2.2em;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+/* Laptops pequeñas (1024px en adelante) */
+@media (min-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 2.8em;
   }
 }

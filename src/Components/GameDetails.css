@@ -43,3 +43,40 @@
   font-size: 1.4vh;
   opacity: 0.85;
 }
+
+@media (max-width: 480px) {
+
+  .game-info-card {
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    color: #fff;
+    right: 20px; 
+  }
+
+  .game-title {
+    font-size: 5vw;
+  }
+
+  .tags {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 3.5vw;
+    padding: 4px 8px;
+  }
+
+  .description {
+    font-size: 3.5vw;
+  }
+
+  .game-meta {
+    font-size: 0.75rem;
+    text-align: center;
+    opacity: 0.9;
+  }
+}

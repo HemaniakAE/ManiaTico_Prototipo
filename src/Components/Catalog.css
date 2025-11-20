@@ -39,74 +39,7 @@
   color: #b61a2e;
   text-align: center;
 }
-/*
-.featured-image {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 7;
-  border-radius: 1.2rem;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.4s ease;
-}
 
-.featured-image img {
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  filter: brightness(70%);
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-
-.featured-section:hover .featured-image {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-}
-
-.featured-section:hover img {
-  filter: brightness(85%);
-  transform: scale(1.05);
-}
-
-.featured-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  left: 50%;           
-  transform: translateX(-50%); 
-  padding: 2rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-  color: #fff;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.featured-overlay h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #fff;
-}
-
-.featured-overlay p {
-  font-size: 1rem;
-  max-width: 700px;
-  line-height: 1.4;
-  color: #ddd;
-}
-
-.featured-price {
-  display: inline-block;
-  margin-top: 1rem;
-  background: #b61a2e;
-  padding: 0.4rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 700;
-}
-*/
 /* ---------- SECCIÓN POPULARES ---------- */
 .popular-section {
   margin-bottom: 4rem;
@@ -181,6 +114,182 @@
 
   .featured-overlay p {
     max-width: 100%;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - TABLETS PEQUEÑAS (768px)
+   ========================================== */
+@media (max-width: 768px) {
+  .catalog-container {
+    padding: 1rem;
+  }
+  
+  .catalog-title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title::after {
+    width: 50px;
+    height: 2px;
+  }
+  
+  .featured-section,
+  .popular-section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .popular-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .all-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  
+  .coming-soon-section {
+    margin: 3rem 0 1.5rem 0;
+  }
+  
+  .coming-soon-card {
+    padding: 1.5rem 1.25rem;
+    max-width: 350px;
+  }
+  
+  .coming-soon-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .coming-soon-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MÓVILES GRANDES (600px)
+   ========================================== */
+@media (max-width: 600px) {
+  .catalog-container {
+    padding: 0.75rem;
+  }
+  
+  .catalog-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .popular-grid,
+  .all-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .featured-section,
+  .popular-section {
+    margin-bottom: 2rem;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS (480px)
+   ========================================== */
+@media (max-width: 480px) {
+  .catalog-container {
+    width: 95%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .catalog-title {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  .popular-grid,
+  .all-grid {
+    grid-template-columns: 1fr; /* Una columna en móviles muy pequeños */
+    gap: 1rem;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .coming-soon-card {
+    padding: 1.25rem 1rem;
+    max-width: 300px;
+  }
+  
+  .coming-soon-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .coming-soon-content p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - MÓVILES MUY PEQUEÑOS (360px)
+   ========================================== */
+@media (max-width: 360px) {
+  .catalog-title {
+    font-size: 1.3rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .popular-grid,
+  .all-grid {
+    gap: 0.75rem;
+  }
+  
+  .coming-soon-card {
+    padding: 1rem 0.75rem;
+  }
+}
+
+/* ==========================================
+   MEJORAS DE ACCESIBILIDAD
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .catalog-title,
+  .coming-soon-card,
+  .section-title {
+    transition: none;
+  }
+  
+  .catalog-title:hover {
+    transform: none;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .catalog-title,
+  .section-title {
+    color: #ff0000;
+  }
+  
+  .coming-soon-card {
+    border-width: 2px;
   }
 }
 
