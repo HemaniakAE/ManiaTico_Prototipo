@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./StarRating.css";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import games from "../data/games.json";
+import useTranslate from "../Context/useTranslate";
 
 export default function StarRating({ gameId }) {
   const game = games.find((g) => g.id === gameId);
   const rate = game ? game.rate : 0;
 
-  const [rating, setRating] = useState(rate); // ← Falta esto
+  const [rating, setRating] = useState(rate);
   const [hover, setHover] = useState(null);
   const [canRate, setCanRate] = useState(false);
+  const { t } = useTranslate();
 
   useEffect(() => {
     try {
@@ -36,10 +38,10 @@ export default function StarRating({ gameId }) {
 
   return (
     <div className="rating-container">
-      <h2 className="rating-title">Calificaciones</h2>
+      <h2 className="rating-title">{t('starRating.ratings')}</h2>
 
       <p className="rating-value">
-        Calificación del juego: <span>{rate.toFixed(1)}</span>/5
+        {t('starRating.gameRating')} <span>{rate.toFixed(1)}</span>/5
       </p>
 
       <div
@@ -63,7 +65,7 @@ export default function StarRating({ gameId }) {
       </div>
 
       {!canRate && (
-        <p className="locked-msg">Compra el juego para poder calificarlo</p>
+        <p className="locked-msg">{t('starRating.buyToRate')}</p>
       )}
     </div>
   );

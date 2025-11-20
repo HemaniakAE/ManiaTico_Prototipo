@@ -9,7 +9,7 @@ export default function GameCard({ game, variant = "default", onClick }) {
     const { setSelectedGame } = useContext(GameSelectionContext);
     const gameCardClick = () => {
         setSelectedGame(game);
-        navigate("/gameview"); // Ir a gameview
+        navigate("/gameview");
     }
 
   return (

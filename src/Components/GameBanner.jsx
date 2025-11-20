@@ -3,14 +3,16 @@ import { GameSelectionContext } from "../Context/GameSelectionContext";
 import AddToCartButton from "./AddToCartButton";
 import "./GameBanner.css";
 import { TbShoppingCartCheck } from "react-icons/tb";
+import useTranslate from "../Context/useTranslate";
 
 export default function GameBanner() {
   const { selectedGame } = useContext(GameSelectionContext);
+  const { t } = useTranslate();
 
   if (!selectedGame) {
     return (
       <div className="game-banner placeholder">
-        <p>No hay juego seleccionado</p>
+        <p>{t('gameBanner.noGameSelected')}</p>
       </div>
     );
   }
