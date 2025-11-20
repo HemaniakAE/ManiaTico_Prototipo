@@ -3,7 +3,7 @@
   left: 0px;
   bottom: 0px;
 
-  width: 240px;   
+  width: 251px;   
   height: 85px;  
   display: flex;
   justify-content: space-evenly;
@@ -49,12 +49,12 @@
   bottom: 95px;
   left: 0px;
 
-  width: 240px;
+  width: 228px;
   background: rgba(28, 17, 46, 0.8);
   backdrop-filter: blur(10px);
 
   padding: 14px;
-  border-radius: 6px;
+  border-radius: 2px;
   border: 3px solid rgba(21, 17, 39, 0.8);
 
   display: flex;
