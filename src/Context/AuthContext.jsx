@@ -1,5 +1,5 @@
 // src/Context/AuthContext.jsx
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 export const AuthContext = createContext();
 
@@ -7,7 +7,15 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Cargar sesión al montar (ya estará limpia gracias a App.jsx)
+  // Lista de usuarios predefinidos para el chat
+  const [users] = useState([
+    { id: "1", username: "Ana", email: "ana@ejemplo.com" },
+    { id: "2", username: "Carlos", email: "carlos@ejemplo.com" },
+    { id: "3", username: "María", email: "maria@ejemplo.com" },
+    { id: "4", username: "Soporte ManiaTico", email: "soporte@maniatrico.com" }
+  ]);
+
+  // Cargar sesión al montar
   useEffect(() => {
     try {
       const stored = localStorage.getItem("mt_session");
@@ -31,7 +39,13 @@ export function AuthProvider({ children }) {
   }, [user]);
 
   const login = (userData) => {
-    setUser(userData);
+    // Asegurar que el usuario tenga un ID
+    const userWithId = {
+      id: userData.id || `user_${Date.now()}`,
+      username: userData.name || userData.email.split('@')[0],
+      ...userData
+    };
+    setUser(userWithId);
   };
 
   const logout = () => {
@@ -47,15 +61,28 @@ export function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         user,
+        users, // 👈 agregar lista de usuarios
         loading,
         login,
         logout,
         isLoggedIn,
         isClient,
         isDeveloper,
+        // Aliases para compatibilidad
+        currentUser: user,
+        isAuthenticated: !!user
       }}
     >
       {children}
     </AuthContext.Provider>
   );
+}
+
+// Hook personalizado
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth debe usarse dentro de AuthProvider");
+  }
+  return context;
 }
