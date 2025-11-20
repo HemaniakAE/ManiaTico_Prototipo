@@ -1,0 +1,59 @@
+.request-game-button {
+  margin-top: 8px;
+  margin-right: 40px;
+  height: 90px;
+  background: transparent;
+  cursor: default;
+  outline: none;
+}
+
+.request-game-button:hover {
+  border: 1px solid transparent;
+}
+
+.request-game-button:focus,
+.request-game-button:active,
+.request-game-button:focus-visible {
+  outline: none;
+  border: none;
+}
+
+.request-game-logo {
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s ease, color 0.5s ease;
+}
+
+.request-game-logo:hover {
+  transform: scale(1.08);
+  color: #b61a2e;
+}
+
+.request-game-logo:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 480px) {
+  .request-game-button {
+    margin-top: -30px;
+    margin-right: 8px;        /* margen más pequeño para caber */
+    height: 20px;             /* altura reducida para móvil */
+    flex-shrink: 0;           /* que no se reduzca demasiado */
+  }
+
+  .request-game-logo {
+    height: 20px;             /* ícono más pequeño */
+    transition: transform 0.2s ease, color 0.3s ease;
+  }
+
+  .request-game-logo:hover {
+    transform: scale(1.1);    /* hover más notorio sin salir del header */
+    color: #b61a2e;
+  }
+
+  .request-game-logo:active {
+    transform: scale(0.95);   /* active más pequeño para touch */
+  }
+}
+

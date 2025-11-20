@@ -7,10 +7,11 @@ import { BiLibrary } from "react-icons/bi";
 import SearchBar from "./Searchbar";
 import CartButton from "./CartButton";
 import NotificationsButton from "./NotificationsButton";
+import RequestGameButton from "./RequestGameButton";
 import { AuthContext } from "../Context/AuthContext";
 
 function Header() {
-  const { isLoggedIn, isClient, user } = useContext(AuthContext);
+  const { isLoggedIn, isClient, isDeveloper, user } = useContext(AuthContext);
 
   return (
     <header className="header">
@@ -31,6 +32,8 @@ function Header() {
       </div>
 
       <div className="header-right">
+
+        {isLoggedIn() && isDeveloper() && <RequestGameButton />}
 
         {isLoggedIn() && <NotificationsButton />}
 

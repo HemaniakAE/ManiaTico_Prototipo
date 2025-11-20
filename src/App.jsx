@@ -9,6 +9,7 @@ import SearchResults from "./pages/Search/SearchResults";
 import GameView from "./pages/GameView/GameView";
 import ShopCenter from "./pages/ShopCenter/ShopCenter";
 import Library from "./pages/Library/Library";
+import RequestGame from "./pages/RequestGame/RequestGame";
 
 
   // Limpiar datos ANTES de que React monte cualquier cosa
@@ -35,6 +36,7 @@ function App() {
             <Route path="/library" element={<Library />} />
             <Route path="/gameview" element={<GameView />} />
             <Route path="/shopcenter" element={<ShopCenter />} />
+            <Route path="/requestgame" element={<RequestGame />} />
           </Routes>
         </SearchProvider>
       </GameSelectionProvider>
