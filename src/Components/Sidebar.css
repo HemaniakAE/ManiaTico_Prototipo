@@ -289,11 +289,3 @@
     transition: none;
   }
 }
-
-/* Focus styles para accesibilidad */
-.category:focus,
-.subcategory:focus,
-.mobile-menu-toggle:focus {
-  outline: 2px solid #b61a2e;
-  outline-offset: 2px;
-}

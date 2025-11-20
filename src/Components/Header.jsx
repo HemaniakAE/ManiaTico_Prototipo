@@ -6,11 +6,13 @@ import { FaRegUserCircle, FaUserCheck } from "react-icons/fa";
 import { BiLibrary } from "react-icons/bi";
 import SearchBar from "./Searchbar";
 import CartButton from "./CartButton";
+import NotificationsButton from "./NotificationsButton";
+import RequestGameButton from "./RequestGameButton";
 import { AuthContext } from "../Context/AuthContext";
-import useTranslate from '../Context/useTranslate';
+import useTranslate from "../Context/useTranslate";
 
 function Header() {
-  const { isLoggedIn, isClient, user } = useContext(AuthContext);
+  const { isLoggedIn, isClient, isDeveloper, user } = useContext(AuthContext);
   const { t } = useTranslate();
 
   return (
@@ -22,7 +24,7 @@ function Header() {
         {isLoggedIn() && isClient() && (
           <Link to="/library" className="library-link">
             <BiLibrary className="library-icon" size={32} />
-            <span>{t('library')}</span>
+            <span>{t("library")}</span>
           </Link>
         )}
       </div>
@@ -32,6 +34,12 @@ function Header() {
       </div>
 
       <div className="header-right">
+        {/* Botón para solicitar juegos solo visible para desarrolladores */}
+        {isLoggedIn() && isDeveloper() && <RequestGameButton />}
+
+        {/* Notificaciones solo visible si está logueado */}
+        {isLoggedIn() && <NotificationsButton />}
+
         {/* Carrito solo visible para clientes */}
         {isLoggedIn() && isClient() && <CartButton />}
 
@@ -47,7 +55,7 @@ function Header() {
         ) : (
           <Link to="/auth" className="auth-button">
             <FaRegUserCircle className="auth-icon" />
-            <span>{t('login')}</span>
+            <span>{t("login")}</span>
           </Link>
         )}
       </div>
